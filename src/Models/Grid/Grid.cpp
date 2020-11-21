@@ -20,13 +20,16 @@ void Grid::setupCells(){
         for(int gridX = 0; gridX < ofGetWidth(); gridX = gridX + stepX) {
             Vec2Key coordinates = Vec2Key(gridX, gridY);
             Cell cell = Cell(gridX, gridY);
-            
             cells.insert(make_pair(coordinates,cell));
         }
     }
 }
 
-Cell getCell(float x, float y){
+Cell Grid::getCell(float x, float y){
+    int cellX = floor(x/ stepX);
+    int cellY = floor(y/stepY);
+    Vec2Key key = Vec2Key(cellX, cellY);
+    return cells.find(key)->second;
 }
 
 void Grid::draw(){
