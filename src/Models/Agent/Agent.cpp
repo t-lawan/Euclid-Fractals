@@ -20,6 +20,7 @@ Agent::Agent(ofVec2f _position, DNA _dna) {
      // The bigger the bloop, the slower it is
     maxspeed = ofMap(dna.genes[0], 0, 1, 15, 0);
     r = ofMap(dna.genes[0], 0, 1, 5, 20);
+    reproduction_rate = ofMap(dna.genes[0], 0, 1, 0.003, 0.001);
 }
 
 void Agent::eat(Food f){
@@ -35,7 +36,7 @@ Agent Agent::reproduce(){
 }
 
 bool Agent::shouldReproduce(){
-    return ofRandom(0, 1) < 0.001;
+    return ofRandom(0, 1) < reproductivity_rate;
 }
 
 int Agent::isOnFood(Food f){
@@ -45,7 +46,7 @@ int Agent::isOnFood(Food f){
       ofVec2f foodposition = food[i];
       float d = position.distance(foodposition);
       // If we are, juice up our strength!
-      if (d < r) {
+      if (d <= r) {
         health += 100;
         return i;
       } else {

@@ -20,7 +20,8 @@ class Agent : public SimulationObject {
         float health;     // Life timer
         float xoff;       // For perlin noise
         float yoff;
-        // DNA will determine size and maxspeed
+        // DNA will determine reproductivity_rate, size and maxspeed
+        float reproduction_rate;
         float r;
         float maxspeed;
         ofVec2f position;
