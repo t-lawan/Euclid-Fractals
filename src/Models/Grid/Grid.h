@@ -17,6 +17,7 @@ class Grid {
     public:
         int numX = 50;
         int numY = 50;
+        int stepX, stepY;
         Grid(int _numX, int _numY);
         void draw();
         void setupCells();

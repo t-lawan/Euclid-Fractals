@@ -10,12 +10,12 @@
 Grid::Grid(int _numX, int _numY){
     numX = _numX;
     numY = _numY;
+    stepX = ofGetWidth()/numX;
+    stepY = ofGetHeight()/numY;
     setupCells();
 }
 
 void Grid::setupCells(){
-    int stepY = ofGetHeight()/numY;
-    int stepX = ofGetWidth()/numX;
     for(int gridY = 0; gridY < ofGetHeight(); gridY = gridY + stepY) {
         for(int gridX = 0; gridX < ofGetWidth(); gridX = gridX + stepX) {
             Vec2Key coordinates = Vec2Key(gridX, gridY);
