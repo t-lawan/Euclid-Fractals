@@ -61,7 +61,9 @@ void ofApp::drawGrid(){
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-
+    if(key == '1'){
+        environment.germinate(ofRandom(ofGetWidth()), ofRandom(ofGetHeight())); 
+    }
 }
 
 //--------------------------------------------------------------

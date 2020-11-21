@@ -12,13 +12,16 @@
 #include "DNA.h"
 #include "Food.h"
 #include "Agent.h"
+#include "Plant.h"
 
 class Environment {
     public:
         Environment(int num);
         vector<Agent> agents;
+        vector<Plant> plants;
         Food food;
         void born(float x, float y);
+        void germinate(float x, float y);
         void update();
         void draw();
 };
