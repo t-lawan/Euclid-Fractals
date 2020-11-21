@@ -1,0 +1,39 @@
+#pragma once
+
+#include "ofMain.h"
+#include "DNA.h"
+#include "Food.h"
+#include "Agent.h"
+#include "Environment.h"
+
+class ofApp : public ofBaseApp{
+
+	public:
+        int stepX = 100;
+        int stepY = 100;
+        Environment environment = Environment(1);
+        float initialRadius = 0.0;
+        float theta = 0.0;
+    
+        ofPolyline line;
+    
+        void drawGrid();
+        void drawSpiral();
+        void drawBranch(float length);
+		void setup();
+		void update();
+		void draw();
+
+		void keyPressed(int key);
+		void keyReleased(int key);
+		void mouseMoved(int x, int y );
+		void mouseDragged(int x, int y, int button);
+		void mousePressed(int x, int y, int button);
+		void mouseReleased(int x, int y, int button);
+		void mouseEntered(int x, int y);
+		void mouseExited(int x, int y);
+		void windowResized(int w, int h);
+		void dragEvent(ofDragInfo dragInfo);
+		void gotMessage(ofMessage msg);
+		
+};
