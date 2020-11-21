@@ -17,8 +17,6 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    
-//    drawGrid();
 //    environment.update();
     environment.draw();
 //    drawSpiral();
@@ -40,24 +38,6 @@ void ofApp::drawSpiral(){
     ofNoFill();
     ofPopMatrix();
 }
-
-void ofApp::drawGrid(){
-    ofSetColor(0, 200);
-
-    ofSetRectMode(OF_RECTMODE_CORNER);
-    for(int gridY = 0; gridY < ofGetHeight(); gridY = gridY + stepY) {
-        for(int gridX = 0; gridX < ofGetWidth(); gridX = gridX + stepX) {
-            ofPushMatrix();
-            ofNoFill();
-            ofTranslate(gridX, gridY);
-            ofDrawRectangle(0, 0, stepX, stepY);
-            ofFill();
-            ofPopMatrix();
-        }
-    }
-}
-
-
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){

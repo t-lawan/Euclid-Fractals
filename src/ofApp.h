@@ -9,15 +9,12 @@
 class ofApp : public ofBaseApp{
 
 	public:
-        int stepX = 100;
-        int stepY = 100;
         Environment environment = Environment(1);
         float initialRadius = 0.0;
         float theta = 0.0;
     
         ofPolyline line;
     
-        void drawGrid();
         void drawSpiral();
         void drawBranch(float length);
 		void setup();
