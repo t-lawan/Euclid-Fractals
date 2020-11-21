@@ -16,6 +16,8 @@
 		FA2B60C625645FA100BD3724 /* DNA.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA2B60C425645FA100BD3724 /* DNA.cpp */; };
 		FA8D907E2567E4BC00ED5033 /* SimulationObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA8D907C2567E4BC00ED5033 /* SimulationObject.cpp */; };
 		FA8D90822567E8D800ED5033 /* Plant.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA8D90802567E8D800ED5033 /* Plant.cpp */; };
+		FA8D90892569518C00ED5033 /* Cell.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA8D90872569518C00ED5033 /* Cell.cpp */; };
+		FA8D908E256961E900ED5033 /* Vec2Key.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA8D908C256961E900ED5033 /* Vec2Key.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -226,6 +228,10 @@
 		FA8D907D2567E4BC00ED5033 /* SimulationObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SimulationObject.h; sourceTree = "<group>"; };
 		FA8D90802567E8D800ED5033 /* Plant.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Plant.cpp; sourceTree = "<group>"; };
 		FA8D90812567E8D800ED5033 /* Plant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Plant.h; sourceTree = "<group>"; };
+		FA8D90872569518C00ED5033 /* Cell.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Cell.cpp; sourceTree = "<group>"; };
+		FA8D90882569518C00ED5033 /* Cell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Cell.h; sourceTree = "<group>"; };
+		FA8D908C256961E900ED5033 /* Vec2Key.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Vec2Key.cpp; sourceTree = "<group>"; };
+		FA8D908D256961E900ED5033 /* Vec2Key.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vec2Key.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -562,6 +568,8 @@
 		FA8D90762567C32600ED5033 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FA8D908A256961D000ED5033 /* Utility */,
+				FA8D90862569515A00ED5033 /* Cell */,
 				FA8D908425694B2D00ED5033 /* Abstracts */,
 				FA8D908325694A7D00ED5033 /* Grid */,
 				FA8D907F2567E8CA00ED5033 /* Plant */,
@@ -642,6 +650,32 @@
 				FA8D907B2567E4A600ED5033 /* SimulationObject */,
 			);
 			path = Abstracts;
+			sourceTree = "<group>";
+		};
+		FA8D90862569515A00ED5033 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FA8D90872569518C00ED5033 /* Cell.cpp */,
+				FA8D90882569518C00ED5033 /* Cell.h */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		FA8D908A256961D000ED5033 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				FA8D908B256961D600ED5033 /* Vec2Key */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		FA8D908B256961D600ED5033 /* Vec2Key */ = {
+			isa = PBXGroup;
+			children = (
+				FA8D908C256961E900ED5033 /* Vec2Key.cpp */,
+				FA8D908D256961E900ED5033 /* Vec2Key.h */,
+			);
+			path = Vec2Key;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -748,9 +782,11 @@
 				FA8D90822567E8D800ED5033 /* Plant.cpp in Sources */,
 				FA2B60BA25640C0400BD3724 /* Grid.cpp in Sources */,
 				FA2B60BD256459FE00BD3724 /* Environment.cpp in Sources */,
+				FA8D908E256961E900ED5033 /* Vec2Key.cpp in Sources */,
 				FA2B60C325645C1C00BD3724 /* Food.cpp in Sources */,
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
+				FA8D90892569518C00ED5033 /* Cell.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
