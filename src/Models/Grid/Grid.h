@@ -9,9 +9,13 @@
 #define Grid_h
 
 #include <stdio.h>
+#include "ofMain.h"
+
 class Grid {
     public:
-        Grid();
-     
+        Grid(int _numX, int _numY);
+        void draw();
+        int numX = 50;
+        int numY = 50;
 };
 #endif /* Grid_h */
