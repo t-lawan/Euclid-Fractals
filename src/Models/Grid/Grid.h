@@ -10,12 +10,17 @@
 
 #include <stdio.h>
 #include "ofMain.h"
+#include "Cell.h"
+#include "Vec2Key.h"
 
 class Grid {
     public:
-        Grid(int _numX, int _numY);
-        void draw();
         int numX = 50;
         int numY = 50;
+        Grid(int _numX, int _numY);
+        void draw();
+        void setupCells();
+        Cell getCell(float x, float y);
+        map<Vec2Key, Cell> cells;
 };
 #endif /* Grid_h */
