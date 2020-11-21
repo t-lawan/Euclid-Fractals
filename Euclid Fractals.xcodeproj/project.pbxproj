@@ -555,8 +555,6 @@
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
-				FA2B60B825640C0400BD3724 /* Grid.cpp */,
-				FA2B60B925640C0400BD3724 /* Grid.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -564,8 +562,9 @@
 		FA8D90762567C32600ED5033 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FA8D908425694B2D00ED5033 /* Abstracts */,
+				FA8D908325694A7D00ED5033 /* Grid */,
 				FA8D907F2567E8CA00ED5033 /* Plant */,
-				FA8D907B2567E4A600ED5033 /* SimulationObject */,
 				FA8D907A2567C44C00ED5033 /* DNA */,
 				FA8D90792567C43B00ED5033 /* Food */,
 				FA8D90782567C38F00ED5033 /* Agent */,
@@ -626,6 +625,23 @@
 				FA8D90812567E8D800ED5033 /* Plant.h */,
 			);
 			path = Plant;
+			sourceTree = "<group>";
+		};
+		FA8D908325694A7D00ED5033 /* Grid */ = {
+			isa = PBXGroup;
+			children = (
+				FA2B60B825640C0400BD3724 /* Grid.cpp */,
+				FA2B60B925640C0400BD3724 /* Grid.h */,
+			);
+			path = Grid;
+			sourceTree = "<group>";
+		};
+		FA8D908425694B2D00ED5033 /* Abstracts */ = {
+			isa = PBXGroup;
+			children = (
+				FA8D907B2567E4A600ED5033 /* SimulationObject */,
+			);
+			path = Abstracts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
