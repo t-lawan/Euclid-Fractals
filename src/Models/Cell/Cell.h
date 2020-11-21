@@ -15,6 +15,8 @@ class Cell {
     public:
         int x;
         int y;
+        bool hasFungus;
+        float rainfall;
         Cell(int _x,  int _y);
 };
 #endif /* Cell_h */

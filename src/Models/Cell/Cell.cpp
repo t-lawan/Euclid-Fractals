@@ -10,4 +10,6 @@
 Cell::Cell(int _x,  int _y){
     x = _x;
     y = _y;
+    // Set Rainfall between 0 and 50
+    rainfall = ofRandom(0, 50);
 }
