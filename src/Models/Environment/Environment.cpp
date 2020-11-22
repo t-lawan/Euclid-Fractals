@@ -7,7 +7,7 @@
 
 #include "Environment.h"
 
-Environment::Environment(int num) : food(num + 1), grid(4, 4) {
+Environment::Environment(int num) : food(num + 1), grid(2, 2) {
     for (int i = 0; i < num; i++) {
         ofVec2f position;
         spawn(SUGARCANE, ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
