@@ -42,10 +42,16 @@ void ofApp::drawSpiral(){
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
     if(key == '1'){
-        environment.germinate(ofRandom(ofGetWidth()), ofRandom(ofGetHeight())); 
+        environment.spawn(POLLINATOR, ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
     }
     if(key == '2'){
-        environment.spawn(ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
+        environment.spawn(SUGARCANE, ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
+    }
+    if(key == '3'){
+        environment.spawn(AGENT, ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
+    }
+    if(key == '4'){
+        environment.spawn(PLANT, ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
     }
 }
 
