@@ -22,6 +22,8 @@
 		FA8D909225696EE500ED5033 /* Config.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA8D909025696EE500ED5033 /* Config.cpp */; };
 		FA8D9096256AE43D00ED5033 /* AbstractAgent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA8D9094256AE43D00ED5033 /* AbstractAgent.cpp */; };
 		FA8D909B256AE83100ED5033 /* AbstractMovingAgent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA8D9099256AE83100ED5033 /* AbstractMovingAgent.cpp */; };
+		FA8D909E256AF59B00ED5033 /* AbstractStaticAgent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA8D909C256AF59B00ED5033 /* AbstractStaticAgent.cpp */; };
+		FA8D90A2256AF91A00ED5033 /* Sugarcane.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA8D90A0256AF91A00ED5033 /* Sugarcane.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -244,6 +246,11 @@
 		FA8D9095256AE43D00ED5033 /* AbstractAgent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AbstractAgent.h; sourceTree = "<group>"; };
 		FA8D9099256AE83100ED5033 /* AbstractMovingAgent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AbstractMovingAgent.cpp; sourceTree = "<group>"; };
 		FA8D909A256AE83100ED5033 /* AbstractMovingAgent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AbstractMovingAgent.h; sourceTree = "<group>"; };
+		FA8D909C256AF59B00ED5033 /* AbstractStaticAgent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AbstractStaticAgent.cpp; sourceTree = "<group>"; };
+		FA8D909D256AF59B00ED5033 /* AbstractStaticAgent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AbstractStaticAgent.h; sourceTree = "<group>"; };
+		FA8D90A0256AF91A00ED5033 /* Sugarcane.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Sugarcane.cpp; sourceTree = "<group>"; };
+		FA8D90A1256AF91A00ED5033 /* Sugarcane.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Sugarcane.h; sourceTree = "<group>"; };
+		FA8D90A5256AFCE300ED5033 /* AgentTypeEnum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AgentTypeEnum.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -589,6 +596,7 @@
 		FA8D90762567C32600ED5033 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FA8D909F256AF90000ED5033 /* Sugarcane */,
 				DC4EE194256AA634001BD177 /* Pollinator */,
 				FA8D908A256961D000ED5033 /* Utility */,
 				FA8D90862569515A00ED5033 /* Cell */,
@@ -689,6 +697,7 @@
 		FA8D908A256961D000ED5033 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				FA8D90A3256AFC8F00ED5033 /* Enums */,
 				FA8D908F25696ED100ED5033 /* Config */,
 				FA8D908B256961D600ED5033 /* Vec2Key */,
 			);
@@ -734,8 +743,35 @@
 		FA8D9098256AE81C00ED5033 /* AbstractStaticAgent */ = {
 			isa = PBXGroup;
 			children = (
+				FA8D909C256AF59B00ED5033 /* AbstractStaticAgent.cpp */,
+				FA8D909D256AF59B00ED5033 /* AbstractStaticAgent.h */,
 			);
 			path = AbstractStaticAgent;
+			sourceTree = "<group>";
+		};
+		FA8D909F256AF90000ED5033 /* Sugarcane */ = {
+			isa = PBXGroup;
+			children = (
+				FA8D90A0256AF91A00ED5033 /* Sugarcane.cpp */,
+				FA8D90A1256AF91A00ED5033 /* Sugarcane.h */,
+			);
+			path = Sugarcane;
+			sourceTree = "<group>";
+		};
+		FA8D90A3256AFC8F00ED5033 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				FA8D90A4256AFCA200ED5033 /* AgentTypeEnum */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		FA8D90A4256AFCA200ED5033 /* AgentTypeEnum */ = {
+			isa = PBXGroup;
+			children = (
+				FA8D90A5256AFCE300ED5033 /* AgentTypeEnum.h */,
+			);
+			path = AgentTypeEnum;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -839,8 +875,10 @@
 				FA2B60C025645AA700BD3724 /* Agent.cpp in Sources */,
 				FA8D909B256AE83100ED5033 /* AbstractMovingAgent.cpp in Sources */,
 				FA8D907E2567E4BC00ED5033 /* SimulationObject.cpp in Sources */,
+				FA8D909E256AF59B00ED5033 /* AbstractStaticAgent.cpp in Sources */,
 				FA2B60C625645FA100BD3724 /* DNA.cpp in Sources */,
 				FA8D9096256AE43D00ED5033 /* AbstractAgent.cpp in Sources */,
+				FA8D90A2256AF91A00ED5033 /* Sugarcane.cpp in Sources */,
 				DC4EE196256AA659001BD177 /* Pollinator.cpp in Sources */,
 				FA8D90822567E8D800ED5033 /* Plant.cpp in Sources */,
 				FA2B60BA25640C0400BD3724 /* Grid.cpp in Sources */,
