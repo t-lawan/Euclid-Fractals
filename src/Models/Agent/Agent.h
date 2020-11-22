@@ -17,7 +17,9 @@
 
 class Agent : public AbstractMovingAgent {
     public:
-        Agent(ofVec2f _position, DNA _dna) : AbstractMovingAgent(_position, _dna){};
+        Agent(ofVec2f _position, DNA _dna) : AbstractMovingAgent(_position, _dna){
+            colour = ofColor::blue;
+        };
         void eat(Food f);
         int isOnFood(Food f);
         Agent reproduce();

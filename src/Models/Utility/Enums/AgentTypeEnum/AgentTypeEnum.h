@@ -9,11 +9,10 @@
 #define AgentTypeEnum_h
 #include "ofMain.h"
 enum AgentTypeEnum{
-    SEA,
-    BUILDING,
-    CLOCK,
-    CAR,
-    JESUS
+    SUGARCANE,
+    POLLINATOR,
+    AGENT,
+    PLANT
 };
 
 #endif /* AgentTypeEnum_h */

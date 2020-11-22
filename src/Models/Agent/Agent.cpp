@@ -83,7 +83,7 @@ void Agent::checkBorders() {
 
 void Agent::draw(){
     // draw agents
-    ofSetColor(ofColor::blue,ofMap(health, 0, 200, 0, 255));
+    ofSetColor(colour,ofMap(health, 0, 200, 0, 255));
     ofDrawCircle(position.x, position.y, r);
 }
 

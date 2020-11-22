@@ -20,6 +20,7 @@ class AbstractAgent {
         float mutation_rate;
         ofVec2f position;
         DNA dna;
+        ofColor colour = ofColor::orange;
     
         AbstractAgent(ofVec2f _position, DNA _dna);
         virtual ~AbstractAgent(){};
