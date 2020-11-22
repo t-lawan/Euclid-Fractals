@@ -4,6 +4,8 @@
 #include "DNA.h"
 #include "Food.h"
 #include "Agent.h"
+#include "Plant.h"
+#include "Pollinator.h"
 #include "Environment.h"
 
 class ofApp : public ofBaseApp{
