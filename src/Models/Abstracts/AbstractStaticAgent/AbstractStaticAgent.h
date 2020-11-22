@@ -31,6 +31,15 @@ class AbstractStaticAgent : public AbstractAgent {
             r = ofMap(dna.genes[0], 0, 1, 5, 20);
             reproduction_rate = ofMap(dna.genes[0], 0, 1, 0.003, 0.001);
             mutation_rate = ofMap(dna.genes[0], 0, 1, 0.4, 0.1);
+            
+            north = 0;
+            northEast = 1;
+            east = 2;
+            southEast = 3;
+            south = 4;
+            southWest = 5;
+            west = 6;
+            northWest = 7;
         };
         virtual ~AbstractStaticAgent(){};
 //        virtual AbstractMovingAgent reproduce() = 0;
