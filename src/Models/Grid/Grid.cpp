@@ -54,11 +54,9 @@ void Grid::draw(){
             
             // Draw Blue Box To Show Rainfail amount
             ofFill();
-            Cell cell = getCell(gridX, gridY);
-
-            cout << "CACL:" << cell.rainfall << endl;
-            ofSetColor(0, 0, cell.rainfall, 255);
-            ofDrawRectangle(stepX * 0.05, stepX * 0.05, stepX * 0.9, stepY * 0.9);
+//            Cell cell = getCell(gridX, gridY);
+//            ofSetColor(0, 0, cell.rainfall, 255);
+//            ofDrawRectangle(stepX * 0.05, stepX * 0.05, stepX * 0.9, stepY * 0.9);
             ofPopMatrix();
         }
     }

@@ -20,6 +20,8 @@
 		FA8D90892569518C00ED5033 /* Cell.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA8D90872569518C00ED5033 /* Cell.cpp */; };
 		FA8D908E256961E900ED5033 /* Vec2Key.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA8D908C256961E900ED5033 /* Vec2Key.cpp */; };
 		FA8D909225696EE500ED5033 /* Config.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA8D909025696EE500ED5033 /* Config.cpp */; };
+		FA8D9096256AE43D00ED5033 /* AbstractAgent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA8D9094256AE43D00ED5033 /* AbstractAgent.cpp */; };
+		FA8D909B256AE83100ED5033 /* AbstractMovingAgent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA8D9099256AE83100ED5033 /* AbstractMovingAgent.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -238,6 +240,10 @@
 		FA8D908D256961E900ED5033 /* Vec2Key.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vec2Key.h; sourceTree = "<group>"; };
 		FA8D909025696EE500ED5033 /* Config.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Config.cpp; sourceTree = "<group>"; };
 		FA8D909125696EE500ED5033 /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
+		FA8D9094256AE43D00ED5033 /* AbstractAgent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AbstractAgent.cpp; sourceTree = "<group>"; };
+		FA8D9095256AE43D00ED5033 /* AbstractAgent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AbstractAgent.h; sourceTree = "<group>"; };
+		FA8D9099256AE83100ED5033 /* AbstractMovingAgent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AbstractMovingAgent.cpp; sourceTree = "<group>"; };
+		FA8D909A256AE83100ED5033 /* AbstractMovingAgent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AbstractMovingAgent.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -663,6 +669,9 @@
 		FA8D908425694B2D00ED5033 /* Abstracts */ = {
 			isa = PBXGroup;
 			children = (
+				FA8D9098256AE81C00ED5033 /* AbstractStaticAgent */,
+				FA8D9097256AE81300ED5033 /* AbstractMovingAgent */,
+				FA8D9093256AE40800ED5033 /* AbstractAgent */,
 				FA8D907B2567E4A600ED5033 /* SimulationObject */,
 			);
 			path = Abstracts;
@@ -702,6 +711,31 @@
 				FA8D909125696EE500ED5033 /* Config.h */,
 			);
 			path = Config;
+			sourceTree = "<group>";
+		};
+		FA8D9093256AE40800ED5033 /* AbstractAgent */ = {
+			isa = PBXGroup;
+			children = (
+				FA8D9094256AE43D00ED5033 /* AbstractAgent.cpp */,
+				FA8D9095256AE43D00ED5033 /* AbstractAgent.h */,
+			);
+			path = AbstractAgent;
+			sourceTree = "<group>";
+		};
+		FA8D9097256AE81300ED5033 /* AbstractMovingAgent */ = {
+			isa = PBXGroup;
+			children = (
+				FA8D9099256AE83100ED5033 /* AbstractMovingAgent.cpp */,
+				FA8D909A256AE83100ED5033 /* AbstractMovingAgent.h */,
+			);
+			path = AbstractMovingAgent;
+			sourceTree = "<group>";
+		};
+		FA8D9098256AE81C00ED5033 /* AbstractStaticAgent */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AbstractStaticAgent;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -803,8 +837,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA2B60C025645AA700BD3724 /* Agent.cpp in Sources */,
+				FA8D909B256AE83100ED5033 /* AbstractMovingAgent.cpp in Sources */,
 				FA8D907E2567E4BC00ED5033 /* SimulationObject.cpp in Sources */,
 				FA2B60C625645FA100BD3724 /* DNA.cpp in Sources */,
+				FA8D9096256AE43D00ED5033 /* AbstractAgent.cpp in Sources */,
 				DC4EE196256AA659001BD177 /* Pollinator.cpp in Sources */,
 				FA8D90822567E8D800ED5033 /* Plant.cpp in Sources */,
 				FA2B60BA25640C0400BD3724 /* Grid.cpp in Sources */,

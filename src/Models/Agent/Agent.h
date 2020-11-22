@@ -13,8 +13,9 @@
 #include "DNA.h"
 #include "Food.h"
 #include "SimulationObject.h"
+#include "AbstractMovingAgent.h"
 
-class Agent : public SimulationObject {
+class Agent : public AbstractMovingAgent {
     public:
         
         float health;     // Life timer
@@ -27,7 +28,17 @@ class Agent : public SimulationObject {
         ofVec2f position;
         DNA dna;
     
-        Agent(ofVec2f _position, DNA _dna);
+    Agent(ofVec2f _position, DNA _dna) : AbstractMovingAgent(_position, _dna){
+        health = ofRandom(100, 200);
+        xoff = ofRandom(0, 1000);
+        yoff = ofRandom(0, 1000);
+        
+        // Gene 0 determines maxspeed and r
+         // The bigger the bloop, the slower it is
+        maxspeed = ofMap(dna.genes[0], 0, 1, 15, 0);
+        r = ofMap(dna.genes[0], 0, 1, 5, 20);
+        reproduction_rate = ofMap(dna.genes[0], 0, 1, 0.003, 0.001);
+    };
         void eat(Food f);
         int isOnFood(Food f);
         Agent reproduce();

@@ -8,20 +8,20 @@
 #include "Agent.h"
 
 
-Agent::Agent(ofVec2f _position, DNA _dna) {
-    position = _position;
-    dna = _dna;
-    
-    health = ofRandom(100, 200);
-    xoff = ofRandom(0, 1000);
-    yoff = ofRandom(0, 1000);
-    
-    // Gene 0 determines maxspeed and r
-     // The bigger the bloop, the slower it is
-    maxspeed = ofMap(dna.genes[0], 0, 1, 15, 0);
-    r = ofMap(dna.genes[0], 0, 1, 5, 20);
-    reproduction_rate = ofMap(dna.genes[0], 0, 1, 0.003, 0.001);
-}
+//Agent::Agent(ofVec2f _position, DNA _dna) : AbstractMovingAgent(_position, _dna) {
+//    position = _position;
+//    dna = _dna;
+//    
+//    health = ofRandom(100, 200);
+//    xoff = ofRandom(0, 1000);
+//    yoff = ofRandom(0, 1000);
+//    
+//    // Gene 0 determines maxspeed and r
+//     // The bigger the bloop, the slower it is
+//    maxspeed = ofMap(dna.genes[0], 0, 1, 15, 0);
+//    r = ofMap(dna.genes[0], 0, 1, 5, 20);
+//    reproduction_rate = ofMap(dna.genes[0], 0, 1, 0.003, 0.001);
+//}
 
 void Agent::eat(Food f){
     health += 100;
