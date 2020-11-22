@@ -19,6 +19,7 @@
 		FA8D90822567E8D800ED5033 /* Plant.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA8D90802567E8D800ED5033 /* Plant.cpp */; };
 		FA8D90892569518C00ED5033 /* Cell.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA8D90872569518C00ED5033 /* Cell.cpp */; };
 		FA8D908E256961E900ED5033 /* Vec2Key.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA8D908C256961E900ED5033 /* Vec2Key.cpp */; };
+		FA8D909225696EE500ED5033 /* Config.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA8D909025696EE500ED5033 /* Config.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -235,6 +236,8 @@
 		FA8D90882569518C00ED5033 /* Cell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Cell.h; sourceTree = "<group>"; };
 		FA8D908C256961E900ED5033 /* Vec2Key.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Vec2Key.cpp; sourceTree = "<group>"; };
 		FA8D908D256961E900ED5033 /* Vec2Key.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vec2Key.h; sourceTree = "<group>"; };
+		FA8D909025696EE500ED5033 /* Config.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Config.cpp; sourceTree = "<group>"; };
+		FA8D909125696EE500ED5033 /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -677,6 +680,7 @@
 		FA8D908A256961D000ED5033 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				FA8D908F25696ED100ED5033 /* Config */,
 				FA8D908B256961D600ED5033 /* Vec2Key */,
 			);
 			path = Utility;
@@ -689,6 +693,15 @@
 				FA8D908D256961E900ED5033 /* Vec2Key.h */,
 			);
 			path = Vec2Key;
+			sourceTree = "<group>";
+		};
+		FA8D908F25696ED100ED5033 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				FA8D909025696EE500ED5033 /* Config.cpp */,
+				FA8D909125696EE500ED5033 /* Config.h */,
+			);
+			path = Config;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -799,6 +812,7 @@
 				FA8D908E256961E900ED5033 /* Vec2Key.cpp in Sources */,
 				FA2B60C325645C1C00BD3724 /* Food.cpp in Sources */,
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
+				FA8D909225696EE500ED5033 /* Config.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
 				FA8D90892569518C00ED5033 /* Cell.cpp in Sources */,
 			);

@@ -22,7 +22,7 @@ class Grid {
         Grid(int _numX, int _numY);
         void draw();
         void setupCells();
-        Cell getCell(float x, float y);
+        Cell getCell(int x, int y);
         map<Vec2Key, Cell> cells;
 };
 #endif /* Grid_h */

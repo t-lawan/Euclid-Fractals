@@ -7,7 +7,7 @@
 
 #include "Environment.h"
 
-Environment::Environment(int num) : food(num + 1), grid(50, 50) {
+Environment::Environment(int num) : food(num + 1), grid(2, 2) {
     for (int i = 0; i < num; i++) {
         ofVec2f position;
         born(ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
