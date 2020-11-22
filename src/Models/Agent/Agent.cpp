@@ -31,7 +31,7 @@ Agent Agent::reproduce(){
         // Child is exact copy of single parent
         DNA childDNA = dna.copy();
         // Child DNA can mutate
-        childDNA.mutate(0.4);
+        childDNA.mutate(mutation_rate);
         return Agent(position, childDNA);
 }
 
