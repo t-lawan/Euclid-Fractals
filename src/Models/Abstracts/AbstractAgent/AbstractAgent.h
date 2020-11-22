@@ -14,8 +14,10 @@
 
 class AbstractAgent {
     public:
+                // DNA will determine reproductivity_rate, size and maxspeed
         float health;
         float reproduction_rate;
+        float mutation_rate;
         ofVec2f position;
         DNA dna;
     
