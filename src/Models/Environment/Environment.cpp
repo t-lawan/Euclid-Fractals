@@ -21,10 +21,22 @@ void Environment::born(float x, float y){
     Agent agent = Agent(position,dna);
     agents.push_back(agent);
 }
+
+void Environment::germinate(float x, float y){
+    ofVec2f position;
+    position.set(x, y);
+    DNA dna = DNA();
+    Plant plant = Plant(position, dna);
+    plants.push_back(plant);
+}
+
 void Environment::update() {
     food.update();
       for (int i = 0; i < agents.size(); i++) {
         agents[i].update();
+      }
+      for (int i = 0; i < plants.size(); i++) {
+          plants[i].update();
       }
 }
 
@@ -55,6 +67,27 @@ void Environment::draw() {
           agents.push_back(agent.reproduce());
       }
   }
-    
+
     grid.draw();
+    // Draw all plants
+    for (int i = 0; i < plants.size(); i++) {
+        Plant plant = plants[i];
+        plant.draw();
+            // Check if plant is on food
+        int index = plant.plantIsOnFood(food);
+            // If plant is on food, absorb then remove food
+        if(index > -1){
+            plant.plantEat(index);
+            food.remove(index);
+        }
+        // If plant dies, remove and make food
+        if (plant.dead()) {
+            food.add(plant.position);
+            plants.push_back(plant.plantReproduce());
+        }
+        // check for reproduction
+        if(plant.plantShouldReproduce()){
+            plants.push_back(plant.plantReproduce());
+        }
+    }
 }
