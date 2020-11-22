@@ -36,7 +36,7 @@ Agent Agent::reproduce(){
 }
 
 bool Agent::shouldReproduce(){
-    return ofRandom(0, 1) < reproductivity_rate;
+    return ofRandom(0, 1) < reproduction_rate;
 }
 
 int Agent::isOnFood(Food f){
