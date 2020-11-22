@@ -8,19 +8,20 @@
 #include "Agent.h"
 
 
-Agent::Agent(ofVec2f _position, DNA _dna) {
-    position = _position;
-    dna = _dna;
-    
-    health = ofRandom(100, 200);
-    xoff = ofRandom(0, 1000);
-    yoff = ofRandom(0, 1000);
-    
-    // Gene 0 determines maxspeed and r
-     // The bigger the bloop, the slower it is
-    maxspeed = ofMap(dna.genes[0], 0, 1, 15, 0);
-    r = ofMap(dna.genes[0], 0, 1, 5, 20);
-}
+//Agent::Agent(ofVec2f _position, DNA _dna) : AbstractMovingAgent(_position, _dna) {
+//    position = _position;
+//    dna = _dna;
+//    
+//    health = ofRandom(100, 200);
+//    xoff = ofRandom(0, 1000);
+//    yoff = ofRandom(0, 1000);
+//    
+//    // Gene 0 determines maxspeed and r
+//     // The bigger the bloop, the slower it is
+//    maxspeed = ofMap(dna.genes[0], 0, 1, 15, 0);
+//    r = ofMap(dna.genes[0], 0, 1, 5, 20);
+//    reproduction_rate = ofMap(dna.genes[0], 0, 1, 0.003, 0.001);
+//}
 
 void Agent::eat(Food f){
     health += 100;
@@ -30,12 +31,12 @@ Agent Agent::reproduce(){
         // Child is exact copy of single parent
         DNA childDNA = dna.copy();
         // Child DNA can mutate
-        childDNA.mutate(0.4);
+        childDNA.mutate(mutation_rate);
         return Agent(position, childDNA);
 }
 
 bool Agent::shouldReproduce(){
-    return ofRandom(0, 1) < 0.001;
+    return ofRandom(0, 1) < reproduction_rate;
 }
 
 int Agent::isOnFood(Food f){
@@ -45,7 +46,7 @@ int Agent::isOnFood(Food f){
       ofVec2f foodposition = food[i];
       float d = position.distance(foodposition);
       // If we are, juice up our strength!
-      if (d < r) {
+      if (d <= r) {
         health += 100;
         return i;
       } else {
@@ -82,7 +83,7 @@ void Agent::checkBorders() {
 
 void Agent::draw(){
     // draw agents
-    ofSetColor(ofColor::blue,ofMap(health, 0, 200, 0, 255));
+    ofSetColor(colour,ofMap(health, 0, 200, 0, 255));
     ofDrawCircle(position.x, position.y, r);
 }
 

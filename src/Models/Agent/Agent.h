@@ -13,24 +13,17 @@
 #include "DNA.h"
 #include "Food.h"
 #include "SimulationObject.h"
+#include "AbstractMovingAgent.h"
 
-class Agent : public SimulationObject {
+class Agent : public AbstractMovingAgent {
     public:
-        
-        float health;     // Life timer
-        float xoff;       // For perlin noise
-        float yoff;
-        // DNA will determine size and maxspeed
-        float r;
-        float maxspeed;
-        ofVec2f position;
-        DNA dna;
-    
-        Agent(ofVec2f _position, DNA _dna);
+        Agent(ofVec2f _position, DNA _dna) : AbstractMovingAgent(_position, _dna){
+            colour = ofColor::blue;
+        };
         void eat(Food f);
         int isOnFood(Food f);
         Agent reproduce();
-        bool shouldReproduce();   
+        bool shouldReproduce();
         void update();
         void checkBorders();
         void draw();

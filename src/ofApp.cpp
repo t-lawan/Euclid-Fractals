@@ -17,8 +17,6 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    
-//    drawGrid();
 //    environment.update();
     environment.draw();
 //    drawSpiral();
@@ -41,27 +39,20 @@ void ofApp::drawSpiral(){
     ofPopMatrix();
 }
 
-void ofApp::drawGrid(){
-    ofSetColor(0, 200);
-
-    ofSetRectMode(OF_RECTMODE_CORNER);
-    for(int gridY = 0; gridY < ofGetHeight(); gridY = gridY + stepY) {
-        for(int gridX = 0; gridX < ofGetWidth(); gridX = gridX + stepX) {
-            ofPushMatrix();
-            ofNoFill();
-            ofTranslate(gridX, gridY);
-            ofDrawRectangle(0, 0, stepX, stepY);
-            ofFill();
-            ofPopMatrix();
-        }
-    }
-}
-
-
-
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-
+    if(key == '1'){
+        environment.spawn(POLLINATOR, ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
+    }
+    if(key == '2'){
+        environment.spawn(SUGARCANE, ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
+    }
+    if(key == '3'){
+        environment.spawn(AGENT, ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
+    }
+    if(key == '4'){
+        environment.spawn(PLANT, ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
+    }
 }
 
 //--------------------------------------------------------------
