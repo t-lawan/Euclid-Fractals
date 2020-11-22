@@ -44,6 +44,9 @@ void ofApp::keyPressed(int key){
     if(key == '1'){
         environment.germinate(ofRandom(ofGetWidth()), ofRandom(ofGetHeight())); 
     }
+    if(key == '2'){
+        environment.spawn(ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
+    }
 }
 
 //--------------------------------------------------------------

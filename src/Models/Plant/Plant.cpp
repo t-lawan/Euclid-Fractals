@@ -13,8 +13,9 @@ Plant::Plant(ofVec2f _position, DNA _dna) {
     
     plantHealth = ofRandom(100, 200);
     
-    // Gene 0 determines r
+    // Gene 0 determines r and reproduction rate
     r = ofMap(dna.genes[0], 0 , 1, 5, 20);
+    plant_reproduction_rate = ofMap(dna.genes[0], 0, 1, 0.002, 0.001);
     
     // set directional values
     north = 0;

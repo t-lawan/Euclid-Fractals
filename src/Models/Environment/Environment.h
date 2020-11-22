@@ -14,16 +14,19 @@
 #include "Agent.h"
 #include "Grid.h"
 #include "Plant.h"
+#include "Pollinator.h"
 
 class Environment {
     public:
         Environment(int num);
         vector<Agent> agents;
         vector<Plant> plants;
+        vector<Pollinator> pollinators;
         Food food;
         Grid grid;
         void born(float x, float y);
         void germinate(float x, float y);
+        void spawn(float x, float y);
         void update();
         void draw();
 };

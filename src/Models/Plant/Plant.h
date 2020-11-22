@@ -22,6 +22,7 @@ class Plant : public SimulationObject {
     //float yoff;
     // DNA will determine size
     float r;
+    float plant_reproduction_rate; 
     ofVec2f position;
     DNA dna;
     

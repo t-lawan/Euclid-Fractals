@@ -30,6 +30,15 @@ void Environment::germinate(float x, float y){
     plants.push_back(plant);
 }
 
+void Environment::spawn(float x, float y){
+    ofVec2f position;
+    position.set(x, y);
+    DNA dna = DNA();
+    Pollinator pollinator = Pollinator(position, dna);
+    pollinators.push_back(pollinator);
+}
+
+
 void Environment::update() {
     food.update();
       for (int i = 0; i < agents.size(); i++) {
@@ -38,11 +47,17 @@ void Environment::update() {
       for (int i = 0; i < plants.size(); i++) {
           plants[i].update();
       }
+      for (int i = 0; i < pollinators.size(); i++) {
+          pollinators[i].update();
+      }
 }
 
 // Run the world
 void Environment::draw() {
-  // Draw  food
+    // Draw grid
+  grid.draw();
+    
+    // Draw  food
   food.draw();
   
     // Draw all agents
@@ -67,8 +82,6 @@ void Environment::draw() {
           agents.push_back(agent.reproduce());
       }
   }
-
-    grid.draw();
     // Draw all plants
     for (int i = 0; i < plants.size(); i++) {
         Plant plant = plants[i];
@@ -88,6 +101,32 @@ void Environment::draw() {
         // check for reproduction
         if(plant.plantShouldReproduce()){
             plants.push_back(plant.plantReproduce());
+        }
+    }
+    // Draw Pollinators
+    for (int i = 0; i < pollinators.size(); i++) {
+      Pollinator pollinator = pollinators[i];
+      pollinator.draw();
+        // Check if agent is on food
+      int index = pollinator.polIsOnFood(food);
+        // If agent is on food. Eat then remove the food item
+      if(index > -1) {
+          pollinator.polEat(index);
+          food.remove(index);
+      }
+      // If it's dead, kill it and make food
+      if (pollinator.dead()) {
+
+        food.add(pollinator.position);
+        pollinators.erase(pollinators.begin() + i);
+      }
+      // reproduction check2
+        if(pollinator.polShouldReproduce()) {
+            if (ofRandom(1) < 0.5){
+                germinate(pollinator.position.x, pollinator.position.y);
+            } else {
+                pollinators.push_back(pollinator.polReproduce());
+            }
         }
     }
 }
