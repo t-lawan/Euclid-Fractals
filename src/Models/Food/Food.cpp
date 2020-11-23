@@ -34,15 +34,15 @@ void Food::update(){
 }
  
 void Food::draw(){
-    for(int i = 0; i < food.size(); i++) {
-        ofVec2f vector = food[i];
-        // Draw Food
-        ofSetRectMode(OF_RECTMODE_CENTER);
-        ofSetColor(ofColor::red);
-        ofDrawRectangle(vector.x, vector.y, 10, 10);
+    if(food.size() > 0) {
+        for(int i = 0; i < food.size(); i++) {
+            ofVec2f vector = food[i];
+            // Draw Food
+            ofSetRectMode(OF_RECTMODE_CENTER);
+            ofSetColor(ofColor::orange);
+            ofDrawRectangle(vector.x, vector.y, 10, 10);
+        }
     }
-    
-    // There's a small chance food will appear randomly
 
 }
 

@@ -19,6 +19,7 @@ class Pollinator : public AbstractMovingAgent {
    public:    
     Pollinator(ofVec2f _position, DNA _dna) : AbstractMovingAgent(_position, _dna) {
         colour = ofColor(256, 165, 0);
+        r = MIN_SIZE;
     };
     void eat(Food f);
     int isOnFood(Food f);
