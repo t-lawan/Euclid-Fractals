@@ -24,6 +24,7 @@
 		FA8D909B256AE83100ED5033 /* AbstractMovingAgent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA8D9099256AE83100ED5033 /* AbstractMovingAgent.cpp */; };
 		FA8D909E256AF59B00ED5033 /* AbstractStaticAgent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA8D909C256AF59B00ED5033 /* AbstractStaticAgent.cpp */; };
 		FA8D90A2256AF91A00ED5033 /* Sugarcane.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA8D90A0256AF91A00ED5033 /* Sugarcane.cpp */; };
+		FA8D90B7256C5B2A00ED5033 /* PlantDestroyer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA8D90B6256C5B2900ED5033 /* PlantDestroyer.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -251,6 +252,8 @@
 		FA8D90A0256AF91A00ED5033 /* Sugarcane.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Sugarcane.cpp; sourceTree = "<group>"; };
 		FA8D90A1256AF91A00ED5033 /* Sugarcane.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Sugarcane.h; sourceTree = "<group>"; };
 		FA8D90A5256AFCE300ED5033 /* AgentTypeEnum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AgentTypeEnum.h; sourceTree = "<group>"; };
+		FA8D90B6256C5B2900ED5033 /* PlantDestroyer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PlantDestroyer.cpp; sourceTree = "<group>"; };
+		FA8D90B8256C5B3700ED5033 /* PlantDestroyer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlantDestroyer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -596,6 +599,7 @@
 		FA8D90762567C32600ED5033 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FA8D90B5256C5B0C00ED5033 /* PlantDestroyer */,
 				FA8D909F256AF90000ED5033 /* Sugarcane */,
 				DC4EE194256AA634001BD177 /* Pollinator */,
 				FA8D908A256961D000ED5033 /* Utility */,
@@ -774,6 +778,15 @@
 			path = AgentTypeEnum;
 			sourceTree = "<group>";
 		};
+		FA8D90B5256C5B0C00ED5033 /* PlantDestroyer */ = {
+			isa = PBXGroup;
+			children = (
+				FA8D90B6256C5B2900ED5033 /* PlantDestroyer.cpp */,
+				FA8D90B8256C5B3700ED5033 /* PlantDestroyer.h */,
+			);
+			path = PlantDestroyer;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -879,6 +892,7 @@
 				FA2B60C625645FA100BD3724 /* DNA.cpp in Sources */,
 				FA8D9096256AE43D00ED5033 /* AbstractAgent.cpp in Sources */,
 				FA8D90A2256AF91A00ED5033 /* Sugarcane.cpp in Sources */,
+				FA8D90B7256C5B2A00ED5033 /* PlantDestroyer.cpp in Sources */,
 				DC4EE196256AA659001BD177 /* Pollinator.cpp in Sources */,
 				FA8D90822567E8D800ED5033 /* Plant.cpp in Sources */,
 				FA2B60BA25640C0400BD3724 /* Grid.cpp in Sources */,
