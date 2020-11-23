@@ -17,14 +17,14 @@
 #include "PlantDestroyer.h"
 #include "Pollinator.h"
 #include "Sugarcane.h"
+#include "Soybean.h"
 #include "AgentTypeEnum.h"
 
 class Environment {
     public:
         Environment(int num);
-        vector<Agent> agents;
-        vector<Plant> plants;
         vector<Sugarcane> sugarcanes;
+        vector<Soybean> soybeans;
         vector<Pollinator> pollinators;
         vector<PlantDestroyer> plantDestroyers;
         Food food;
@@ -33,11 +33,10 @@ class Environment {
         void setup();
         void update();
         void draw();
-        void drawAgents();
-        void drawPlants();
         void drawPollinators();
         void drawPlantDestroyers();
         void drawSugarcane();
+        void drawSoybeans();
         void playTick();
         ofSoundPlayer tick;
 };
