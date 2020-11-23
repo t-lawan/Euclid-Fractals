@@ -24,9 +24,6 @@ void Grid::setupCells(){
 //            cout << cells[Vec2Key(0, 400)].rainfall << endl;
         }
     }
-    
-    
-    
 }
 
 Cell Grid::getCell(int x, int y){

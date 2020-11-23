@@ -106,7 +106,7 @@ void Environment::drawPollinators(){
       }
       // If it's dead, kill it and make food
       if (pollinator.dead()) {
-        playTick();
+//        playTick();
         food.add(pollinator.position);
         pollinators.erase(pollinators.begin() + i);
       }
@@ -114,11 +114,9 @@ void Environment::drawPollinators(){
         if(pollinator.shouldReproduce()) {
             if (ofRandom(1) < 0.5){
                 spawn(SUGARCANE ,pollinator.position.x, pollinator.position.y);
-                playTick();
-            } else {
-                    playTick();
-                pollinators.push_back(pollinator.reproduce());
+            } else { pollinators.push_back(pollinator.reproduce());
             }
+//            playTick();
         }
     }
 }
@@ -138,13 +136,13 @@ void Environment::drawSugarcane(){
         // If sugarcane dies, remove and make food
         if (sugarcane.dead()) {
             food.add(sugarcane.position);
-            playTick();
+//            playTick();
             sugarcanes.erase(sugarcanes.begin() + i);
 //            sugarcanes.push_back(sugarcane.reproduce());
         }
         // check for reproduction
         if(sugarcane.shouldReproduce()){
-            playTick();
+//            playTick();
             sugarcanes.push_back(sugarcane.reproduce());
         }
     }
@@ -165,13 +163,13 @@ void Environment::drawSoybeans(){
         // If sugarcane dies, remove and make food
         if (soybean.dead()) {
             food.add(soybean.position);
-            playTick();
+//            playTick();
             soybeans.erase(soybeans.begin() + i);
 //            sugarcanes.push_back(sugarcane.reproduce());
         }
         // check for reproduction
         if(soybean.shouldReproduce()){
-            playTick();
+//            playTick();
             soybeans.push_back(soybean.reproduce());
         }
     }
@@ -191,13 +189,13 @@ void Environment::drawPlantDestroyers(){
       }
       // If it's dead, kill it and make food
       if (plantDestroyer.dead()) {
-          playTick();
+//          playTick();
         food.add(plantDestroyer.position);
         plantDestroyers.erase(plantDestroyers.begin() + i);
       }
       // Perhaps this bloop would like to make a baby?
         if(plantDestroyer.shouldReproduce()) {
-            playTick();
+//            playTick();
             plantDestroyers.push_back(plantDestroyer.reproduce());
         }
     }
