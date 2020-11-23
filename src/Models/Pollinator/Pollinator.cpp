@@ -23,7 +23,7 @@
 //}
 
 void Pollinator::eat(Food f){
-    health += 100;
+    vitality += 100;
 }
 
 Pollinator Pollinator::reproduce(){
@@ -42,11 +42,10 @@ int Pollinator::isOnFood(Food f){
     vector<ofVec2f> food = f.getFood();
     // Are we touching any food objects?
     for (int i = food.size()-1; i >= 0; i--) {
-      ofVec2f foodposition = food[i];
-      float d = position.distance(foodposition);
+      float d = position.distance(food[i]);
       // If we are, juice up our strength!
       if (d <= r) {
-        health += 100;
+        vitality += 100;
         return i;
       } else {
           return -1;
@@ -65,7 +64,7 @@ void Pollinator::update() {
     yoff += 0.01;
     position += velocity;
     // Death always looming
-    health -= 0.2;
+    vitality -= 0.2;
     checkBorders();
     
 }
@@ -82,12 +81,12 @@ void Pollinator::checkBorders() {
 
 void Pollinator::draw(){
     // draw agents
-    ofSetColor(colour,ofMap(health, 0, MAX_HEALTH, 0, 200));
+    ofSetColor(colour,ofMap(vitality, 0, MAX_HEALTH, 0, 200));
     ofDrawCircle(position.x, position.y, r);
 }
 
 bool Pollinator::dead(){
-    if (health < 0.0) {
+    if (vitality < 0.0) {
       return true;
     } else {
       return false;

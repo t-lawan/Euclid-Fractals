@@ -10,7 +10,7 @@
 
 
 void Sugarcane::eat(Food f){
-    health += 100;
+    vitality += 100;
 }
 
 Sugarcane Sugarcane::reproduce(){
@@ -55,9 +55,9 @@ int Sugarcane::isOnFood(Food f){
     for (int i = food.size()-1; i >= 0; i--){
         ofVec2f foodposition = food[i];
         float d = position.distance(foodposition);
-        // if so increase starting health
+        // if so increase starting vitality
         if (d < r) {
-            health += 100;
+            vitality += 100;
             return i;
         } else {
             return -1;
@@ -66,7 +66,7 @@ int Sugarcane::isOnFood(Food f){
 }
 
 void Sugarcane::update() {
-    health -= 0.2;
+    vitality -= 0.2;
     checkBorders();
 }
 
@@ -81,12 +81,12 @@ void Sugarcane::checkBorders() {
 
 void Sugarcane::draw(){
     // draw plants
-    ofSetColor(colour, ofMap(health, 0, 200, 0, 255));
+    ofSetColor(colour, ofMap(vitality, 0, 200, 0, 255));
     ofDrawCircle(position.x, position.y, r);
 }
 
 bool Sugarcane::dead(){
-    if (health < 0.0) {
+    if (vitality < 0.0) {
       return true;
     } else {
       return false;

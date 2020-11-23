@@ -29,7 +29,7 @@ class AbstractMovingAgent : public AbstractAgent {
         virtual int isOnFood(Food f) = 0;
         virtual void checkBorders() = 0;
         AbstractMovingAgent(ofVec2f _position, DNA _dna) : AbstractAgent(_position, _dna) {
-            health = ofRandom(MIN_HEALTH, MAX_HEALTH);
+            vitality = ofRandom(MIN_HEALTH, MAX_HEALTH);
             xoff = ofRandom(0, 1000);
             yoff = ofRandom(0, 1000);
             

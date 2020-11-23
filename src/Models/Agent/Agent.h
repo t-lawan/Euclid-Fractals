@@ -12,7 +12,6 @@
 #include "ofMain.h"
 #include "DNA.h"
 #include "Food.h"
-#include "SimulationObject.h"
 #include "AbstractMovingAgent.h"
 
 class Agent : public AbstractMovingAgent {

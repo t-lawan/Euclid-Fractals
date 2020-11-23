@@ -24,7 +24,7 @@
 //}
 
 void Agent::eat(Food f){
-    health += 100;
+    vitality += 100;
 }
 
 Agent Agent::reproduce(){
@@ -46,7 +46,7 @@ int Agent::isOnFood(Food f){
       float d = position.distance(food[i]);
       // If we are, juice up our strength!
       if (d <= r) {
-        health += 100;
+        vitality += 100;
         return i;
       } else {
           return -1;
@@ -65,7 +65,7 @@ void Agent::update() {
     yoff += 0.01;
     position += velocity;
     // Death always looming
-    health -= 0.2;
+    vitality -= 0.2;
     checkBorders();
     
 }
@@ -82,12 +82,12 @@ void Agent::checkBorders() {
 
 void Agent::draw(){
     // draw agents
-    ofSetColor(colour,ofMap(health, 0, MAX_HEALTH, 0, 200));
+    ofSetColor(colour,ofMap(vitality, 0, MAX_HEALTH, 0, 200));
     ofDrawCircle(position.x, position.y, r);
 }
 
 bool Agent::dead(){
-    if (health < 0.0) {
+    if (vitality < 0.0) {
       return true;
     } else {
       return false;

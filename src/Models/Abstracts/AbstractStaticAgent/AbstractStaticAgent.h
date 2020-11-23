@@ -23,7 +23,7 @@ class AbstractStaticAgent : public AbstractAgent {
         virtual int isOnFood(Food f) = 0;
         virtual void checkBorders() = 0;
         AbstractStaticAgent(ofVec2f _position, DNA _dna) : AbstractAgent(_position, _dna) {
-            health = ofRandom(MIN_HEALTH, MAX_HEALTH);
+            vitality = ofRandom(MIN_HEALTH, MAX_HEALTH);
             
             // Gene 0 determines maxspeed and r
              // The bigger the bloop, the slower it is
