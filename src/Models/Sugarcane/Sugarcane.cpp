@@ -81,7 +81,7 @@ void Sugarcane::checkBorders() {
 
 void Sugarcane::draw(){
     // draw plants
-    ofSetColor(colour, ofMap(vitality, 0, 200, 0, 255));
+    ofSetColor(colour, ofMap(vitality, 0, 200, 0, 200));
     ofDrawCircle(position.x, position.y, r);
 }
 
