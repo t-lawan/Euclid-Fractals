@@ -7,13 +7,12 @@
 
 #include "Environment.h"
 
-Environment::Environment(int num) : food(num + 1), grid(2, 2) {
+Environment::Environment(int num) : food(num + 1), grid(20, 20) {
     for (int i = 0; i < num; i++) {
         ofVec2f position;
         spawn(SUGARCANE, ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
         spawn(POLLINATOR, ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
-//        spawn(AGENT, ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
-        spawn(PLANT, ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
+        spawn(SOYBEAN, ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
         spawn(PLANT_DESTROYER, ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
     }
 }
@@ -33,16 +32,16 @@ void Environment::spawn(AgentTypeEnum type, float x, float y){
             pollinators.push_back(pollinator);
             break;
         };
-        case PLANT: {
-            Plant plant = Plant(position,dna);
-            plants.push_back(plant);
-            break;
-        };
         case PLANT_DESTROYER: {
             PlantDestroyer plantDestroyer = PlantDestroyer(position,dna);
             plantDestroyers.push_back(plantDestroyer);
             break;
         };
+        case SOYBEAN: {
+            Soybean soybean = Soybean(position,dna);
+            soybeans.push_back(soybean);
+            break;
+        }
         default:
             break;
     }
@@ -59,15 +58,16 @@ void Environment::playTick(){
 }
 void Environment::update() {
     food.update();
-      for (int i = 0; i < plants.size(); i++) {
-          plants[i].update();
-      }
-      for (int i = 0; i < pollinators.size(); i++) {
-          pollinators[i].update();
-      }
+    for (int i = 0; i < pollinators.size(); i++) {
+        pollinators[i].update();
+    }
     
     for (int i = 0; i < sugarcanes.size(); i++) {
         sugarcanes[i].update();
+    }
+    
+    for (int i = 0; i < soybeans.size(); i++) {
+        soybeans[i].update();
     }
     
     for (int i = 0; i < plantDestroyers.size(); i++) {
@@ -81,14 +81,14 @@ void Environment::draw() {
     grid.draw();
     // Draw  food
     food.draw();
-    // Draw all plants
-    drawPlants();
     // Draw Pollinators
     drawPollinators();
     // Draw sugarcane
     drawSugarcane();
     // Draw all plant destroyers
     drawPlantDestroyers();
+    // Draw all soybeans
+    drawSoybeans();
 }
 
 
@@ -123,30 +123,6 @@ void Environment::drawPollinators(){
     }
 }
 
-void Environment::drawPlants(){
-    for (int i = 0; i < plants.size(); i++) {
-        Plant plant = plants[i];
-        plant.draw();
-            // Check if plant is on food
-        int index = plant.plantIsOnFood(food);
-            // If plant is on food, absorb then remove food
-        if(index > -1){
-            plant.plantEat(index);
-            food.remove(index);
-        }
-        // If plant dies, remove and make food
-        if (plant.dead()) {
-            food.add(plant.position);
-            plants.erase(plants.begin() + i);
-//            plants.push_back(plant.plantReproduce());
-        }
-        // check for reproduction
-        if(plant.plantShouldReproduce()){
-            plants.push_back(plant.plantReproduce());
-        }
-    }
-}
-
 void Environment::drawSugarcane(){
     for (int i = 0; i < sugarcanes.size(); i++) {
         Sugarcane sugarcane = sugarcanes[i];
@@ -170,6 +146,33 @@ void Environment::drawSugarcane(){
         if(sugarcane.shouldReproduce()){
             playTick();
             sugarcanes.push_back(sugarcane.reproduce());
+        }
+    }
+}
+
+void Environment::drawSoybeans(){
+    for (int i = 0; i < soybeans.size(); i++) {
+        Soybean soybean = soybeans[i];
+        soybean.draw();
+            // Check if plant is on food
+        int index = soybean.isOnFood(food);
+            // If plant is on food, absorb then remove food
+        if(index > -1){
+            soybean.eat(index);
+            playTick();
+            food.remove(index);
+        }
+        // If sugarcane dies, remove and make food
+        if (soybean.dead()) {
+            food.add(soybean.position);
+            playTick();
+            soybeans.erase(soybeans.begin() + i);
+//            sugarcanes.push_back(sugarcane.reproduce());
+        }
+        // check for reproduction
+        if(soybean.shouldReproduce()){
+            playTick();
+            soybeans.push_back(soybean.reproduce());
         }
     }
 }
