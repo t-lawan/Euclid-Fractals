@@ -18,7 +18,7 @@
 //    
 //    // Gene 0 determines maxspeed and r
 //     // The bigger the bloop, the slower it is
-//    maxspeed = ofMap(dna.genes[0], 0, 1, 15, 0);
+//    speed = ofMap(dna.genes[0], 0, 1, 15, 0);
 //    r = ofMap(dna.genes[0], 0, 1, 5, 20);
 //    reproduction_rate = ofMap(dna.genes[0], 0, 1, 0.003, 0.001);
 //}
@@ -43,8 +43,7 @@ int Agent::isOnFood(Food f){
     vector<ofVec2f> food = f.getFood();
     // Are we touching any food objects?
     for (int i = food.size()-1; i >= 0; i--) {
-      ofVec2f foodposition = food[i];
-      float d = position.distance(foodposition);
+      float d = position.distance(food[i]);
       // If we are, juice up our strength!
       if (d <= r) {
         health += 100;
@@ -59,8 +58,8 @@ int Agent::isOnFood(Food f){
 void Agent::update() {
   // Simple movement based on perlin noise
     
-    float vx = ofMap(ofNoise(xoff), 0, 1, -1 * maxspeed, maxspeed);
-    float vy = ofMap(ofNoise(yoff), 0, 1, -1 * maxspeed, maxspeed);
+    float vx = ofMap(ofNoise(xoff), 0, 1, -1 * speed, speed);
+    float vy = ofMap(ofNoise(yoff), 0, 1, -1 * speed, speed);
     ofVec2f velocity = ofVec2f(vx, vy);
     xoff += 0.01;
     yoff += 0.01;
@@ -83,7 +82,7 @@ void Agent::checkBorders() {
 
 void Agent::draw(){
     // draw agents
-    ofSetColor(colour,ofMap(health, 0, 200, 0, 255));
+    ofSetColor(colour,ofMap(health, 0, MAX_HEALTH, 0, 200));
     ofDrawCircle(position.x, position.y, r);
 }
 

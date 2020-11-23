@@ -104,10 +104,10 @@ void Environment::drawPollinators(){
       Pollinator pollinator = pollinators[i];
       pollinator.draw();
         // Check if agent is on food
-      int index = pollinator.polIsOnFood(food);
+      int index = pollinator.isOnFood(food);
         // If agent is on food. Eat then remove the food item
       if(index > -1) {
-          pollinator.polEat(index);
+          pollinator.eat(index);
           food.remove(index);
       }
       // If it's dead, kill it and make food
@@ -117,11 +117,11 @@ void Environment::drawPollinators(){
         pollinators.erase(pollinators.begin() + i);
       }
       // reproduction check2
-        if(pollinator.polShouldReproduce()) {
+        if(pollinator.shouldReproduce()) {
             if (ofRandom(1) < 0.5){
                 germinate(pollinator.position.x, pollinator.position.y);
             } else {
-                pollinators.push_back(pollinator.polReproduce());
+                pollinators.push_back(pollinator.reproduce());
             }
         }
     }

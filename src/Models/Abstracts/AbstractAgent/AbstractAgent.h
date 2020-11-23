@@ -27,6 +27,10 @@ class AbstractAgent {
         float MIN_REPRODUCTION_RATE = 0.001;
         float MAX_REPRODUCTION_RATE = 0.003;
     
+        float r;
+        float MIN_SIZE = 5;
+        float MAX_SIZE = 20;
+    
         ofVec2f position;
         DNA dna;
         ofColor colour = ofColor::orange;

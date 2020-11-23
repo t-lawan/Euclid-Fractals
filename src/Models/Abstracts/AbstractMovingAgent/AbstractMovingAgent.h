@@ -17,11 +17,9 @@ class AbstractMovingAgent : public AbstractAgent {
     public:
         float xoff;       // For perlin noise
         float yoff;
-        float r;
-        float MIN_SIZE = 5;
-        float MAX_SIZE = 20;
+ 
     
-        float maxspeed;
+        float speed;
         float MIN_SPEED = 0.5;
         float MAX_SPEED = 15;
     
@@ -37,7 +35,7 @@ class AbstractMovingAgent : public AbstractAgent {
             
             // Gene 0 determines maxspeed and r
              // The bigger the bloop, the slower it is
-            maxspeed = ofMap(dna.genes[0], 0, 1, MAX_SPEED, MIN_SPEED);
+            speed = ofMap(dna.genes[0], 0, 1, MAX_SPEED, MIN_SPEED);
             r = ofMap(dna.genes[0], 0, 1, MIN_SIZE, MAX_SIZE);
             reproduction_rate = ofMap(dna.genes[0], 0, 1, MAX_REPRODUCTION_RATE, MIN_REPRODUCTION_RATE);
             mutation_rate = ofMap(dna.genes[0], 0, 1, MAX_MUTATION_RATE, MIN_MUTATION_RATE);
