@@ -8,6 +8,7 @@ void ofApp::setup(){
     ofSetBackgroundAuto(true);
     
     environment = Environment(NUMBER_OF_AGENTS);
+    environment.setup();
 }
 
 //--------------------------------------------------------------

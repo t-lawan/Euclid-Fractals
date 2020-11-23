@@ -30,6 +30,7 @@ class Environment {
         Food food;
         Grid grid;
         void spawn(AgentTypeEnum type, float x, float y);
+        void setup();
         void update();
         void draw();
         void drawAgents();
@@ -37,5 +38,7 @@ class Environment {
         void drawPollinators();
         void drawPlantDestroyers();
         void drawSugarcane();
+        void playTick();
+        ofSoundPlayer tick;
 };
 #endif /* Environment_h */

@@ -12,6 +12,7 @@
 #include "AbstractAgent.h"
 #include "Food.h"
 #include "DNA.h"
+#include "Sugarcane.h"
 
 class AbstractMovingAgent : public AbstractAgent {
     public:
@@ -25,6 +26,7 @@ class AbstractMovingAgent : public AbstractAgent {
     
         float minMutationRate;
         float maxMutationRate;
+//        virtual int isOnStaticAgent(Sugarcane sugarcane);
         virtual void eat(Food f) = 0;
         virtual int isOnFood(Food f) = 0;
         virtual void checkBorders() = 0;

@@ -19,8 +19,9 @@ void Grid::setupCells(){
     for(int gridY = 0; gridY < ofGetHeight(); gridY = gridY + stepY) {
         for(int gridX = 0; gridX < ofGetWidth(); gridX = gridX + stepX) {
             Vec2Key coordinates = Vec2Key(gridX, gridY);
-            Cell cell = Cell(gridX, gridY);
+            Cell cell(gridX, gridY);
             cells.insert(make_pair(coordinates,cell));
+//            cout << cells[Vec2Key(0, 400)].rainfall << endl;
         }
     }
     
@@ -33,6 +34,14 @@ Cell Grid::getCell(int x, int y){
     int cellY = floor(y/stepY) * stepY;
     Vec2Key key = Vec2Key(cellX, cellY);
     Cell cell = cells.find(key)->second;
+//    cout << "KEY:" << endl;
+//    cout << " X: " << key.x << " Y: " << key.y << endl;
+//
+//    cout << "KEYS:" << endl;
+//    for (auto const& cel : cells)
+//    {
+//        cout << " X: " << cel.first.x << " Y: " << cel.first.y << endl;
+//    };
     return cell;
     
 }
