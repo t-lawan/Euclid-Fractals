@@ -16,8 +16,17 @@ class AbstractAgent {
     public:
                 // DNA will determine reproductivity_rate, size and maxspeed
         float health;
-        float reproduction_rate;
+        float MIN_HEALTH = 100;
+        float MAX_HEALTH = 200;
+
         float mutation_rate;
+        float MIN_MUTATION_RATE = 0.1;
+        float MAX_MUTATION_RATE = 0.4;
+    
+        float reproduction_rate;
+        float MIN_REPRODUCTION_RATE = 0.001;
+        float MAX_REPRODUCTION_RATE = 0.003;
+    
         ofVec2f position;
         DNA dna;
         ofColor colour = ofColor::orange;
