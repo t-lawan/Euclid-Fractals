@@ -8,6 +8,7 @@ void ofApp::setup(){
     ofSetBackgroundAuto(true);
     
     environment = Environment(NUMBER_OF_AGENTS);
+//    legend = Legend();
     environment.setup();
 }
 
@@ -20,6 +21,7 @@ void ofApp::update(){
 void ofApp::draw(){
 //    environment.update();
     environment.draw();
+    legend.draw();
 //    drawSpiral();
 }
 
@@ -49,10 +51,14 @@ void ofApp::keyPressed(int key){
         environment.spawn(SUGARCANE, ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
     }
     if(key == '3'){
-        environment.spawn(AGENT, ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
+        environment.spawn(PLANT_DESTROYER, ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
     }
     if(key == '4'){
-        environment.spawn(PLANT, ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
+        environment.spawn(SOYBEAN, ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
+    }
+    
+    if(key == 'l'){
+        legend.toggleShow();
     }
 }
 

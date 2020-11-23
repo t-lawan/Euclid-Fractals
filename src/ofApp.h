@@ -7,11 +7,13 @@
 #include "Plant.h"
 #include "Pollinator.h"
 #include "Environment.h"
+#include "Legend.h"
 
 class ofApp : public ofBaseApp{
 
 	public:
         Environment environment = Environment(1);
+        Legend legend = Legend();
         float initialRadius = 0.0;
         float theta = 0.0;
     
