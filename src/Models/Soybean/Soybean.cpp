@@ -65,7 +65,7 @@ int Soybean::isOnFood(Food f){
 }
 
 void Soybean::update() {
-    vitality -= 0.2;
+    vitality -= DETERIORATION_RATE;
     checkBorders();
 }
 

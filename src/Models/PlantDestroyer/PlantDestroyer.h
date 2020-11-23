@@ -24,6 +24,7 @@ class PlantDestroyer : public AbstractMovingAgent {
             MAX_MUTATION_RATE = 0.2;
             MIN_SIZE = 5;
             MAX_SIZE = 20;
+            DETERIORATION_RATE = 0.3;
         };
         void eat(Food f);
         int isOnFood(Food f);

@@ -18,6 +18,7 @@ class AbstractAgent {
         float vitality;
         float MIN_HEALTH = 100;
         float MAX_HEALTH = 200;
+        float DETERIORATION_RATE = 0.2;
 
         float mutation_rate;
         float MIN_MUTATION_RATE = 0.1;

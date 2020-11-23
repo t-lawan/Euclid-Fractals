@@ -26,6 +26,7 @@ class Pollinator : public AbstractMovingAgent {
         MAX_REPRODUCTION_RATE = 0.00015;
         MIN_MUTATION_RATE = 0.1;
         MAX_MUTATION_RATE = 0.2;
+        DETERIORATION_RATE = 0.2;
     };
     void eat(Food f);
     int isOnFood(Food f);

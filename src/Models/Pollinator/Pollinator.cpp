@@ -64,7 +64,7 @@ void Pollinator::update() {
     yoff += 0.01;
     position += velocity;
     // Death always looming
-    vitality -= 0.2;
+    vitality -= DETERIORATION_RATE;
     checkBorders();
     
 }
