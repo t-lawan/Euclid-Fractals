@@ -14,6 +14,7 @@
 #include "Agent.h"
 #include "Grid.h"
 #include "Plant.h"
+#include "PlantDestroyer.h"
 #include "Pollinator.h"
 #include "Sugarcane.h"
 #include "AgentTypeEnum.h"
@@ -25,16 +26,16 @@ class Environment {
         vector<Plant> plants;
         vector<Sugarcane> sugarcanes;
         vector<Pollinator> pollinators;
+        vector<PlantDestroyer> plantDestroyers;
         Food food;
         Grid grid;
-        void born(float x, float y);
-        void germinate(float x, float y);
         void spawn(AgentTypeEnum type, float x, float y);
         void update();
         void draw();
         void drawAgents();
         void drawPlants();
         void drawPollinators();
+        void drawPlantDestroyers();
         void drawSugarcane();
 };
 #endif /* Environment_h */

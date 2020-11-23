@@ -12,25 +12,10 @@ Environment::Environment(int num) : food(num + 1), grid(2, 2) {
         ofVec2f position;
         spawn(SUGARCANE, ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
         spawn(POLLINATOR, ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
-        spawn(AGENT, ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
+//        spawn(AGENT, ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
         spawn(PLANT, ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
+        spawn(PLANT_DESTROYER, ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
     }
-}
-
-void Environment::born(float x, float y){
-    ofVec2f position;
-    position.set(x, y);
-    DNA dna = DNA();
-    Agent agent = Agent(position,dna);
-    agents.push_back(agent);
-}
-
-void Environment::germinate(float x, float y){
-    ofVec2f position;
-    position.set(x, y);
-    DNA dna = DNA();
-    Plant plant = Plant(position, dna);
-    plants.push_back(plant);
 }
 
 void Environment::spawn(AgentTypeEnum type, float x, float y){
@@ -48,14 +33,14 @@ void Environment::spawn(AgentTypeEnum type, float x, float y){
             pollinators.push_back(pollinator);
             break;
         };
-        case AGENT: {
-            Agent agent = Agent(position,dna);
-            agents.push_back(agent);
-            break;
-        };
         case PLANT: {
             Plant plant = Plant(position,dna);
             plants.push_back(plant);
+            break;
+        };
+        case PLANT_DESTROYER: {
+            PlantDestroyer plantDestroyer = PlantDestroyer(position,dna);
+            plantDestroyers.push_back(plantDestroyer);
             break;
         };
         default:
@@ -67,9 +52,6 @@ void Environment::spawn(AgentTypeEnum type, float x, float y){
 
 void Environment::update() {
     food.update();
-      for (int i = 0; i < agents.size(); i++) {
-        agents[i].update();
-      }
       for (int i = 0; i < plants.size(); i++) {
           plants[i].update();
       }
@@ -80,6 +62,10 @@ void Environment::update() {
     for (int i = 0; i < sugarcanes.size(); i++) {
         sugarcanes[i].update();
     }
+    
+    for (int i = 0; i < plantDestroyers.size(); i++) {
+        plantDestroyers[i].update();
+    }
 }
 
 // Run the world
@@ -88,14 +74,14 @@ void Environment::draw() {
     grid.draw();
     // Draw  food
     food.draw();
-    // Draw all agents
-    drawAgents();
     // Draw all plants
     drawPlants();
     // Draw Pollinators
     drawPollinators();
     // Draw sugarcane
     drawSugarcane();
+    // Draw all plant destroyers
+    drawPlantDestroyers();
 }
 
 
@@ -119,7 +105,7 @@ void Environment::drawPollinators(){
       // reproduction check2
         if(pollinator.shouldReproduce()) {
             if (ofRandom(1) < 0.5){
-                germinate(pollinator.position.x, pollinator.position.y);
+                spawn(SUGARCANE ,pollinator.position.x, pollinator.position.y);
             } else {
                 pollinators.push_back(pollinator.reproduce());
             }
@@ -173,27 +159,26 @@ void Environment::drawSugarcane(){
     }
 }
 
-
-void Environment::drawAgents(){
-    for (int i = 0; i < agents.size(); i++) {
-      Agent agent = agents[i];
-      agent.draw();
+void Environment::drawPlantDestroyers(){
+    for (int i = 0; i < plantDestroyers.size(); i++) {
+      PlantDestroyer plantDestroyer = plantDestroyers[i];
+      plantDestroyer.draw();
         // Check if agent is on food
-      int index = agent.isOnFood(food);
+      int index = plantDestroyer.isOnFood(food);
         // If agent is on food. Eat then remove the food item
       if(index > -1) {
-          agent.eat(index);
+          plantDestroyer.eat(index);
           food.remove(index);
       }
       // If it's dead, kill it and make food
-      if (agent.dead()) {
+      if (plantDestroyer.dead()) {
 
-        food.add(agent.position);
-        agents.erase(agents.begin() + i);
+        food.add(plantDestroyer.position);
+        plantDestroyers.erase(plantDestroyers.begin() + i);
       }
       // Perhaps this bloop would like to make a baby?
-        if(agent.shouldReproduce()) {
-            agents.push_back(agent.reproduce());
+        if(plantDestroyer.shouldReproduce()) {
+            plantDestroyers.push_back(plantDestroyer.reproduce());
         }
     }
 }
