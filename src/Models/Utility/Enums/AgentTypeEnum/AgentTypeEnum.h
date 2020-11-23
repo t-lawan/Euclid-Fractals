@@ -12,7 +12,8 @@ enum AgentTypeEnum{
     SUGARCANE,
     POLLINATOR,
     AGENT,
-    PLANT
+    PLANT,
+    PLANT_DESTROYER
 };
 
 #endif /* AgentTypeEnum_h */
