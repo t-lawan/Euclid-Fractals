@@ -8,5 +8,31 @@
 #ifndef Soybean_h
 #define Soybean_h
 
+#include <stdio.h>
+#include "ofMain.h"
+#include "DNA.h"
+#include "Food.h"
+#include "AbstractStaticAgent.h"
+
+class Soybean : public AbstractStaticAgent {
+    public:
+        Soybean(ofVec2f _position, DNA _dna) : AbstractStaticAgent(_position, _dna){
+            colour = ofColor::burlyWood;
+            MIN_REPRODUCTION_RATE = 0.000075;
+            MAX_REPRODUCTION_RATE = 0.00015;
+            MIN_MUTATION_RATE = 0.1;
+            MAX_MUTATION_RATE = 0.2;
+            MIN_SIZE = 10;
+            MAX_SIZE = 20;
+        };
+        void eat(Food f);
+        int isOnFood(Food f);
+        Soybean reproduce();
+        bool shouldReproduce();
+        void update();
+        void checkBorders();
+        void draw();
+        bool dead();
+};
 
 #endif /* Soybean_h */
