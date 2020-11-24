@@ -16,7 +16,6 @@
 
 class AbstractStaticAgent : public AbstractAgent {
     public:
-        float r;
         int north, northEast, east, southEast, south, southWest, west, northWest;
         int direction;
     
@@ -24,13 +23,13 @@ class AbstractStaticAgent : public AbstractAgent {
         virtual int isOnFood(Food f) = 0;
         virtual void checkBorders() = 0;
         AbstractStaticAgent(ofVec2f _position, DNA _dna) : AbstractAgent(_position, _dna) {
-            health = ofRandom(100, 200);
+            vitality = ofRandom(MIN_HEALTH, MAX_HEALTH);
             
             // Gene 0 determines maxspeed and r
              // The bigger the bloop, the slower it is
-            r = ofMap(dna.genes[0], 0, 1, 5, 20);
-            reproduction_rate = ofMap(dna.genes[0], 0, 1, 0.003, 0.001);
-            mutation_rate = ofMap(dna.genes[0], 0, 1, 0.4, 0.1);
+            r = ofMap(dna.genes[0], 0, 1, MIN_SIZE, MAX_SIZE);
+            reproduction_rate = ofMap(dna.genes[0], 0, 1, MAX_REPRODUCTION_RATE, MIN_REPRODUCTION_RATE);
+            mutation_rate = ofMap(dna.genes[0], 0, 1, MAX_MUTATION_RATE, MIN_MUTATION_RATE);
             
             north = 0;
             northEast = 1;

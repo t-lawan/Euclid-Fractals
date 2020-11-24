@@ -12,7 +12,6 @@
 #include "ofMain.h"
 #include "DNA.h"
 #include "Food.h"
-#include "SimulationObject.h"
 #include "AbstractMovingAgent.h"
 
 class Agent : public AbstractMovingAgent {
@@ -23,6 +22,7 @@ class Agent : public AbstractMovingAgent {
         void eat(Food f);
         int isOnFood(Food f);
         Agent reproduce();
+        void setup();
         bool shouldReproduce();
         void update();
         void checkBorders();

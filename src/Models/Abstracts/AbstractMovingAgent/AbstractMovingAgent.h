@@ -12,28 +12,35 @@
 #include "AbstractAgent.h"
 #include "Food.h"
 #include "DNA.h"
+#include "Sugarcane.h"
 
 class AbstractMovingAgent : public AbstractAgent {
     public:
         float xoff;       // For perlin noise
         float yoff;
-        float r;
-        float maxspeed;
+ 
     
+        float speed;
+        float MIN_SPEED = 0.5;
+        float MAX_SPEED = 15;
+    
+        float minMutationRate;
+        float maxMutationRate;
+//        virtual int isOnStaticAgent(Sugarcane sugarcane);
         virtual void eat(Food f) = 0;
         virtual int isOnFood(Food f) = 0;
         virtual void checkBorders() = 0;
         AbstractMovingAgent(ofVec2f _position, DNA _dna) : AbstractAgent(_position, _dna) {
-            health = ofRandom(100, 200);
+            vitality = ofRandom(MIN_HEALTH, MAX_HEALTH);
             xoff = ofRandom(0, 1000);
             yoff = ofRandom(0, 1000);
             
             // Gene 0 determines maxspeed and r
              // The bigger the bloop, the slower it is
-            maxspeed = ofMap(dna.genes[0], 0, 1, 15, 0);
-            r = ofMap(dna.genes[0], 0, 1, 5, 20);
-            reproduction_rate = ofMap(dna.genes[0], 0, 1, 0.003, 0.001);
-            mutation_rate = ofMap(dna.genes[0], 0, 1, 0.4, 0.1);
+            speed = ofMap(dna.genes[0], 0, 1, MAX_SPEED, MIN_SPEED);
+            r = ofMap(dna.genes[0], 0, 1, MIN_SIZE, MAX_SIZE);
+            reproduction_rate = ofMap(dna.genes[0], 0, 1, MAX_REPRODUCTION_RATE, MIN_REPRODUCTION_RATE);
+            mutation_rate = ofMap(dna.genes[0], 0, 1, MAX_MUTATION_RATE, MIN_MUTATION_RATE);
         };
         virtual ~AbstractMovingAgent(){};
 //        virtual AbstractMovingAgent reproduce() = 0;
