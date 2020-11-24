@@ -60,6 +60,11 @@ void ofApp::keyPressed(int key){
     if(key == 'l'){
         legend.toggleShow();
     }
+    
+    if(key == 's'){
+        img.grabScreen(0, 0 , ofGetWidth(), ofGetHeight());
+        img.save("screenshot.png");
+    }
 }
 
 //--------------------------------------------------------------

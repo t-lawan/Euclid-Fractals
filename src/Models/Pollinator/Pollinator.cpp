@@ -53,6 +53,11 @@ int Pollinator::isOnFood(Food f){
     }
 }
 
+void Pollinator::setup(){
+    img.load(IMG_NAME);
+    img.resize(r * 2, r * 2);
+}
+
 
 void Pollinator::update() {
   // Simple movement based on perlin noise
@@ -82,7 +87,8 @@ void Pollinator::checkBorders() {
 void Pollinator::draw(){
     // draw agents
     ofSetColor(colour,ofMap(vitality, 0, MAX_HEALTH, 0, 200));
-    ofDrawCircle(position.x, position.y, r);
+//    ofDrawCircle(position.x, position.y, r);
+    img.draw(position);
 }
 
 bool Pollinator::dead(){

@@ -51,6 +51,23 @@ void Environment::setup(){
     tick.load("tick.mp3");
     tick.setLoop(false);
     tick.setVolume(0.6);
+    
+    for (int i = 0; i < pollinators.size(); i++) {
+        pollinators[i].setup();
+    }
+    
+    for (int i = 0; i < plantDestroyers.size(); i++) {
+        plantDestroyers[i].setup();
+    }
+    
+    for (int i = 0; i < sugarcanes.size(); i++) {
+        sugarcanes[i].setup();
+    }
+    
+    for (int i = 0; i < soybeans.size(); i++) {
+        soybeans[i].setup();
+    }
+    
 }
 
 void Environment::playTick(){
