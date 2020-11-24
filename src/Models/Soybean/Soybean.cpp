@@ -41,7 +41,7 @@ Soybean Soybean::reproduce(){
         position.x = position.x - r;
     }
     
-    return  Soybean(position, childDNA);
+    return Soybean(position, childDNA);
 }
 
 bool Soybean::shouldReproduce(){
@@ -81,7 +81,13 @@ void Soybean::checkBorders() {
 void Soybean::draw(){
     // draw plants
     ofSetColor(colour, ofMap(vitality, 0, MAX_HEALTH, 0, 200));
-    ofDrawCircle(position.x, position.y, r);
+//    ofDrawCircle(position.x, position.y, r);
+    img.draw(position);
+}
+
+void Soybean::setup(){
+    img.load(IMG_NAME);
+    img.resize(r * 2, r * 2);
 }
 
 bool Soybean::dead(){

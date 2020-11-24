@@ -55,6 +55,11 @@ void PlantDestroyer::update() {
     
 }
 
+void PlantDestroyer::setup(){
+    img.load(IMG_NAME);
+    img.resize(r * 2, r * 2);
+}
+
 // Wraparound
 void PlantDestroyer::checkBorders() {
     float width = ofGetWidth();
@@ -68,7 +73,8 @@ void PlantDestroyer::checkBorders() {
 void PlantDestroyer::draw(){
     // draw agents
     ofSetColor(colour,ofMap(vitality, 0, MAX_HEALTH, 0, 200));
-    ofDrawCircle(position.x, position.y, r);
+//    ofDrawCircle(position.x, position.y, r);
+    img.draw(position);
 }
 
 bool PlantDestroyer::dead(){

@@ -42,7 +42,7 @@ Sugarcane Sugarcane::reproduce(){
         position.x = position.x - r;
     }
     
-    return  Sugarcane(position, childDNA);
+    return Sugarcane(position, childDNA);
 }
 
 bool Sugarcane::shouldReproduce(){
@@ -82,7 +82,13 @@ void Sugarcane::checkBorders() {
 void Sugarcane::draw(){
     // draw plants
     ofSetColor(colour, ofMap(vitality, 0, MAX_HEALTH, 0, 200));
-    ofDrawCircle(position.x, position.y, r);
+//    ofDrawCircle(position.x, position.y, r);
+    img.draw(position);
+}
+
+void Sugarcane::setup(){
+    img.load(IMG_NAME);
+    img.resize(r * 2, r * 2);
 }
 
 bool Sugarcane::dead(){

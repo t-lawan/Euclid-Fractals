@@ -19,12 +19,13 @@ class Sugarcane : public AbstractStaticAgent {
         Sugarcane(ofVec2f _position, DNA _dna) : AbstractStaticAgent(_position, _dna){
             colour = ofColor::yellow;
             MIN_REPRODUCTION_RATE = 0.00005;
-            MAX_REPRODUCTION_RATE = 0.0001;
+            MAX_REPRODUCTION_RATE = 0.0002;
             MIN_MUTATION_RATE = 0.1;
             MAX_MUTATION_RATE = 0.2;
             MIN_SIZE = 10;
             MAX_SIZE = 20;
             DETERIORATION_RATE = 0.2;
+            IMG_NAME = "wheat.png";
         };
         void eat(Food f);
         int isOnFood(Food f);
@@ -34,5 +35,6 @@ class Sugarcane : public AbstractStaticAgent {
         void checkBorders();
         void draw();
         bool dead();
+        void setup();
 };
 #endif /* Sugarcane_h */

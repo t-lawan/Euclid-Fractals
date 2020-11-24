@@ -22,6 +22,7 @@ class Agent : public AbstractMovingAgent {
         void eat(Food f);
         int isOnFood(Food f);
         Agent reproduce();
+        void setup();
         bool shouldReproduce();
         void update();
         void checkBorders();
