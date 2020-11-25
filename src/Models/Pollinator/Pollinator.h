@@ -23,9 +23,11 @@ class Pollinator : public AbstractMovingAgent {
         MAX_SIZE = 15;
         r = MAX_SIZE;
         MIN_REPRODUCTION_RATE = 0.0001;
-        MAX_REPRODUCTION_RATE = 0.0003;
+        MAX_REPRODUCTION_RATE = 0.0005;
         MIN_MUTATION_RATE = 0.1;
         MAX_MUTATION_RATE = 0.2;
+        MIN_SPEED = 5;
+        MAX_SPEED = 15;
         DETERIORATION_RATE = 0.2;
         IMG_NAME = "fairy.png";
         setup();

@@ -24,6 +24,7 @@ class Environment {
     public:
         Environment(int num);
         bool isTest;
+        int population = 0;
         vector<Agent> agents;
         vector<Sugarcane> sugarcanes;
         vector<Soybean> soybeans;
@@ -35,6 +36,8 @@ class Environment {
         void setup();
         void update();
         void draw();
+        void agentBorn();
+        void agentDead();
     
         void updatePollinators();
         void drawPollinators();
