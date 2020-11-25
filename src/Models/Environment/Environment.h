@@ -23,6 +23,8 @@
 class Environment {
     public:
         Environment(int num);
+        bool isTest;
+        vector<Agent> agents;
         vector<Sugarcane> sugarcanes;
         vector<Soybean> soybeans;
         vector<Pollinator> pollinators;
@@ -33,10 +35,22 @@ class Environment {
         void setup();
         void update();
         void draw();
+    
+        void updatePollinators();
         void drawPollinators();
+    
+        void updatePlantDestroyers();
         void drawPlantDestroyers();
+    
+        void updateSugarcane();
         void drawSugarcane();
+    
+        void updateSoybeans();
         void drawSoybeans();
+    
+        void updateAgents();
+        void drawAgents();
+        
         void playTick();
         ofSoundPlayer tick;
 };

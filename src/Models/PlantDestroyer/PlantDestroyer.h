@@ -22,10 +22,11 @@ class PlantDestroyer : public AbstractMovingAgent {
             MAX_REPRODUCTION_RATE = 0.0002;
             MIN_MUTATION_RATE = 0.1;
             MAX_MUTATION_RATE = 0.2;
-            MIN_SIZE = 5;
+            MIN_SIZE = 10;
             MAX_SIZE = 20;
             DETERIORATION_RATE = 0.3;
             IMG_NAME = "virus.png";
+            setup();
         };
         void eat(Food f);
         int isOnFood(Food f);

@@ -28,7 +28,7 @@ void Food::update(){
     if (ofRandom(1) < 0.001) {
         ofVec2f vector;
         vector.set(ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
-       
+
         food.push_back(vector);
     }
 }
@@ -43,7 +43,6 @@ void Food::draw(){
             ofDrawRectangle(vector.x, vector.y, 10, 10);
         }
     }
-
 }
 
 vector<ofVec2f> Food::getFood(){

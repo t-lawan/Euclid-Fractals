@@ -19,7 +19,7 @@ class Pollinator : public AbstractMovingAgent {
    public:    
     Pollinator(ofVec2f _position, DNA _dna) : AbstractMovingAgent(_position, _dna) {
         colour = ofColor(256, 165, 0);
-        MIN_SIZE = 5;
+        MIN_SIZE = 10;
         MAX_SIZE = 20;
         r = MAX_SIZE;
         MIN_REPRODUCTION_RATE = 0.000075;
@@ -28,6 +28,7 @@ class Pollinator : public AbstractMovingAgent {
         MAX_MUTATION_RATE = 0.2;
         DETERIORATION_RATE = 0.2;
         IMG_NAME = "fairy.png";
+        setup();
     };
     void eat(Food f);
     int isOnFood(Food f);
