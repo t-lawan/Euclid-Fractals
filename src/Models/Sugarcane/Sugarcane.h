@@ -22,10 +22,11 @@ class Sugarcane : public AbstractStaticAgent {
             MAX_REPRODUCTION_RATE = 0.0002;
             MIN_MUTATION_RATE = 0.1;
             MAX_MUTATION_RATE = 0.2;
-            MIN_SIZE = 10;
-            MAX_SIZE = 20;
+            MIN_SIZE = 20;
+            MAX_SIZE = 30;
             DETERIORATION_RATE = 0.2;
             IMG_NAME = "wheat.png";
+            setup();
         };
         void eat(Food f);
         int isOnFood(Food f);

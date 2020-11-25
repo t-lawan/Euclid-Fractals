@@ -41,19 +41,22 @@ bool Agent::shouldReproduce(){
 
 int Agent::isOnFood(Food f){
     vector<ofVec2f> food = f.getFood();
-    // Are we touching any food objects?
-    for (int i = food.size()-1; i >= 0; i--) {
+    // Are we touching any food objects?s
+    for (int i = 0; i < food.size(); i++) {
       float d = position.distance(food[i]);
       // If we are, juice up our strength!
       if (d <= r) {
         vitality += 100;
         return i;
-      } else {
-          return -1;
       }
     }
+    return -1;
 }
 
+void Agent::setup(){
+    img.load(IMG_NAME);
+    img.resize(r * 2, r * 2);
+}
 
 void Agent::update() {
   // Simple movement based on perlin noise
@@ -65,7 +68,7 @@ void Agent::update() {
     yoff += 0.01;
     position += velocity;
     // Death always looming
-    vitality -= 0.2;
+//    vitality -= DETERIORATION_RATE;
     checkBorders();
     
 }

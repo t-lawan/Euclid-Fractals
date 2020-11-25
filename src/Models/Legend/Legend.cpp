@@ -9,6 +9,21 @@
 
 Legend::Legend(){
     show = false;
+    int size = 10;
+    plantDestroyerImg.load("virus.png");
+    plantDestroyerImg.resize(size, size);
+    
+    soybeanImg.load("flower.png");
+    soybeanImg.resize(size, size);
+    
+    sugarcaneImg.load("wheat.png");
+    sugarcaneImg.resize(size, size);
+    
+    pollinatorImg.load("fairy.png");
+    pollinatorImg.resize(size, size);
+    
+    foodImg.load("taco.png");
+    foodImg.resize(size, size);
 }
 
 void Legend::draw(){
@@ -16,6 +31,9 @@ void Legend::draw(){
         drawBackground();
         drawIcons();
     }
+};
+void Legend::update(int _population){
+    population = _population;
 };
 
 void Legend::drawBackground(){
@@ -33,33 +51,37 @@ void Legend::drawIcons(){
     // Plant Destroyer
     ofTranslate((2 * ofGetWidth()/3) + margin, (2 * ofGetHeight()/3) + margin);
     ofSetColor(ofColor::red);
-    ofDrawCircle(0, 0, 5);
-    ofDrawBitmapString("plant destroyer", spacing, 2.5);
+    plantDestroyerImg.draw(0,0);
+    ofDrawBitmapString("plant destroyer", spacing, 0);
     
     // Soybean
     ofTranslate(0, spacing);
     ofSetColor(ofColor::burlyWood);
-    ofDrawCircle(0, 0, 5);
-    ofDrawBitmapString("soybean", spacing, 2.5);
+    soybeanImg.draw(0, 0);
+    ofDrawBitmapString("soybean", spacing, 0);
     
     // Sugarcane
     ofTranslate(0, spacing);
     ofSetColor(ofColor::yellow);
-    ofDrawCircle(0, 0, 5);
-    ofDrawBitmapString("sugarcane", spacing, 2.5);
+    sugarcaneImg.draw(0, 0);
+    ofDrawBitmapString("sugarcane", spacing,0);
     
     // Pollinator
     ofTranslate(0, spacing);
     ofSetColor(ofColor(256, 165, 0));
-    ofDrawCircle(0, 0, 5);
-    ofDrawBitmapString("pollinator", spacing, 2.5);
+    pollinatorImg.draw(0, 0);
+    ofDrawBitmapString("pollinator", spacing, 0);
     
     // Food
     ofTranslate(0, spacing);
     ofSetColor(ofColor::orange);
-    ofDrawRectangle(0, 0, 10, 10);
+    foodImg.draw(0, 0);
     ofDrawBitmapString("food", spacing, 5);
     
+    // Population
+    ofTranslate(0, spacing);
+    ofSetColor(ofColor::black);
+    ofDrawBitmapString("population: " + to_string(population), spacing, 5);
     ofPopMatrix();
 };
 

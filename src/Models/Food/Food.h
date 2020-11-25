@@ -15,11 +15,13 @@
 class Food : public SimulationObject {
     public:
         vector<ofVec2f> food;
-
+        string IMG_NAME = "taco.png";
+        ofImage img;
         Food(int num);
         void add(ofVec2f position);
         void remove(int index);
         void draw();
+        void setup();
         void update();
         vector<ofVec2f> getFood();
 };

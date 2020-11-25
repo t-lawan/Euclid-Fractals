@@ -51,18 +51,16 @@ bool Sugarcane::shouldReproduce(){
 
 int Sugarcane::isOnFood(Food f){
     vector<ofVec2f> food = f.getFood();
-    // Is plant on food?
-    for (int i = food.size()-1; i >= 0; i--){
-        ofVec2f foodposition = food[i];
-        float d = position.distance(foodposition);
-        // if so increase starting vitality
-        if (d < r) {
-            vitality += 100;
-            return i;
-        } else {
-            return -1;
-        }
+    // Are we touching any food objects?s
+    for (int i = 0; i < food.size(); i++) {
+      float d = position.distance(food[i]);
+      // If we are, juice up our strength!
+      if (d <= r) {
+        vitality += 100;
+        return i;
+      }
     }
+    return -1;
 }
 
 void Sugarcane::update() {
