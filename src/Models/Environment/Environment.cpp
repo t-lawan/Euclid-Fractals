@@ -242,13 +242,28 @@ void Environment::drawPlantDestroyers(){
     for (int i = 0; i < plantDestroyers.size(); i++) {
       PlantDestroyer plantDestroyer = plantDestroyers[i];
       plantDestroyer.draw();
-        // Check if agent is on food
+        
+      // Check if agent is on food and remove if index > -1
       int index = plantDestroyer.isOnFood(food);
-        // If agent is on food. Eat then remove the food item
       if(index > -1) {
 //          playTick();
           food.remove(index);
       }
+
+      // Check if agent is on food and remove if index > -1
+      index = plantDestroyer.isOnSoybeans(soybeans);
+      if(index > -1) {
+        //          playTick();
+          soybeans.erase(soybeans.begin() + index);
+      }
+        
+      index = plantDestroyer.isOnSugarCanes(sugarcanes);
+        if(index > -1) {
+          //          playTick();
+            sugarcanes.erase(sugarcanes.begin() + index);
+        }
+        
+    
       // If it's dead, kill it and make food
       if (plantDestroyer.dead()) {
 //          playTick();

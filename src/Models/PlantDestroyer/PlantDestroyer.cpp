@@ -38,6 +38,32 @@ int PlantDestroyer::isOnFood(Food f){
     return -1;
 }
 
+int PlantDestroyer::isOnSugarCanes(vector<Sugarcane> sugarcanes){
+    // Are we touching any food objects?s
+    for (int i = 0; i < sugarcanes.size(); i++) {
+      float d = position.distance(sugarcanes[i].position);
+      // If we are, juice up our strength!
+      if (d <= r) {
+        vitality += 10;
+        return i;
+      }
+    }
+    return -1;
+}
+
+int PlantDestroyer::isOnSoybeans(vector<Soybean> soybeans){
+    // Are we touching any food objects?s
+    for (int i = 0; i < soybeans.size(); i++) {
+      float d = position.distance(soybeans[i].position);
+      // If we are, juice up our strength!
+      if (d <= r) {
+        vitality += 10;
+        return i;
+      }
+    }
+    return -1;
+}
+
 
 void PlantDestroyer::update() {
   // Simple movement based on perlin noise

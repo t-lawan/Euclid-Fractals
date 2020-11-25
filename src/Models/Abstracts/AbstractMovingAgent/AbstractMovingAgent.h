@@ -13,6 +13,7 @@
 #include "Food.h"
 #include "DNA.h"
 #include "Sugarcane.h"
+#include "Soybean.h"
 
 class AbstractMovingAgent : public AbstractAgent {
     public:

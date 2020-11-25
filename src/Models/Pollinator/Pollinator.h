@@ -20,10 +20,10 @@ class Pollinator : public AbstractMovingAgent {
     Pollinator(ofVec2f _position, DNA _dna) : AbstractMovingAgent(_position, _dna) {
         colour = ofColor(256, 165, 0);
         MIN_SIZE = 10;
-        MAX_SIZE = 20;
+        MAX_SIZE = 15;
         r = MAX_SIZE;
         MIN_REPRODUCTION_RATE = 0.000075;
-        MAX_REPRODUCTION_RATE = 0.00015;
+        MAX_REPRODUCTION_RATE = 0.0003;
         MIN_MUTATION_RATE = 0.1;
         MAX_MUTATION_RATE = 0.2;
         DETERIORATION_RATE = 0.2;
@@ -32,6 +32,8 @@ class Pollinator : public AbstractMovingAgent {
     };
     void eat(Food f);
     int isOnFood(Food f);
+    int isOnSugarCanes(vector<Sugarcane> sugarcanes);
+    int isOnSoybeans(vector<Soybean> soybeans);
     Pollinator reproduce();
     bool shouldReproduce();
     void setup();
