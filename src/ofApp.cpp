@@ -1,6 +1,6 @@
 #include "ofApp.h"
 const float EULERS_NUMBER = 1.618282;
-const int NUMBER_OF_AGENTS = 2;
+const int NUMBER_OF_AGENTS = 4;
 //--------------------------------------------------------------
 void ofApp::setup(){
     ofBackground(255);
