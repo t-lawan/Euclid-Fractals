@@ -15,8 +15,17 @@ class Cell {
     public:
         int x;
         int y;
+    
+        int numOfPlants;
+
         bool hasFungus;
+        float capital;
         float rainfall;
-        Cell(int _x,  int _y);
+        Cell(int _x = 0,  int _y = 0);
+        bool isWithinBounds(ofVec2f position, int width, int height);
+    
+    protected:
+        int MIN_CAPITAL = 0;
+        int MAX_CAPITAL = 100;
 };
 #endif /* Cell_h */
