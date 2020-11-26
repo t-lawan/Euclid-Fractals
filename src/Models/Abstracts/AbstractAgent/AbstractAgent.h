@@ -47,6 +47,7 @@ class AbstractAgent {
         virtual void draw() = 0;
         virtual bool dead() = 0;
         virtual void setup() = 0;
+        virtual void accelerate() = 0;
     
 };
 
