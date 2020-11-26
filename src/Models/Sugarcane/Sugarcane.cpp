@@ -67,6 +67,9 @@ void Sugarcane::update() {
     vitality -= DETERIORATION_RATE;
     checkBorders();
 }
+void Sugarcane::accelerate(){
+    
+}
 
 void Sugarcane::checkBorders() {
     float width = ofGetWidth();

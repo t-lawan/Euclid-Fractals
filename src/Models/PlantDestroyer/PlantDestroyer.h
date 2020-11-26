@@ -42,6 +42,7 @@ class PlantDestroyer : public AbstractMovingAgent {
         void draw();
         bool dead();
         void setup();
+        void accelerate();
 };
 
 

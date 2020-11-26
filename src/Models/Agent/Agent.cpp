@@ -39,6 +39,10 @@ bool Agent::shouldReproduce(){
     return ofRandom(0, 1) < reproduction_rate;
 }
 
+void Agent::accelerate(){
+    
+}
+
 int Agent::isOnFood(Food f){
     vector<ofVec2f> food = f.getFood();
     // Are we touching any food objects?s

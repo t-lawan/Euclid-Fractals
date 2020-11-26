@@ -52,6 +52,9 @@ int Pollinator::isOnFood(Food f){
     return -1;
 }
 
+void Pollinator::accelerate(){
+    
+}
 
 void Pollinator::setup(){
     img.load(IMG_NAME);

@@ -37,5 +37,7 @@ class Agent : public AbstractMovingAgent {
         void checkBorders();
         void draw();
         bool dead();
+
+        void accelerate();
 };
 #endif /* Agent_hpp */

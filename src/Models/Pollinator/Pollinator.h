@@ -43,5 +43,7 @@ class Pollinator : public AbstractMovingAgent {
     void checkBorders();
     void draw();
     bool dead();
+
+    void accelerate();
 };
 #endif /* Pollinator_hpp */
