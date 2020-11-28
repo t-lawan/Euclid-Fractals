@@ -24,6 +24,7 @@ void ofApp::draw(){
     environment.draw();
 //    drawSpiral();
     legend.draw();
+    controls.draw();
 }
 
 void ofApp::drawSpiral(){
@@ -75,9 +76,15 @@ void ofApp::keyPressed(int key){
         environment.spawn(SOYBEAN, coordinates.x, coordinates.y);
     }
     
+    if(key == 'c'){
+        controls.toggleShow();
+    }
+    
     if(key == 'l'){
         legend.toggleShow();
     }
+    
+    
     
     if(key == 's'){
         img.grabScreen(0, 0 , ofGetWidth(), ofGetHeight());
