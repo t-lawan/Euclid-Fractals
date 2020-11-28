@@ -10,6 +10,8 @@
 Cell::Cell(int _x,  int _y){
     x = _x;
     y = _y;
+    numOfPlants = 0;
+    hasFungus = false;
     // Set Rainfall between 0 and 255
     rainfall = ofRandom(0, 50);
     capital = ofRandom(MIN_CAPITAL, MAX_CAPITAL);

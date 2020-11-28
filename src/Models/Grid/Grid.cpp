@@ -52,13 +52,48 @@ void Grid::update(vector<Sugarcane> _sugarcanes,  vector<Soybean> _soybeans) {
         }
     }
     
-//    for (auto const& cel : cells)
-//    {
-//        if(cel.second.)
-//    };
-    
+    setMaxNumberOfPlants();
+    vector<Cell> cellsWithHighNumberOfPlants = findCellsWithHighNumberOfPlants();
+    acceleratePlantsOnCells(cellsWithHighNumberOfPlants, _sugarcanes, _soybeans);
     
 };
+
+vector<Cell> Grid::findCellsWithHighNumberOfPlants(){
+    vector<Cell> cellsWithHighNumberOfPlants;
+    for (auto const& cell : cells)
+    {
+        if((maxNumberOfPlantsOnCell > 0) && (cell.second.numOfPlants >= (0.7 * maxNumberOfPlantsOnCell)))
+        {
+            cellsWithHighNumberOfPlants.push_back(cell.second);
+        }
+    };
+    
+    return cellsWithHighNumberOfPlants;
+}
+
+void Grid::acceleratePlantsOnCells(
+                                   vector<Cell> cellsWithHighNumberOfPlants,
+                                   vector<Sugarcane> _sugarcanes,
+                                   vector<Soybean> _soybeans){
+    if(maxNumberOfPlantsOnCell > plantThreshold) {
+        for (auto cell : cellsWithHighNumberOfPlants)
+        {
+            for (auto sugarcane : _sugarcanes)
+            {
+                if(cell.isWithinBounds(sugarcane.position, stepX, stepY)){
+                        sugarcane.accelerate();
+                    }
+            };
+            
+            for (auto soybean : _soybeans)
+            {
+                if(cell.isWithinBounds(soybean.position, stepX, stepY)){
+                        soybean.accelerate();
+                    }
+            };
+        };
+    }
+}
 
 Cell Grid::checkIfPlantsAreOnCell(Cell cell,
                                   vector<Sugarcane> _sugarcanes,
@@ -85,7 +120,7 @@ Cell Grid::checkIfPlantsAreOnCell(Cell cell,
 }
 
 
-void Grid::getMaxNumberOfPlants() {
+void Grid::setMaxNumberOfPlants() {
     int maxNumOfPlants = 0;
     for (auto const& cel : cells)
     {
@@ -114,8 +149,13 @@ void Grid::draw(){
             // Draw Blue Box To Show Capital amount
             ofFill();
             Cell cell = getCell(gridX, gridY);
-            ofSetColor(255, 0, 0, cell.capital);
+            ofSetColor(0, 255, 0, cell.capital);
             ofDrawRectangle(0, 0, stepX, stepY);
+       
+            
+            // Draw Number Of Plants Value
+            ofSetColor(0);
+            ofDrawBitmapString("Plant Number: " + to_string(cell.numOfPlants), stepX * 0.1, stepY * 0.9);
             ofPopMatrix();
         }
     }

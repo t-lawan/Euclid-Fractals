@@ -19,6 +19,7 @@ class Grid {
     public:
         int numX = 50;
         int numY = 50;
+        int plantThreshold = 10;
         int stepX;
         int stepY;
         int maxNumberOfPlantsOnCell = 0;
@@ -27,11 +28,17 @@ class Grid {
         void update(vector<Sugarcane> _sugarcanes,  vector<Soybean> _soybeans);
         void setupCells();
         Cell getCell(int x, int y);
-        void getMaxNumberOfPlants();
+        void setMaxNumberOfPlants();
     
         Cell checkIfPlantsAreOnCell(Cell cell,
                                     vector<Sugarcane> _sugarcanes,
                                     vector<Soybean> _soybeans);
+        vector<Cell> findCellsWithHighNumberOfPlants();
+        void acceleratePlantsOnCells(
+                                     vector<Cell> cellsWithHighNumberOfPlants,
+                                     vector<Sugarcane> _sugarcanes,
+        
+                                     vector<Soybean> _soybeans);
         void updateCell(int x, int y, Cell newCell);
         map<Vec2Key, Cell> cells;
 };

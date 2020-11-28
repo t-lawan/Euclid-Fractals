@@ -94,7 +94,7 @@ void Environment::update() {
 // Run the world
 void Environment::draw() {
     // Draw grid
-//    grid.draw();
+    grid.draw();
     // Draw  food
     food.draw();
     if(isTest) {
