@@ -48,7 +48,12 @@ bool Soybean::shouldReproduce(){
     return ofRandom(0, 1) < reproduction_rate;
 }
 void Soybean::accelerate(){
-    
+    if(ofRandom(0,1) < ACCELERATION_RATE){
+        reproduction_rate += 0.0001;
+        DETERIORATION_RATE += 0.01;
+        dna.mutate(mutation_rate);
+        cout << "SOYBEAN ACCELERATE" << endl;
+    }
 }
 int Soybean::isOnFood(Food f){
     vector<ofVec2f> food = f.getFood();
