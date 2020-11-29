@@ -33,17 +33,6 @@ class Grid {
         void update(vector<Sugarcane> _sugarcanes,  vector<Soybean> _soybeans);
         void setupCells();
         Cell getCell(int x, int y);
-        void setMaxNumberOfPlants();
-    
-        Cell checkIfPlantsAreOnCell(Cell cell,
-                                    vector<Sugarcane> _sugarcanes,
-                                    vector<Soybean> _soybeans);
-        vector<Cell> findCellsWithHighNumberOfPlants();
-        void acceleratePlantsOnCells(
-                                     vector<Cell> cellsWithHighNumberOfPlants,
-                                     vector<Sugarcane> _sugarcanes,
-        
-                                     vector<Soybean> _soybeans);
         void updateCell(int x, int y, Cell newCell);
 
 };

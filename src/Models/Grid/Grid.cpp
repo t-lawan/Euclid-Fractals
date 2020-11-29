@@ -28,20 +28,6 @@ void Grid::setupCells(){
     }
 }
 
-Cell Grid::getCell(int x, int y){
-    int cellX = floor(x/ stepX) * stepX;
-    int cellY = floor(y/stepY) * stepY;
-    Vec2Key key = Vec2Key(cellX, cellY);
-    return cells[key];
-}
-
-void Grid::updateCell(int x, int y, Cell newCell) {
-    Vec2Key key(x, y);
-    cells[key] = newCell;
-}
-
-
-
 void Grid::update(vector<Sugarcane> _sugarcanes,  vector<Soybean> _soybeans) {
     // Update Max Number Of Plants variable in Cell
     for(int gridY = 0; gridY < ofGetHeight(); gridY = gridY + stepY) {
@@ -55,91 +41,6 @@ void Grid::update(vector<Sugarcane> _sugarcanes,  vector<Soybean> _soybeans) {
     vector<Cell> cellVector = convertCellsMapToVector();
     capital.update(cellVector, _sugarcanes, _soybeans);
 };
-
-vector<Cell> Grid::convertCellsMapToVector(){
-    vector<Cell> cellVector;
-    for (auto cell : cells)
-    {
-        cellVector.push_back(cell.second);
-    };
-    
-    return cellVector;
-}
-
-vector<Cell> Grid::findCellsWithHighNumberOfPlants(){
-    vector<Cell> cellsWithHighNumberOfPlants;
-    for (auto const& cell : cells)
-    {
-        if((maxNumberOfPlantsOnCell > 0) && (cell.second.numOfPlants >= (0.7 * maxNumberOfPlantsOnCell)))
-        {
-            cellsWithHighNumberOfPlants.push_back(cell.second);
-        }
-    };
-    
-    return cellsWithHighNumberOfPlants;
-}
-
-void Grid::acceleratePlantsOnCells(
-                                   vector<Cell> cellsWithHighNumberOfPlants,
-                                   vector<Sugarcane> _sugarcanes,
-                                   vector<Soybean> _soybeans){
-    if(maxNumberOfPlantsOnCell > plantThreshold) {
-        for (auto cell : cellsWithHighNumberOfPlants)
-        {
-            for (auto sugarcane : _sugarcanes)
-            {
-                if(cell.isWithinBounds(sugarcane.position)){
-                        sugarcane.accelerate();
-                    }
-            };
-            
-            for (auto soybean : _soybeans)
-            {
-                if(cell.isWithinBounds(soybean.position)){
-                        soybean.accelerate();
-                    }
-            };
-        };
-    }
-}
-
-Cell Grid::checkIfPlantsAreOnCell(Cell cell,
-                                  vector<Sugarcane> _sugarcanes,
-                                  vector<Soybean> _soybeans){
-    cell.numOfPlants = 0;
-    
-    // Check if sugarcane is on cell
-    for (auto sugarcane : _sugarcanes)
-    {
-        if(cell.isWithinBounds(sugarcane.position)){
-            cell.numOfPlants++;
-        }
-    };
-    
-    // Check if soybean is on cell
-    for (auto soybean : _soybeans)
-    {
-        if(cell.isWithinBounds(soybean.position)){
-            cell.numOfPlants++;
-        }
-    };
-    
-    return cell;
-}
-
-
-void Grid::setMaxNumberOfPlants() {
-    int maxNumOfPlants = 0;
-    for (auto const& cel : cells)
-    {
-        if(cel.second.numOfPlants >= maxNumOfPlants){
-            maxNumOfPlants = cel.second.numOfPlants;
-        }
-    };
-    
-    maxNumberOfPlantsOnCell = maxNumOfPlants;
-}
-
 
 
 void Grid::draw(){
@@ -167,5 +68,28 @@ void Grid::draw(){
             ofPopMatrix();
         }
     }
+}
+
+Cell Grid::getCell(int x, int y){
+    int cellX = floor(x/ stepX) * stepX;
+    int cellY = floor(y/stepY) * stepY;
+    Vec2Key key = Vec2Key(cellX, cellY);
+    return cells[key];
+}
+
+void Grid::updateCell(int x, int y, Cell newCell) {
+    Vec2Key key(x, y);
+    cells[key] = newCell;
+}
+
+
+vector<Cell> Grid::convertCellsMapToVector(){
+    vector<Cell> cellVector;
+    for (auto cell : cells)
+    {
+        cellVector.push_back(cell.second);
+    };
+    
+    return cellVector;
 }
 
