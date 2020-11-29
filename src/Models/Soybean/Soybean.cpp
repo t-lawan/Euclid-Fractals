@@ -52,7 +52,6 @@ void Soybean::accelerate(){
         reproduction_rate += 0.0001;
         DETERIORATION_RATE += 0.01;
         dna.mutate(mutation_rate);
-        cout << "SOYBEAN ACCELERATE" << endl;
     }
 }
 int Soybean::isOnFood(Food f){

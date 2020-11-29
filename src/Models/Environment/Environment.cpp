@@ -118,6 +118,7 @@ void Environment::agentBorn(){
 
 void Environment::agentDead(){
     population--;
+    numberOfDead++;
 }
 
 

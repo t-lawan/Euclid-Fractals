@@ -25,8 +25,6 @@ void Grid::setupCells(){
             if(cells.count(coordinates) < 1){
                 cells.insert(make_pair(coordinates,cell));
             }
-            
-//            cout << cells[Vec2Key(0, 400)].rainfall << endl;
         }
     }
 }

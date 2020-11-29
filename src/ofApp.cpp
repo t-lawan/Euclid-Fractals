@@ -15,7 +15,7 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
     environment.update();
-    legend.update(environment.population);
+    legend.update(environment.population, environment.numberOfDead);
 }
 
 //--------------------------------------------------------------
