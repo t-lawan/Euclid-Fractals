@@ -12,6 +12,7 @@ Grid::Grid(int _numX, int _numY){
     numY = _numY;
     stepX = ofGetWidth()/numX;
     stepY = ofGetHeight()/numY;
+
     setupCells();
 }
 
@@ -22,6 +23,7 @@ void Grid::setupCells(){
             Cell cell(gridX, gridY, stepX, stepY);
 
             if(cells.count(coordinates) < 1){
+//                cells[coordinates] = cell;
                 cells.insert(make_pair(coordinates,cell));
             }
         }
@@ -29,15 +31,7 @@ void Grid::setupCells(){
 }
 
 void Grid::update(vector<Sugarcane> _sugarcanes,  vector<Soybean> _soybeans) {
-    // Update Max Number Of Plants variable in Cell
-    for(int gridY = 0; gridY < ofGetHeight(); gridY = gridY + stepY) {
-        for(int gridX = 0; gridX < ofGetWidth(); gridX = gridX + stepX) {
-            Cell cell = getCell(gridX, gridY);
-            cell.checkIfPlantsAreInCurrent(_sugarcanes, _soybeans);
-            updateCell(gridX, gridY, cell);
-        }
-    }
-    
+    updateCells(_sugarcanes, _soybeans);
     vector<Cell> cellVector = convertCellsMapToVector();
     capital.update(cellVector, _sugarcanes, _soybeans);
 };
@@ -74,7 +68,19 @@ Cell Grid::getCell(int x, int y){
     int cellX = floor(x/ stepX) * stepX;
     int cellY = floor(y/stepY) * stepY;
     Vec2Key key = Vec2Key(cellX, cellY);
-    return cells[key];
+    Cell cell = cells[key];
+    return cell;
+}
+
+void Grid::updateCells(vector<Sugarcane> _sugarcanes,  vector<Soybean> _soybeans){
+    // Update Max Number Of Plants variable in Cell
+    for(int gridY = 0; gridY < ofGetHeight(); gridY = gridY + stepY) {
+        for(int gridX = 0; gridX < ofGetWidth(); gridX = gridX + stepX) {
+            Cell cell = getCell(gridX, gridY);
+            cell.checkIfPlantsAreInCurrent(_sugarcanes, _soybeans);
+            updateCell(gridX, gridY, cell);
+        }
+    }
 }
 
 void Grid::updateCell(int x, int y, Cell newCell) {

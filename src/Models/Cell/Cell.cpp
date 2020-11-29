@@ -11,7 +11,7 @@ Cell::Cell(int _x,  int _y, int _width, int _height){
     x = _x;
     y = _y;
     width = _width;
-    height = _width;
+    height = _height;
     numOfPlants = 0;
     hasFungus = false;
     // Set Rainfall between 0 and 255

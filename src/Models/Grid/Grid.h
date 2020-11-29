@@ -25,12 +25,14 @@ class Grid {
         int stepY;
         int maxNumberOfPlantsOnCell = 0;
         Capital capital;
+    
         map<Vec2Key, Cell> cells;
         Grid(int _numX, int _numY);
     
         vector<Cell> convertCellsMapToVector();
         void draw();
         void update(vector<Sugarcane> _sugarcanes,  vector<Soybean> _soybeans);
+        void updateCells(vector<Sugarcane> _sugarcanes,  vector<Soybean> _soybeans);
         void setupCells();
         Cell getCell(int x, int y);
         void updateCell(int x, int y, Cell newCell);
