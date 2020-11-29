@@ -40,7 +40,10 @@ void Grid::updateCell(int x, int y, Cell newCell) {
     cells[key] = newCell;
 }
 
+
+
 void Grid::update(vector<Sugarcane> _sugarcanes,  vector<Soybean> _soybeans) {
+    // Update Max Number Of Plants variable in Cell
     for(int gridY = 0; gridY < ofGetHeight(); gridY = gridY + stepY) {
         for(int gridX = 0; gridX < ofGetWidth(); gridX = gridX + stepX) {
             Cell cell = getCell(gridX, gridY);
@@ -49,12 +52,19 @@ void Grid::update(vector<Sugarcane> _sugarcanes,  vector<Soybean> _soybeans) {
         }
     }
     
-    setMaxNumberOfPlants();
-    
-    vector<Cell> cellsWithHighNumberOfPlants = findCellsWithHighNumberOfPlants();
-    acceleratePlantsOnCells(cellsWithHighNumberOfPlants, _sugarcanes, _soybeans);
-    
+    vector<Cell> cellVector = convertCellsMapToVector();
+    capital.update(cellVector, _sugarcanes, _soybeans);
 };
+
+vector<Cell> Grid::convertCellsMapToVector(){
+    vector<Cell> cellVector;
+    for (auto cell : cells)
+    {
+        cellVector.push_back(cell.second);
+    };
+    
+    return cellVector;
+}
 
 vector<Cell> Grid::findCellsWithHighNumberOfPlants(){
     vector<Cell> cellsWithHighNumberOfPlants;

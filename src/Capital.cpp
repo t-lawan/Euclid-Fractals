@@ -13,6 +13,12 @@ Capital::Capital(){
     threshold = 10;
 }
 
+void Capital::update(vector<Cell> cells, vector<Sugarcane> _sugarcanes, vector<Soybean> _soybeans) {
+    setMaxNumberOfPlants(cells);
+    setCellsToManipulate(cells);
+    acceleratePlantsOnCells(_sugarcanes, _soybeans);
+}
+
 void Capital::setMaxNumberOfPlants(vector<Cell> cells){
     maxNumberOfPlantsOnCell = 0;
     for (auto cell : cells)

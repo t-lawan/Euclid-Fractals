@@ -18,10 +18,10 @@ class Capital {
         int threshold;
         vector<Cell> cellsToManipulate;
         Capital();
+        void update(vector<Cell> cells, vector<Sugarcane> _sugarcanes, vector<Soybean> _soybeans);
         void setMaxNumberOfPlants(vector<Cell> cells);
         void setCellsToManipulate(vector<Cell> cells);
         void acceleratePlantsOnCells(vector<Sugarcane> _sugarcanes, vector<Soybean> _soybeans);
-        void setMaxNumberOfPlants();
 };
 
 #endif /* Capital_h */
