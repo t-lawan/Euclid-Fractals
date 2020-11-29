@@ -7,9 +7,11 @@
 
 #include "Cell.h"
 
-Cell::Cell(int _x,  int _y){
+Cell::Cell(int _x,  int _y, int _width, int _height){
     x = _x;
     y = _y;
+    width = _width;
+    height = _width;
     numOfPlants = 0;
     hasFungus = false;
     // Set Rainfall between 0 and 255
@@ -17,7 +19,7 @@ Cell::Cell(int _x,  int _y){
     capital = ofRandom(MIN_CAPITAL, MAX_CAPITAL);
 }
 
-bool Cell::isWithinBounds(ofVec2f position, int width, int height) {
+bool Cell::isWithinBounds(ofVec2f position) {
     if(position.x > x &&
        position.x < x + width &&
        position.y > y &&
@@ -26,4 +28,24 @@ bool Cell::isWithinBounds(ofVec2f position, int width, int height) {
         return true;
     }
     return false;
+}
+
+void Cell::checkIfPlantsAreInCurrent(
+                            vector<Sugarcane> _sugarcanes,
+                            vector<Soybean> _soybeans) {
+    numOfPlants = 0;
+    // Check if sugarcane is on cell
+    for (auto sugarcane : _sugarcanes)
+    {
+        if(isWithinBounds(sugarcane.position)){
+                numOfPlants++;
+        }
+    };
+    
+    for (auto soybean : _soybeans)
+    {
+        if(isWithinBounds(soybean.position)){
+                numOfPlants++;
+        }
+    };
 }

@@ -8,7 +8,6 @@
 #include "Grid.h"
 
 Grid::Grid(int _numX, int _numY){
-    cout << "GRID BUILT" << endl;
     numX = _numX;
     numY = _numY;
     stepX = ofGetWidth()/numX;
@@ -20,7 +19,7 @@ void Grid::setupCells(){
     for(int gridY = 0; gridY < ofGetHeight(); gridY = gridY + stepY) {
         for(int gridX = 0; gridX < ofGetWidth(); gridX = gridX + stepX) {
             Vec2Key coordinates = Vec2Key(gridX, gridY);
-            Cell cell(gridX, gridY);
+            Cell cell(gridX, gridY, stepX, stepY);
 
             if(cells.count(coordinates) < 1){
                 cells.insert(make_pair(coordinates,cell));
@@ -45,12 +44,13 @@ void Grid::update(vector<Sugarcane> _sugarcanes,  vector<Soybean> _soybeans) {
     for(int gridY = 0; gridY < ofGetHeight(); gridY = gridY + stepY) {
         for(int gridX = 0; gridX < ofGetWidth(); gridX = gridX + stepX) {
             Cell cell = getCell(gridX, gridY);
-            cell = checkIfPlantsAreOnCell(cell, _sugarcanes, _soybeans);
+            cell.checkIfPlantsAreInCurrent(_sugarcanes, _soybeans);
             updateCell(gridX, gridY, cell);
         }
     }
     
     setMaxNumberOfPlants();
+    
     vector<Cell> cellsWithHighNumberOfPlants = findCellsWithHighNumberOfPlants();
     acceleratePlantsOnCells(cellsWithHighNumberOfPlants, _sugarcanes, _soybeans);
     
@@ -78,14 +78,14 @@ void Grid::acceleratePlantsOnCells(
         {
             for (auto sugarcane : _sugarcanes)
             {
-                if(cell.isWithinBounds(sugarcane.position, stepX, stepY)){
+                if(cell.isWithinBounds(sugarcane.position)){
                         sugarcane.accelerate();
                     }
             };
             
             for (auto soybean : _soybeans)
             {
-                if(cell.isWithinBounds(soybean.position, stepX, stepY)){
+                if(cell.isWithinBounds(soybean.position)){
                         soybean.accelerate();
                     }
             };
@@ -99,19 +99,19 @@ Cell Grid::checkIfPlantsAreOnCell(Cell cell,
     cell.numOfPlants = 0;
     
     // Check if sugarcane is on cell
-    for (auto const& sugarcane : _sugarcanes)
+    for (auto sugarcane : _sugarcanes)
     {
-        if(cell.isWithinBounds(sugarcane.position, stepX, stepY)){
-                cell.numOfPlants++;
-            }
+        if(cell.isWithinBounds(sugarcane.position)){
+            cell.numOfPlants++;
+        }
     };
     
     // Check if soybean is on cell
-    for (auto const& soybean : _soybeans)
+    for (auto soybean : _soybeans)
     {
-        if(cell.isWithinBounds(soybean.position, stepX, stepY)){
-                cell.numOfPlants++;
-            }
+        if(cell.isWithinBounds(soybean.position)){
+            cell.numOfPlants++;
+        }
     };
     
     return cell;

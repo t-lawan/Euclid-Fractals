@@ -9,7 +9,6 @@
 #include "Environment.h"
 #include "Legend.h"
 #include "Controls.h"
-
 class ofApp : public ofBaseApp{
 
 	public:

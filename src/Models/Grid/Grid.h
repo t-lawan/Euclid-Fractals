@@ -14,6 +14,7 @@
 #include "Vec2Key.h"
 #include "Sugarcane.h"
 #include "Soybean.h"
+#include "Capital.h"
 
 class Grid {
     public:
@@ -23,6 +24,7 @@ class Grid {
         int stepX;
         int stepY;
         int maxNumberOfPlantsOnCell = 0;
+        Capital capital;
         Grid(int _numX, int _numY);
         void draw();
         void update(vector<Sugarcane> _sugarcanes,  vector<Soybean> _soybeans);
