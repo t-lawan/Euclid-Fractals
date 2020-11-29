@@ -49,14 +49,38 @@ void Grid::draw(){
             ofSetColor(0, 5);
             ofDrawRectangle(0, 0, stepX, stepY);
             
-            // Draw Blue Box To Show Capital amount
+            // Draw Boxes if capital is acting on cell
             ofFill();
             Cell cell = getCell(gridX, gridY);
+            
             if(capital.isCellAccelerating(cell)){
-                ofColor c(0, 255, 0, 100);
-                c.setHsb(85, 100, 168);
-                ofSetColor(c);
-                ofDrawRectangle(0, 0, stepX, stepY);
+                // Draw Grid if Capital Exists
+                for(int rectY = 0; rectY < stepY; rectY += (stepY/8)){
+                    for(int rectX = 0; rectX < stepX; rectX += (stepX/8)){
+                        if((rectY %2 == 0 && rectX %2 == 0) || (rectY%2 == 1 && rectX%2 == 1) ){
+                            ofSetColor(0, 255, 0, 20);
+                            ofPushMatrix();
+                             ofTranslate(rectX, rectY);
+                             ofDrawRectangle(0, 0, stepX/8, stepY/8);
+                             ofPopMatrix();
+                        }
+                    }
+                }
+            }
+            //Draw boxes if fungi is acting on cell
+            if(1==2) {
+                //                c.setHsb(85, 100, 168);
+                ofSetColor(255, 0, 0, 20);
+                for(int rectY = 0; rectY < stepY; rectY += (stepY/8)){
+                    for(int rectX = 0; rectX < stepX; rectX += (stepX/8)){
+                        if((rectY %2 == 0 && rectX %2 == 1) || (rectY%2 == 1 && rectX%2 == 0) ){
+                            ofPushMatrix();
+                             ofTranslate(rectX, rectY);
+                             ofDrawRectangle(0, 0, stepX/8, stepY/8);
+                             ofPopMatrix();
+                        }
+                    }
+                }
             }
        
             
