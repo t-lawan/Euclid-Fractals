@@ -34,6 +34,7 @@
 		E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */; };
 		F9F1D9F1F46ED1DE23847D8C /* Pollinator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C674D7B73B30B0D9D569B18 /* Pollinator.cpp */; };
 		FAD201692572CE6C0038CE2C /* Controls.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FAD201682572CE6C0038CE2C /* Controls.cpp */; };
+		FAD2016E2573F0620038CE2C /* Capital.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FAD2016D2573F0620038CE2C /* Capital.cpp */; };
 		FB09C6B2A1DA0EA217240CB8 /* ofxCvGrayscaleImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 057122A817D12571F8C0C7A4 /* ofxCvGrayscaleImage.cpp */; };
 		FD938FD6463AC78F79B80D35 /* Environment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3B769795E146DF016927275F /* Environment.cpp */; };
 /* End PBXBuildFile section */
@@ -726,6 +727,8 @@
 		FA944C89D4233274D4645411 /* reduce_key_val.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = reduce_key_val.hpp; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv4/opencv2/core/cuda/detail/reduce_key_val.hpp; sourceTree = SOURCE_ROOT; };
 		FAD201672572CE5E0038CE2C /* Controls.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Controls.h; sourceTree = "<group>"; };
 		FAD201682572CE6C0038CE2C /* Controls.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Controls.cpp; sourceTree = "<group>"; };
+		FAD2016C2573EFDA0038CE2C /* Capital.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Capital.h; sourceTree = "<group>"; };
+		FAD2016D2573F0620038CE2C /* Capital.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Capital.cpp; sourceTree = "<group>"; };
 		FB13D71982BC08F29CF49DD4 /* border_interpolate.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = border_interpolate.hpp; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv4/opencv2/core/cuda/border_interpolate.hpp; sourceTree = SOURCE_ROOT; };
 		FB213FF0567D1B312DDBD05D /* linear_index.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = linear_index.h; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/linear_index.h; sourceTree = SOURCE_ROOT; };
 		FCAED3A1A131EA3B0D9DF91F /* emulation.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = emulation.hpp; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv4/opencv2/core/cuda/emulation.hpp; sourceTree = SOURCE_ROOT; };
@@ -1266,8 +1269,8 @@
 		53993C2CF5EE6C972F3A0308 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				FAD201662572CE380038CE2C /* Controls */,
-				A62C6CD3D23FA7277D5BF68B /* Legend */,
+				FAD2016B2573EFCD0038CE2C /* Capital */,
+				FAD2016A2573EEE00038CE2C /* UI */,
 				A402CB97C5F112E1C0F5C2E3 /* Sugarcane */,
 				CAEB367D22CABB6C1E7D289E /* Soybean */,
 				4AEEF6A0962A9A9FF107EFCB /* Plant */,
@@ -2296,6 +2299,24 @@
 			name = Controls;
 			sourceTree = "<group>";
 		};
+		FAD2016A2573EEE00038CE2C /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				FAD201662572CE380038CE2C /* Controls */,
+				A62C6CD3D23FA7277D5BF68B /* Legend */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		FAD2016B2573EFCD0038CE2C /* Capital */ = {
+			isa = PBXGroup;
+			children = (
+				FAD2016D2573F0620038CE2C /* Capital.cpp */,
+				FAD2016C2573EFDA0038CE2C /* Capital.h */,
+			);
+			name = Capital;
+			sourceTree = "<group>";
+		};
 		FB8CBEB670F9C74AB2A3C4FE /* cpu */ = {
 			isa = PBXGroup;
 			children = (
@@ -2456,6 +2477,7 @@
 				74A5A81B1D87AAC93AC3FCF6 /* Config.cpp in Sources */,
 				2402E93E83FC8BBB6C9719A8 /* Vec2Key.cpp in Sources */,
 				01EC4E1E2D4AAD8F8145216F /* Grid.cpp in Sources */,
+				FAD2016E2573F0620038CE2C /* Capital.cpp in Sources */,
 				250A95BA26587BE85DB0A353 /* ofxCvColorImage.cpp in Sources */,
 				1D5F3298C2FA073628012944 /* ofxCvContourFinder.cpp in Sources */,
 				169D3C72FDE6C5590A1616F5 /* ofxCvFloatImage.cpp in Sources */,
