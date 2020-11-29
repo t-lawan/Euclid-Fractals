@@ -52,13 +52,17 @@ void Grid::draw(){
             // Draw Blue Box To Show Capital amount
             ofFill();
             Cell cell = getCell(gridX, gridY);
-            ofSetColor(0, 255, 0, cell.capital);
-            ofDrawRectangle(0, 0, stepX, stepY);
+            if(capital.isCellAccelerating(cell)){
+                ofColor c(0, 255, 0, 100);
+                c.setHsb(85, 100, 168);
+                ofSetColor(c);
+                ofDrawRectangle(0, 0, stepX, stepY);
+            }
        
             
             // Draw Number Of Plants Value
             ofSetColor(0);
-            ofDrawBitmapString("Plant Number: " + to_string(cell.numOfPlants), stepX * 0.1, stepY * 0.9);
+            ofDrawBitmapString("Plant Pop: " + to_string(cell.numOfPlants), stepX * 0.1, stepY * 0.9);
             ofPopMatrix();
         }
     }

@@ -5,7 +5,7 @@ const int NUMBER_OF_AGENTS = 5;
 void ofApp::setup(){
     ofBackground(255);
     ofSetFrameRate(20);
-    ofSetBackgroundAuto(true);
+//    ofSetBackgroundAuto(true);
     
     environment = Environment(NUMBER_OF_AGENTS);
 //    legend = Legend();
@@ -20,7 +20,6 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-//    environment.update();
     environment.draw();
 //    drawSpiral();
     legend.draw();

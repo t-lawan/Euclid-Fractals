@@ -33,7 +33,7 @@ class AbstractAgent {
         float MIN_SIZE = 5;
         float MAX_SIZE = 20;
     
-        float ACCELERATION_RATE = 0.001;
+        float ACCELERATION_RATE = 0.005;
     
         string IMG_NAME = "fairy.png";
     

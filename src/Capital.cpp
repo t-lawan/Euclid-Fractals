@@ -42,6 +42,14 @@ void Capital::setCellsToManipulate(vector<Cell> cells){
     
 }
 
+bool Capital::isCellAccelerating(Cell cell){
+    if((maxNumberOfPlantsOnCell > threshold) && (cell.numOfPlants >= (accelerationLimit * maxNumberOfPlantsOnCell))){
+        return true;
+    }
+    
+    return false;
+}
+
 void Capital::acceleratePlantsOnCells(vector<Sugarcane> _sugarcanes, vector<Soybean> _soybeans){
     if(maxNumberOfPlantsOnCell > threshold){
         for(auto cell : cellsToManipulate) {
