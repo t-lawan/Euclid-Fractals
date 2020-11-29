@@ -16,6 +16,7 @@ class Capital {
     public:
         int maxNumberOfPlantsOnCell;
         int threshold;
+        float accelerationLimit = 0.8;
         vector<Cell> cellsToManipulate;
         Capital();
         void update(vector<Cell> cells, vector<Sugarcane> _sugarcanes, vector<Soybean> _soybeans);

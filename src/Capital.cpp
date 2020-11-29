@@ -27,13 +27,14 @@ void Capital::setMaxNumberOfPlants(vector<Cell> cells){
             maxNumberOfPlantsOnCell = cell.numOfPlants;
         }
     };
+    
 }
 
 void Capital::setCellsToManipulate(vector<Cell> cells){
     cellsToManipulate.clear();
     for (auto cell : cells)
     {
-        if((maxNumberOfPlantsOnCell > 0) && (cell.numOfPlants >= (0.7 * maxNumberOfPlantsOnCell)))
+        if((maxNumberOfPlantsOnCell > 0) && (cell.numOfPlants >= (accelerationLimit * maxNumberOfPlantsOnCell)))
         {
             cellsToManipulate.push_back(cell);
         }
