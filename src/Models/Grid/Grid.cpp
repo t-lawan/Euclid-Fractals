@@ -30,10 +30,11 @@ void Grid::setupCells(){
     }
 }
 
-void Grid::update(vector<Sugarcane> _sugarcanes,  vector<Soybean> _soybeans) {
+void Grid::update(vector<Sugarcane> _sugarcanes,  vector<Soybean> _soybeans, vector<Pollinator> _pollinators) {
     updateCells(_sugarcanes, _soybeans);
     vector<Cell> cellVector = convertCellsMapToVector();
     capital.update(cellVector, _sugarcanes, _soybeans);
+    alienFungi.update(cellVector, _sugarcanes, _soybeans, _pollinators);
 };
 
 
@@ -53,7 +54,7 @@ void Grid::draw(){
             ofFill();
             Cell cell = getCell(gridX, gridY);
             
-            if(capital.isCellAccelerating(cell)){
+            if(capital.isManipulating(cell)){
                 // Draw Grid if Capital Exists
                 for(int rectY = 0; rectY < stepY; rectY += (stepY/8)){
                     for(int rectX = 0; rectX < stepX; rectX += (stepX/8)){
@@ -68,7 +69,7 @@ void Grid::draw(){
                 }
             }
             //Draw boxes if fungi is acting on cell
-            if(1==2) {
+            if(alienFungi.isManipulating(cell)) {
                 //                c.setHsb(85, 100, 168);
                 ofSetColor(255, 0, 0, 20);
                 for(int rectY = 0; rectY < stepY; rectY += (stepY/8)){

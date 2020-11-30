@@ -87,7 +87,7 @@ void Environment::update() {
         updatePlantDestroyers();
     }
     
-    grid.update(sugarcanes, soybeans);
+    grid.update(sugarcanes, soybeans, pollinators);
 }
 
 // Run the world
