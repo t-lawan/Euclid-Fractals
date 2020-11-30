@@ -26,6 +26,11 @@ class Environment {
         bool isTest;
         int population = 0;
         int numberOfDead = 0;
+        float pollinatorDelay;
+        float pollinatorInterval = 20;
+        float sugarcaneDelay = 20;
+        float SoyBeanDelay = 20;
+        float destroyerDelay = 20;
         vector<Agent> agents;
         vector<Sugarcane> sugarcanes;
         vector<Soybean> soybeans;

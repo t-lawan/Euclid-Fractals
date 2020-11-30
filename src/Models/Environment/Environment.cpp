@@ -63,6 +63,7 @@ void Environment::setup(){
     tick.setLoop(false);
     tick.setVolume(0.6);
     
+    pollinatorDelay = pollinatorInterval;
 }
 
 void Environment::playTick(){
@@ -82,7 +83,11 @@ void Environment::update() {
             }
         }
     } else {
-        updatePollinators();
+        pollinatorDelay -= 1;
+        if(pollinatorDelay <= 0){
+            updatePollinators();
+            pollinatorDelay = pollinatorInterval;
+        }
         updateSugarcane();
         updateSoybeans();
         updatePlantDestroyers();
@@ -138,9 +143,21 @@ void Environment::updatePollinators(){
               float reproductionRandomValue = ofRandom(1);
               if (reproductionRandomValue < 0.3){
                   spawn(SUGARCANE ,pollinators[i].position.x, pollinators[i].position.y);
+                  pollinatorInterval -= 10;
+                  if (pollinatorInterval <= 0) {
+                      pollinatorInterval = 0;
+                  }
               } else if(reproductionRandomValue < 0.6) {
                   spawn(SOYBEAN ,pollinators[i].position.x, pollinators[i].position.y);
+                  pollinatorInterval -= 10;
+                  if (pollinatorInterval <= 0) {
+                      pollinatorInterval = 0;
+                  }
               } else { pollinators.push_back(pollinators[i].reproduce());
+                  pollinatorInterval -= 10;
+                  if (pollinatorInterval <= 0) {
+                      pollinatorInterval = 0;
+                  }
               }
           }
        // If it's dead, kill it and make food
