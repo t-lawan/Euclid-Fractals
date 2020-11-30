@@ -19,26 +19,27 @@ Soybean Soybean::reproduce(){
     childDNA.mutate(mutation_rate);
     // Sprout child in random adjacent space
     direction = int(ofRandom(8));
+    float distance = 2 * r;
     if (direction == north){
-        position.y = position.y - r;
+        position.y = position.y - distance;
     } else if (direction == northEast){
-        position.x = position.x + r;
-        position.y = position.y - r;
+        position.x = position.x + distance;
+        position.y = position.y - distance;
     } else if (direction == east){
-        position.x = position.x + r;
+        position.x = position.x + distance;
     } else if (direction == southEast){
-        position.y = position.y + r;
-        position.x = position.x + r;
+        position.y = position.y + distance;
+        position.x = position.x + distance;
     } else if (direction == south){
-        position.y = position.y + r;
+        position.y = position.y + distance;
     } else if (direction == southWest){
-        position.y = position.y + r;
-        position.x = position.x - r;
+        position.y = position.y + distance;
+        position.x = position.x - distance;
     } else if (direction == west){
-        position.x = position.x - r;
+        position.x = position.x - distance;
     } else if (direction == northWest){
-        position.y = position.y - r;
-        position.x = position.x - r;
+        position.y = position.y - distance;
+        position.x = position.x - distance;
     }
     
     return Soybean(position, childDNA);
