@@ -10,13 +10,29 @@
 
 #include <stdio.h>
 #include "ofMain.h"
+#include "Sugarcane.h"
+#include "Soybean.h"
 
 class Cell {
     public:
         int x;
         int y;
+    
+        int width;
+        int height;
+        int numOfPlants;
+
         bool hasFungus;
+        float capital;
         float rainfall;
-        Cell(int _x,  int _y);
+        Cell(int _x = 0,  int _y = 0, int _width = 0, int _height = 0);
+        bool isWithinBounds(ofVec2f position);
+        void checkIfPlantsAreInCurrent(
+                          vector<Sugarcane> _sugarcanes,
+                          vector<Soybean> _soybeans);
+    
+    protected:
+        int MIN_CAPITAL = 0;
+        int MAX_CAPITAL = 100;
 };
 #endif /* Cell_h */

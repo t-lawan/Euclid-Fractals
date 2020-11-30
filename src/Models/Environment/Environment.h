@@ -25,6 +25,7 @@ class Environment {
         Environment(int num);
         bool isTest;
         int population = 0;
+        int numberOfDead = 0;
         vector<Agent> agents;
         vector<Sugarcane> sugarcanes;
         vector<Soybean> soybeans;

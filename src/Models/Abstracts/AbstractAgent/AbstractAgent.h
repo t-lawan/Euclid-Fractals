@@ -33,6 +33,8 @@ class AbstractAgent {
         float MIN_SIZE = 5;
         float MAX_SIZE = 20;
     
+        float ACCELERATION_RATE = 0.001;
+    
         string IMG_NAME = "fairy.png";
     
         ofVec2f position;
@@ -47,6 +49,7 @@ class AbstractAgent {
         virtual void draw() = 0;
         virtual bool dead() = 0;
         virtual void setup() = 0;
+        virtual void accelerate() = 0;
     
 };
 

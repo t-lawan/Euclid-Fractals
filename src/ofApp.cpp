@@ -5,7 +5,7 @@ const int NUMBER_OF_AGENTS = 5;
 void ofApp::setup(){
     ofBackground(255);
     ofSetFrameRate(20);
-    ofSetBackgroundAuto(true);
+//    ofSetBackgroundAuto(true);
     
     environment = Environment(NUMBER_OF_AGENTS);
 //    legend = Legend();
@@ -15,15 +15,15 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
     environment.update();
-    legend.update(environment.population);
+    legend.update(environment.population, environment.numberOfDead);
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-//    environment.update();
     environment.draw();
-    legend.draw();
 //    drawSpiral();
+    legend.draw();
+    controls.draw();
 }
 
 void ofApp::drawSpiral(){
@@ -43,28 +43,55 @@ void ofApp::drawSpiral(){
     ofPopMatrix();
 }
 
+ofVec2f ofApp::getCoordinates(){
+    ofVec2f coordinates(0,0);
+    if(masterBuilderMode) {
+        coordinates.set(ofGetMouseX(), ofGetMouseY());
+    } else {
+        coordinates.set(ofRandomWidth(), ofRandomHeight());
+    }
+    
+    return coordinates;
+}
+
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
+
     if(key == '1'){
-        environment.spawn(POLLINATOR, ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
+        ofVec2f coordinates = getCoordinates();
+        environment.spawn(POLLINATOR, coordinates.x, coordinates.y);
     }
     if(key == '2'){
-        environment.spawn(SUGARCANE, ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
+        ofVec2f coordinates = getCoordinates();
+        environment.spawn(PLANT_DESTROYER, coordinates.x, coordinates.y);
     }
     if(key == '3'){
-        environment.spawn(PLANT_DESTROYER, ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
+        ofVec2f coordinates = getCoordinates();
+        environment.spawn(SUGARCANE, coordinates.x, coordinates.y);
     }
+
     if(key == '4'){
-        environment.spawn(SOYBEAN, ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
+        ofVec2f coordinates = getCoordinates();
+        environment.spawn(SOYBEAN, coordinates.x, coordinates.y);
+    }
+    
+    if(key == 'c'){
+        controls.toggleShow();
     }
     
     if(key == 'l'){
         legend.toggleShow();
     }
     
+    
+    
     if(key == 's'){
         img.grabScreen(0, 0 , ofGetWidth(), ofGetHeight());
         img.save("screenshot.png");
+    }
+    
+    if(key == 'm'){
+        masterBuilderMode = !masterBuilderMode;
     }
 }
 

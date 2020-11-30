@@ -22,8 +22,8 @@ public:
     
     bool operator < ( const Vec2Key& other) const
     {
-        if ( fabs(x - other.x) < 0.1 ) {
-              return fabs(y - other.y) > 0.1;
+        if ( x == other.x ) {
+            return y < other.y;
         }
         
         return x < other.x;

@@ -17,9 +17,10 @@ class Legend {
         ofImage pollinatorImg;
         ofImage foodImg;
         int population = 0;
+        int numberOfDead = 0;
         Legend();
         void draw();
-        void update(int _population);
+        void update(int _population, int _numberOfDead);
         void toggleShow();
     protected:
         void drawBackground();

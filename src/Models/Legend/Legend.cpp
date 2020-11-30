@@ -32,13 +32,14 @@ void Legend::draw(){
         drawIcons();
     }
 };
-void Legend::update(int _population){
+void Legend::update(int _population, int _numberOfDead){
     population = _population;
+    numberOfDead = _numberOfDead;
 };
 
 void Legend::drawBackground(){
     ofPushMatrix();
-    ofTranslate((2 * ofGetWidth()/3), (2 * ofGetHeight()/3));
+    ofTranslate((2 * ofGetWidth()/3), (3 * ofGetHeight()/5));
     ofSetColor(ofColor::slateGrey, 50);
     ofSetRectMode(OF_RECTMODE_CORNER);
     ofDrawRectangle(0, 0, (2 * ofGetWidth()/3), ofGetHeight()/2);
@@ -49,7 +50,7 @@ void Legend::drawIcons(){
     ofPushMatrix();
     
     // Plant Destroyer
-    ofTranslate((2 * ofGetWidth()/3) + margin, (2 * ofGetHeight()/3) + margin);
+    ofTranslate((2 * ofGetWidth()/3) + margin, (3 * ofGetHeight()/5) + margin);
     ofSetColor(ofColor::red);
     plantDestroyerImg.draw(0,0);
     ofDrawBitmapString("plant destroyer", spacing, 0);
@@ -82,6 +83,11 @@ void Legend::drawIcons(){
     ofTranslate(0, spacing);
     ofSetColor(ofColor::black);
     ofDrawBitmapString("population: " + to_string(population), spacing, 5);
+    
+    // Number Of Dead
+    ofTranslate(0, spacing);
+    ofSetColor(ofColor::black);
+    ofDrawBitmapString("dead: " + to_string(numberOfDead), spacing, 5);
     ofPopMatrix();
 };
 

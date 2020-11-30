@@ -7,7 +7,7 @@
 
 #include "Environment.h"
 
-Environment::Environment(int num) : food(num + 1), grid(20, 20) {
+Environment::Environment(int num) : food(num + 1), grid(4, 4) {
     isTest = false;
     for (int i = 0; i < num; i++) {
         ofVec2f position;
@@ -87,6 +87,8 @@ void Environment::update() {
         updateSoybeans();
         updatePlantDestroyers();
     }
+    
+    grid.update(sugarcanes, soybeans);
 }
 
 // Run the world
@@ -116,6 +118,7 @@ void Environment::agentBorn(){
 
 void Environment::agentDead(){
     population--;
+    numberOfDead++;
 }
 
 
@@ -128,24 +131,25 @@ void Environment::updatePollinators(){
         if(index > -1){
             food.remove(index);
         }
+        // reproduction check2
+          if(pollinators[i].shouldReproduce()) {
+              agentBorn();
+              
+              float reproductionRandomValue = ofRandom(1);
+              if (reproductionRandomValue < 0.3){
+                  spawn(SUGARCANE ,pollinators[i].position.x, pollinators[i].position.y);
+              } else if(reproductionRandomValue < 0.6) {
+                  spawn(SOYBEAN ,pollinators[i].position.x, pollinators[i].position.y);
+              } else { pollinators.push_back(pollinators[i].reproduce());
+              }
+          }
        // If it's dead, kill it and make food
           if (pollinators[i].dead()) {
               agentDead();
             food.add(pollinators[i].position);
             pollinators.erase(pollinators.begin() + i);
           }
-          // reproduction check2
-            if(pollinators[i].shouldReproduce()) {
-                agentBorn();
-                
-                float reproductionRandomValue = ofRandom(1);
-                if (reproductionRandomValue < 0.3){
-                    spawn(SUGARCANE ,pollinators[i].position.x, pollinators[i].position.y);
-                } else if(reproductionRandomValue < 0.6) {
-                    spawn(SOYBEAN ,pollinators[i].position.x, pollinators[i].position.y);
-                } else { pollinators.push_back(pollinators[i].reproduce());
-                }
-            }
+
         }
 }
 
@@ -167,17 +171,19 @@ void Environment::updateSugarcane(){
         if(index > -1){
             food.remove(index);
         }
+
+                // check for reproduction
+        if(sugarcanes[i].shouldReproduce()){
+                agentBorn();
+            sugarcanes.push_back(sugarcanes[i].reproduce());
+        }
+        
         // If sugarcane dies, remove and make food
         if (sugarcanes[i].dead()) {
             agentDead();
             food.add(sugarcanes[i].position);
             sugarcanes.erase(sugarcanes.begin() + i);
         //            sugarcanes.push_back(sugarcane.reproduce());
-        }
-                // check for reproduction
-        if(sugarcanes[i].shouldReproduce()){
-                agentBorn();
-            sugarcanes.push_back(sugarcanes[i].reproduce());
         }
     }
 
@@ -203,16 +209,18 @@ void Environment::updateSoybeans(){
                     
             food.remove(index);
         }
+
+                // check for reproduction
+        if(soybeans[i].shouldReproduce()){
+            agentBorn();
+            soybeans.push_back(soybeans[i].reproduce());
+        }
+        
                 // If sugarcane dies, remove and make food
         if (soybeans[i].dead()) {
             agentDead();
             food.add(soybeans[i].position);
             soybeans.erase(soybeans.begin() + i);
-        }
-                // check for reproduction
-        if(soybeans[i].shouldReproduce()){
-            agentBorn();
-            soybeans.push_back(soybeans[i].reproduce());
         }
     }
 }
@@ -245,18 +253,18 @@ void Environment::updatePlantDestroyers(){
                 sugarcanes.erase(sugarcanes.begin() + index);
             }
             
-        
-          // If it's dead, kill it and make food
-          if (plantDestroyers[i].dead()) {
-              agentDead();
-            food.add(plantDestroyers[i].position);
-            plantDestroyers.erase(plantDestroyers.begin() + i);
-          }
           // Perhaps this bloop would like to make a baby?
             if(plantDestroyers[i].shouldReproduce()) {
                 agentBorn();
         plantDestroyers.push_back(plantDestroyers[i].reproduce());
             }
+        
+        // If it's dead, kill it and make food
+        if (plantDestroyers[i].dead()) {
+            agentDead();
+          food.add(plantDestroyers[i].position);
+          plantDestroyers.erase(plantDestroyers.begin() + i);
+        }
     }
 }
 
