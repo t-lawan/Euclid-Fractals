@@ -55,6 +55,10 @@ void PlantDestroyer::accelerate(){
     
 }
 
+void PlantDestroyer::decelerate(){
+
+}
+
 int PlantDestroyer::isOnSoybeans(vector<Soybean> soybeans){
     // Are we touching any food objects?s
     for (int i = 0; i < soybeans.size(); i++) {

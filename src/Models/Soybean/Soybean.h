@@ -38,6 +38,7 @@ class Soybean : public AbstractStaticAgent {
         bool dead();
         void setup();
         void accelerate();
+        void decelerate();
 };
 
 #endif /* Soybean_h */

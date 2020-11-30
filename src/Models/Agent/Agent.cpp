@@ -43,6 +43,10 @@ void Agent::accelerate(){
     
 }
 
+void Agent::decelerate(){
+    
+}
+
 int Agent::isOnFood(Food f){
     vector<ofVec2f> food = f.getFood();
     // Are we touching any food objects?s

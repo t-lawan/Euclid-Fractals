@@ -16,7 +16,7 @@ Capital::Capital(){
 void Capital::update(vector<Cell> cells, vector<Sugarcane> _sugarcanes, vector<Soybean> _soybeans) {
     setMaxNumberOfPlants(cells);
     setCellsToManipulate(cells);
-    acceleratePlantsOnCells(_sugarcanes, _soybeans);
+    manipulatePlantsOnCells(_sugarcanes, _soybeans);
 }
 
 void Capital::setMaxNumberOfPlants(vector<Cell> cells){
@@ -27,7 +27,6 @@ void Capital::setMaxNumberOfPlants(vector<Cell> cells){
             maxNumberOfPlantsOnCell = cell.numOfPlants;
         }
     };
-    
 }
 
 void Capital::setCellsToManipulate(vector<Cell> cells){
@@ -42,7 +41,7 @@ void Capital::setCellsToManipulate(vector<Cell> cells){
     
 }
 
-bool Capital::isCellAccelerating(Cell cell){
+bool Capital::isManipulating(Cell cell){
     if((maxNumberOfPlantsOnCell > threshold) && (cell.numOfPlants >= (accelerationLimit * maxNumberOfPlantsOnCell))){
         return true;
     }
@@ -50,7 +49,7 @@ bool Capital::isCellAccelerating(Cell cell){
     return false;
 }
 
-void Capital::acceleratePlantsOnCells(vector<Sugarcane> _sugarcanes, vector<Soybean> _soybeans){
+void Capital::manipulatePlantsOnCells(vector<Sugarcane> _sugarcanes, vector<Soybean> _soybeans){
     if(maxNumberOfPlantsOnCell > threshold){
         for(auto cell : cellsToManipulate) {
             for (auto sugarcane : _sugarcanes)

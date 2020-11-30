@@ -71,10 +71,18 @@ void Sugarcane::update() {
 
 void Sugarcane::accelerate(){
     if(ofRandom(0,1) < ACCELERATION_RATE){
-        cout << "SUGARCANE ACCELERATE" << endl;
+//        cout << "SUGARCANE ACCELERATE" << endl;
         reproduction_rate += 0.0001;
         DETERIORATION_RATE += 0.01;
         dna.mutate(mutation_rate);
+    }
+}
+
+void Sugarcane::decelerate(){
+    if(ofRandom(0,1) < ACCELERATION_RATE){
+        cout << "SUGARCANE DECELERATE" << endl;
+        reproduction_rate -= 0.0001;
+        DETERIORATION_RATE -= 0.01;
     }
 }
 

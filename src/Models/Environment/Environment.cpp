@@ -77,7 +77,6 @@ void Environment::update() {
             int index = agents[i].isOnFood(food);
             // If agent is on food. Eat then remove the food item
             if(index > -1) {
-                playTick();
                 food.remove(index);
             }
         }
@@ -88,7 +87,7 @@ void Environment::update() {
         updatePlantDestroyers();
     }
     
-    grid.update(sugarcanes, soybeans);
+    grid.update(sugarcanes, soybeans, pollinators);
 }
 
 // Run the world
@@ -205,8 +204,6 @@ void Environment::updateSoybeans(){
         int index = soybeans[i].isOnFood(food);
                     // If plant is on food, absorb then remove food
         if(index > -1){
-            playTick();
-                    
             food.remove(index);
         }
 
@@ -244,12 +241,13 @@ void Environment::updatePlantDestroyers(){
         // Check if agent is on food and remove if index > -1
           index = plantDestroyers[i].isOnSoybeans(soybeans);
           if(index > -1) {
-              playTick();
+              agentDead();
               soybeans.erase(soybeans.begin() + index);
           }
             
           index = plantDestroyers[i].isOnSugarCanes(sugarcanes);
             if(index > -1) {
+                agentDead();
                 sugarcanes.erase(sugarcanes.begin() + index);
             }
             

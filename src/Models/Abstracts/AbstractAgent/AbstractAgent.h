@@ -50,6 +50,7 @@ class AbstractAgent {
         virtual bool dead() = 0;
         virtual void setup() = 0;
         virtual void accelerate() = 0;
+        virtual void decelerate() = 0;
     
 };
 
