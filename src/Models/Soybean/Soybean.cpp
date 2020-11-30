@@ -55,6 +55,14 @@ void Soybean::accelerate(){
         dna.mutate(mutation_rate);
     }
 }
+
+void Soybean::decelerate(){
+    if(ofRandom(0,1) < ACCELERATION_RATE){
+        cout << "SOYBEAN DECELERATE" << endl;
+        reproduction_rate -= 0.0001;
+        DETERIORATION_RATE -= 0.01;
+    }
+}
 int Soybean::isOnFood(Food f){
     vector<ofVec2f> food = f.getFood();
     // Are we touching any food objects?s
