@@ -28,6 +28,7 @@
 		BDF1185F218369B1322633A4 /* Soybean.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 997AE928101A41269BC96934 /* Soybean.cpp */; };
 		D3301F6A0B43BB293ED97C1D /* ofxCvShortImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A4DD23693DFAB8EC05FAA5D /* ofxCvShortImage.cpp */; };
 		DB1139ED6A27A7FCD9888A04 /* Agent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CF80955D6806B641B2501115 /* Agent.cpp */; };
+		DC743FC425764D2800B2D4DC /* Jammer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC743FC325764D2800B2D4DC /* Jammer.cpp */; };
 		E0DBE34527BF64F3B18146ED /* PlantDestroyer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FF911428B0C5B1C0EF599FEE /* PlantDestroyer.cpp */; };
 		E212C821D1064B92DD953A42 /* ofxCvHaarFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A16CBF2E8CFE43AF54FE6F5 /* ofxCvHaarFinder.cpp */; };
 		E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1D0A3A1BDC003C02F2 /* main.cpp */; };
@@ -482,6 +483,8 @@
 		DBC93F853F22F011C8B24EF6 /* intrin_avx.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = intrin_avx.hpp; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv4/opencv2/core/hal/intrin_avx.hpp; sourceTree = SOURCE_ROOT; };
 		DC18758F84E4E52265A2EB89 /* saturate.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = saturate.hpp; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv4/opencv2/core/saturate.hpp; sourceTree = SOURCE_ROOT; };
 		DC6B610AE6F360BB1613E868 /* gtyped.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = gtyped.hpp; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/gapi/gtyped.hpp; sourceTree = SOURCE_ROOT; };
+		DC743FC225764D1000B2D4DC /* Jammer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Jammer.h; sourceTree = "<group>"; };
+		DC743FC325764D2800B2D4DC /* Jammer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Jammer.cpp; sourceTree = "<group>"; };
 		DCB56F4E9F44E31D571BC9C4 /* index_testing.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = index_testing.h; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/index_testing.h; sourceTree = SOURCE_ROOT; };
 		DE6CF4147EAF10F196A985EE /* compiler_hints.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = compiler_hints.hpp; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/gapi/util/compiler_hints.hpp; sourceTree = SOURCE_ROOT; };
 		DEA2EDC0AFD59176FDEDC222 /* ofxCvShortImage.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxCvShortImage.h; path = ../../../addons/ofxOpenCv/src/ofxCvShortImage.h; sourceTree = SOURCE_ROOT; };
@@ -1269,6 +1272,7 @@
 		53993C2CF5EE6C972F3A0308 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				DC743FC025764CCA00B2D4DC /* Jammer */,
 				FAD2016B2573EFCD0038CE2C /* Capital */,
 				FAD2016A2573EEE00038CE2C /* UI */,
 				A402CB97C5F112E1C0F5C2E3 /* Sugarcane */,
@@ -1909,6 +1913,15 @@
 			name = Cell;
 			sourceTree = "<group>";
 		};
+		DC743FC025764CCA00B2D4DC /* Jammer */ = {
+			isa = PBXGroup;
+			children = (
+				DC743FC225764D1000B2D4DC /* Jammer.h */,
+				DC743FC325764D2800B2D4DC /* Jammer.cpp */,
+			);
+			name = Jammer;
+			sourceTree = "<group>";
+		};
 		DCC60D6724B56635AE867535 /* libs */ = {
 			isa = PBXGroup;
 			children = (
@@ -2478,6 +2491,7 @@
 				2402E93E83FC8BBB6C9719A8 /* Vec2Key.cpp in Sources */,
 				01EC4E1E2D4AAD8F8145216F /* Grid.cpp in Sources */,
 				FAD2016E2573F0620038CE2C /* Capital.cpp in Sources */,
+				DC743FC425764D2800B2D4DC /* Jammer.cpp in Sources */,
 				250A95BA26587BE85DB0A353 /* ofxCvColorImage.cpp in Sources */,
 				1D5F3298C2FA073628012944 /* ofxCvContourFinder.cpp in Sources */,
 				169D3C72FDE6C5590A1616F5 /* ofxCvFloatImage.cpp in Sources */,

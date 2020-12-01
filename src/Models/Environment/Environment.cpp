@@ -49,6 +49,11 @@ void Environment::spawn(AgentTypeEnum type, float x, float y){
             plantDestroyers.push_back(plantDestroyer);
             break;
         };
+        case JAMMER: {
+            Jammer jammer = Jammer(position,dna);
+            jammers.push_back(jammer);
+            break;
+        };
         case AGENT: {
             Agent agent = Agent(position, dna);
             agents.push_back(agent);
@@ -64,6 +69,9 @@ void Environment::setup(){
     tick.setVolume(0.6);
     
     pollinatorDelay = pollinatorInterval;
+    fungal = true;
+    fractaliser.push_back(soybeans.size());
+    fractaliser.push_back(sugarcanes.size());
 }
 
 void Environment::playTick(){
@@ -83,14 +91,16 @@ void Environment::update() {
             }
         }
     } else {
-        pollinatorDelay -= 1;
+        /*pollinatorDelay -= 1;
         if(pollinatorDelay <= 0){
             updatePollinators();
             pollinatorDelay = pollinatorInterval;
-        }
+        }*/
+        updatePollinators();
         updateSugarcane();
         updateSoybeans();
         updatePlantDestroyers();
+        updateJammers();
     }
     
     grid.update(sugarcanes, soybeans);
@@ -113,6 +123,8 @@ void Environment::draw() {
         drawPlantDestroyers();
         // Draw all soybeans
         drawSoybeans();
+        // Draw all jammers
+        drawJammers();
     }
 }
 
@@ -143,18 +155,18 @@ void Environment::updatePollinators(){
               float reproductionRandomValue = ofRandom(1);
               if (reproductionRandomValue < 0.3){
                   spawn(SUGARCANE ,pollinators[i].position.x, pollinators[i].position.y);
-                  pollinatorInterval -= 10;
+                  pollinatorInterval -= 1;
                   if (pollinatorInterval <= 0) {
                       pollinatorInterval = 0;
                   }
               } else if(reproductionRandomValue < 0.6) {
                   spawn(SOYBEAN ,pollinators[i].position.x, pollinators[i].position.y);
-                  pollinatorInterval -= 10;
+                  pollinatorInterval -= 1;
                   if (pollinatorInterval <= 0) {
                       pollinatorInterval = 0;
                   }
               } else { pollinators.push_back(pollinators[i].reproduce());
-                  pollinatorInterval -= 10;
+                  pollinatorInterval -= 1;
                   if (pollinatorInterval <= 0) {
                       pollinatorInterval = 0;
                   }
@@ -240,6 +252,11 @@ void Environment::updateSoybeans(){
             soybeans.erase(soybeans.begin() + i);
         }
     }
+    if (fungal){
+        spawn(JAMMER, ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
+        agentBorn();
+    }
+    updateFractaliser();
 }
 void Environment::drawSoybeans(){
     for (int i = 0; i < soybeans.size(); i++) {
@@ -293,6 +310,21 @@ void Environment::drawPlantDestroyers() {
     }
 }
 
+void Environment::updateJammers(){
+    for (int i = 0; i < jammers.size(); i++) {
+        jammers[i].update();
+        
+    }
+}
+
+void Environment::drawJammers(){
+    for (int i = 0; i < jammers.size(); i++) {
+      Jammer jammer = jammers[i];
+      jammer.draw();
+
+    }
+}
+
 void Environment::drawAgents(){
     for (int i = 0; i < agents.size(); i++) {
       Agent agent = agents[i];
@@ -309,4 +341,21 @@ void Environment::drawAgents(){
             agents.push_back(agent.reproduce());
         }
     }
+}
+
+void Environment::updateFractaliser(){
+    if (fungal)
+    {
+        fractaliser.push_back(fractaliser[fractaliser.size()] + fractaliser[0]);
+    }
+    // check if size of soybean population has changed
+    if (soybeans.size()!=fractaliser[0]){
+        cout << "fractalise" << endl;
+        // if it has modify all values in fractaliser accordingly
+        float popDiff = soybeans.size() - fractaliser[0];
+        for (int i=0; i<fractaliser.size(); i++){
+            fractaliser[i] += popDiff;
+        }
+    }
+
 }

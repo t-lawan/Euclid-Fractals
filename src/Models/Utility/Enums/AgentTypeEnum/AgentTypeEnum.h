@@ -14,7 +14,8 @@ enum AgentTypeEnum{
     AGENT,
     PLANT,
     PLANT_DESTROYER,
-    SOYBEAN
+    SOYBEAN,
+    JAMMER
 };
 
 #endif /* AgentTypeEnum_h */
