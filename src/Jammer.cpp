@@ -12,11 +12,11 @@ void Jammer::eat(Food f){
 }
 
 Jammer Jammer::reproduce(){
-        /*// Child is exact copy of single parent
+        // Child is exact copy of single parent
         DNA childDNA = dna.copy();
         // Child DNA can mutate
         childDNA.mutate(mutation_rate);
-        return Jammer(position, childDNA);*/
+        return Jammer(position, childDNA);
 }
 
 bool Jammer::shouldReproduce(){
@@ -52,6 +52,10 @@ int Jammer::isOnSugarCanes(vector<Sugarcane> sugarcanes){
 
 void Jammer::accelerate(){
     
+}
+
+void Jammer::decelerate(){
+
 }
 
 int Jammer::isOnSoybeans(vector<Soybean> soybeans){

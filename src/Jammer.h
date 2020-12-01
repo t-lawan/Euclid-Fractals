@@ -43,6 +43,7 @@ class Jammer : public AbstractMovingAgent {
         bool dead();
         void setup();
         void accelerate();
+        void decelerate();
 };
 
 #endif /* Jammer_h */
