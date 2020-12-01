@@ -1,25 +1,27 @@
 //
-//  Capital.cpp
+//  AlienFungi.cpp
 //  Euclid Fractals
 //
-//  Created by Thomas Lawanson on 29/11/2020.
+//  Created by Thomas Lawanson on 30/11/2020.
 //
 
-#include "Capital.h"
+#include "AlienFungi.h"
 
-
-Capital::Capital(){
+AlienFungi::AlienFungi(){
     maxNumberOfPlantsOnCell = 0;
-    threshold = 10;
+    threshold = 5;
 }
 
-void Capital::update(vector<Cell> cells, vector<Sugarcane> _sugarcanes, vector<Soybean> _soybeans) {
+void AlienFungi::update(vector<Cell> cells, vector<Sugarcane> _sugarcanes, vector<Soybean> _soybeans, vector<Pollinator> _pollinators) {
+    // Get cells that have fungus
+    //Set cells to manipulate
+    // Is being manipulated
     setMaxNumberOfPlants(cells);
     setCellsToManipulate(cells);
-    manipulatePlantsOnCells(_sugarcanes, _soybeans);
+    manipulateAgentsOnCells(_sugarcanes, _soybeans, _pollinators);
 }
 
-void Capital::setMaxNumberOfPlants(vector<Cell> cells){
+void AlienFungi::setMaxNumberOfPlants(vector<Cell> cells){
     maxNumberOfPlantsOnCell = 0;
     for (auto cell : cells)
     {
@@ -29,7 +31,7 @@ void Capital::setMaxNumberOfPlants(vector<Cell> cells){
     };
 }
 
-void Capital::setCellsToManipulate(vector<Cell> cells){
+void AlienFungi::setCellsToManipulate(vector<Cell> cells){
     cellsToManipulate.clear();
     for (auto cell : cells)
     {
@@ -41,7 +43,7 @@ void Capital::setCellsToManipulate(vector<Cell> cells){
     
 }
 
-bool Capital::isManipulating(Cell cell){
+bool AlienFungi::isManipulating(Cell cell){
     if((maxNumberOfPlantsOnCell > threshold) && (cell.numOfPlants >= (accelerationLimit * maxNumberOfPlantsOnCell))){
         return true;
     }
@@ -49,24 +51,30 @@ bool Capital::isManipulating(Cell cell){
     return false;
 }
 
-void Capital::manipulatePlantsOnCells(vector<Sugarcane> _sugarcanes, vector<Soybean> _soybeans){
+void AlienFungi::manipulateAgentsOnCells(vector<Sugarcane> _sugarcanes, vector<Soybean> _soybeans, vector<Pollinator> _pollinators){
     if(maxNumberOfPlantsOnCell > threshold){
         for(auto cell : cellsToManipulate) {
             for (auto sugarcane : _sugarcanes)
             {
                 if(cell.isWithinBounds(sugarcane.position)){
-                    sugarcane.accelerate();
+                    sugarcane.decelerate();
                 }
             };
             
             for (auto soybean : _soybeans)
             {
                 if(cell.isWithinBounds(soybean.position)){
-                        soybean.accelerate();
+                        soybean.decelerate();
+                }
+            };
+            
+            for (auto pollinator : _pollinators)
+            {
+                if(cell.isWithinBounds(pollinator.position)){
+                        pollinator.decelerate();
                 }
             };
         }
     }
 }
-
 

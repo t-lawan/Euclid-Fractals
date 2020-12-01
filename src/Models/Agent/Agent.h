@@ -39,5 +39,6 @@ class Agent : public AbstractMovingAgent {
         bool dead();
 
         void accelerate();
+        void decelerate();
 };
 #endif /* Agent_hpp */

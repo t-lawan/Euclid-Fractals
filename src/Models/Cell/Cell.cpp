@@ -13,7 +13,12 @@ Cell::Cell(int _x,  int _y, int _width, int _height){
     width = _width;
     height = _height;
     numOfPlants = 0;
-    hasFungus = false;
+    if(ofRandom(1) >= 0.5) {
+        hasFungus = false;
+    } else {
+        hasFungus = true;
+    }
+    
     // Set Rainfall between 0 and 255
     rainfall = ofRandom(0, 50);
     capital = ofRandom(MIN_CAPITAL, MAX_CAPITAL);

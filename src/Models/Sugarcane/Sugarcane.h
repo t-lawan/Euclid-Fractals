@@ -38,5 +38,6 @@ class Sugarcane : public AbstractStaticAgent {
         bool dead();
         void setup();
         void accelerate();
+        void decelerate();
 };
 #endif /* Sugarcane_h */

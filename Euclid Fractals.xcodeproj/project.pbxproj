@@ -34,6 +34,7 @@
 		E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1D0A3A1BDC003C02F2 /* main.cpp */; };
 		E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */; };
 		F9F1D9F1F46ED1DE23847D8C /* Pollinator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C674D7B73B30B0D9D569B18 /* Pollinator.cpp */; };
+		FAB676942575997F00A5104F /* AlienFungi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FAB676922575997F00A5104F /* AlienFungi.cpp */; };
 		FAD201692572CE6C0038CE2C /* Controls.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FAD201682572CE6C0038CE2C /* Controls.cpp */; };
 		FAD2016E2573F0620038CE2C /* Capital.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FAD2016D2573F0620038CE2C /* Capital.cpp */; };
 		FB09C6B2A1DA0EA217240CB8 /* ofxCvGrayscaleImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 057122A817D12571F8C0C7A4 /* ofxCvGrayscaleImage.cpp */; };
@@ -728,6 +729,8 @@
 		FA293FDF68B93A949B8843D1 /* cvstd_wrapper.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = cvstd_wrapper.hpp; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/core/cvstd_wrapper.hpp; sourceTree = SOURCE_ROOT; };
 		FA3945EB4B55200EE5BBC918 /* interface.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = interface.h; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv4/opencv2/features2d/hal/interface.h; sourceTree = SOURCE_ROOT; };
 		FA944C89D4233274D4645411 /* reduce_key_val.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = reduce_key_val.hpp; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv4/opencv2/core/cuda/detail/reduce_key_val.hpp; sourceTree = SOURCE_ROOT; };
+		FAB676922575997F00A5104F /* AlienFungi.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AlienFungi.cpp; sourceTree = "<group>"; };
+		FAB676932575997F00A5104F /* AlienFungi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlienFungi.h; sourceTree = "<group>"; };
 		FAD201672572CE5E0038CE2C /* Controls.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Controls.h; sourceTree = "<group>"; };
 		FAD201682572CE6C0038CE2C /* Controls.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Controls.cpp; sourceTree = "<group>"; };
 		FAD2016C2573EFDA0038CE2C /* Capital.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Capital.h; sourceTree = "<group>"; };
@@ -1273,6 +1276,7 @@
 			isa = PBXGroup;
 			children = (
 				DC743FC025764CCA00B2D4DC /* Jammer */,
+				FAB676912575996600A5104F /* AlienFungi */,
 				FAD2016B2573EFCD0038CE2C /* Capital */,
 				FAD2016A2573EEE00038CE2C /* UI */,
 				A402CB97C5F112E1C0F5C2E3 /* Sugarcane */,
@@ -2303,6 +2307,15 @@
 			name = include;
 			sourceTree = "<group>";
 		};
+		FAB676912575996600A5104F /* AlienFungi */ = {
+			isa = PBXGroup;
+			children = (
+				FAB676922575997F00A5104F /* AlienFungi.cpp */,
+				FAB676932575997F00A5104F /* AlienFungi.h */,
+			);
+			name = AlienFungi;
+			sourceTree = "<group>";
+		};
 		FAD201662572CE380038CE2C /* Controls */ = {
 			isa = PBXGroup;
 			children = (
@@ -2484,6 +2497,7 @@
 				44E8D4A59CB2322B110592F1 /* AbstractStaticAgent.cpp in Sources */,
 				B471B315D864066C9756D97F /* SimulationObject.cpp in Sources */,
 				5510A63A40138BDABFBE92A3 /* Food.cpp in Sources */,
+				FAB676942575997F00A5104F /* AlienFungi.cpp in Sources */,
 				FD938FD6463AC78F79B80D35 /* Environment.cpp in Sources */,
 				7771837B9B2E37CCC51F34DF /* DNA.cpp in Sources */,
 				F9F1D9F1F46ED1DE23847D8C /* Pollinator.cpp in Sources */,
