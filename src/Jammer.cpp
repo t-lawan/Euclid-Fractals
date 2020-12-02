@@ -103,7 +103,7 @@ void Jammer::checkBorders() {
 
 void Jammer::draw(){
     // draw agents
-    ofSetColor(colour.purple, 5);
+    ofSetColor(colour, 5);
     ofDrawCircle(position.x, position.y, r/2);
 }
 
