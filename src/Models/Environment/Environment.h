@@ -18,6 +18,7 @@
 #include "Pollinator.h"
 #include "Sugarcane.h"
 #include "Soybean.h"
+#include "Jammer.h"
 #include "AgentTypeEnum.h"
 
 class Environment {
@@ -26,11 +27,19 @@ class Environment {
         bool isTest;
         int population = 0;
         int numberOfDead = 0;
+        float pollinatorDelay;
+        float pollinatorInterval = 5;
+        float sugarcaneDelay = 20;
+        float SoyBeanDelay = 20;
+        float destroyerDelay = 20;
         vector<Agent> agents;
         vector<Sugarcane> sugarcanes;
         vector<Soybean> soybeans;
         vector<Pollinator> pollinators;
         vector<PlantDestroyer> plantDestroyers;
+        vector<Jammer> jammers;
+        vector<float> fractaliser;
+        bool fungal;
         Food food;
         Grid grid;
         void spawn(AgentTypeEnum type, float x, float y);
@@ -54,8 +63,13 @@ class Environment {
     
         void updateAgents();
         void drawAgents();
+    
+        void updateJammers();
+        void drawJammers();
         
         void playTick();
         ofSoundPlayer tick;
+    
+        void updateFractaliser();
 };
 #endif /* Environment_h */

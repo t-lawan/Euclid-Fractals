@@ -6,6 +6,7 @@
 #include "Agent.h"
 #include "Plant.h"
 #include "Pollinator.h"
+#include "Jammer.h"
 #include "Environment.h"
 #include "Legend.h"
 #include "Controls.h"
