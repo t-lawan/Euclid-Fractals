@@ -75,6 +75,11 @@ void ofApp::keyPressed(int key){
         environment.spawn(SOYBEAN, coordinates.x, coordinates.y);
     }
     
+    if(key == '5'){
+        ofVec2f coordinates = getCoordinates();
+        environment.spawn(JAMMER, coordinates.x, coordinates.y);
+    }
+    
     if(key == 'c'){
         controls.toggleShow();
     }
