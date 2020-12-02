@@ -18,6 +18,7 @@ class Legend {
         ofImage foodImg;
         int population = 0;
         int numberOfDead = 0;
+    
         Legend();
         void draw();
         void update(int _population, int _numberOfDead);

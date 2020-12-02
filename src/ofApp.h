@@ -10,13 +10,15 @@
 #include "Environment.h"
 #include "Legend.h"
 #include "Controls.h"
+
+#include "BarChart.h"
 class ofApp : public ofBaseApp{
 
 	public:
         Environment environment = Environment(1);
         Legend legend = Legend();
         Controls controls = Controls();
-        
+        BarChart barchart = BarChart();
         bool masterBuilderMode = false;
     
         float initialRadius = 0.0;

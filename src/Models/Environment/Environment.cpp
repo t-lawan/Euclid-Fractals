@@ -188,6 +188,10 @@ void Environment::drawPollinators(){
     }
 }
 
+int Environment::pollinatorPopulation(){
+    return pollinators.size();
+}
+
 
 
 void Environment::updateSugarcane(){
@@ -223,6 +227,10 @@ void Environment::drawSugarcane(){
         sugarcane.draw();
 
     }
+}
+
+int Environment::sugarcanePopulation(){
+    return sugarcanes.size();
 }
 
 void Environment::updateSoybeans(){
@@ -261,6 +269,10 @@ void Environment::drawSoybeans(){
         soybean.draw();
 
     }
+}
+
+int Environment::soybeanPopulation(){
+    return soybeans.size();
 }
 
 void Environment::updatePlantDestroyers(){
@@ -306,6 +318,10 @@ void Environment::drawPlantDestroyers() {
       plantDestroyer.draw();
 
     }
+}
+
+int Environment::plantDestroyerPopulation(){
+    return plantDestroyers.size();
 }
 
 void Environment::updateJammers(){

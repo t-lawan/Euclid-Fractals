@@ -17,7 +17,7 @@ class Controls {
         ofImage pollinatorImg;
         Controls();
         void draw();
-        void update(int _population);
+        void update();
         void toggleShow();
     protected:
         void drawBackground();
