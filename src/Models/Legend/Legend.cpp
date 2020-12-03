@@ -9,21 +9,27 @@
 
 Legend::Legend(){
     show = false;
-    int size = 10;
-    plantDestroyerImg.load("virus.png");
+    int size = 20;
+    plantDestroyerImg.load("destroyer.png");
     plantDestroyerImg.resize(size, size);
     
-    soybeanImg.load("flower.png");
+    soybeanImg.load("soy.png");
     soybeanImg.resize(size, size);
     
-    sugarcaneImg.load("wheat.png");
+    sugarcaneImg.load("cane.png");
     sugarcaneImg.resize(size, size);
     
-    pollinatorImg.load("fairy.png");
+    pollinatorImg.load("pollinator.png");
     pollinatorImg.resize(size, size);
     
-    foodImg.load("taco.png");
+    foodImg.load("food.png");
     foodImg.resize(size, size);
+    
+    capitalImg.load("capital.png");
+    capitalImg.resize(size, size);
+    
+    fungiImg.load("fungi.png");
+    fungiImg.resize(size, size);
 }
 
 void Legend::draw(){
@@ -51,41 +57,61 @@ void Legend::drawIcons(){
     
     // Plant Destroyer
     ofTranslate((2 * ofGetWidth()/3) + margin, (3 * ofGetHeight()/5) + margin);
-    ofSetColor(ofColor::red);
+    ofSetColor(255);
     plantDestroyerImg.draw(0,0);
+    
+    ofSetColor(0);
     ofDrawBitmapString("plant destroyer", spacing, 0);
     
     // Soybean
     ofTranslate(0, spacing);
-    ofSetColor(ofColor::burlyWood);
+    ofSetColor(255);
     soybeanImg.draw(0, 0);
+    ofSetColor(0);
     ofDrawBitmapString("soybean", spacing, 0);
     
     // Sugarcane
     ofTranslate(0, spacing);
-    ofSetColor(ofColor::yellow);
+    ofSetColor(255);
     sugarcaneImg.draw(0, 0);
+    ofSetColor(0);
     ofDrawBitmapString("sugarcane", spacing,0);
     
     // Pollinator
     ofTranslate(0, spacing);
-    ofSetColor(ofColor(256, 165, 0));
+    ofSetColor(255);
     pollinatorImg.draw(0, 0);
+    ofSetColor(0);
     ofDrawBitmapString("pollinator", spacing, 0);
+    
+    // Alien Fungi
+    ofTranslate(0, spacing);
+    ofSetColor(255);
+    fungiImg.draw(0, 0);
+    ofSetColor(0);
+    ofDrawBitmapString("alien fungi", spacing, 5);
+    
+    //capillatastrain OXX552
+    ofTranslate(0, spacing);
+    ofSetColor(255);
+    capitalImg.draw(0, 0);
+    ofSetColor(0);
+    ofDrawBitmapString("capillatastrain OXX552", spacing, 5);
     
     // Food
     ofTranslate(0, spacing);
-    ofSetColor(ofColor::orange);
+    ofSetColor(255);
     foodImg.draw(0, 0);
+    ofSetColor(0);
     ofDrawBitmapString("food", spacing, 5);
     
     // Population
-    ofTranslate(0, spacing);
+    ofTranslate(-spacing, spacing);
     ofSetColor(ofColor::black);
     ofDrawBitmapString("population: " + to_string(population), spacing, 5);
     
     // Number Of Dead
-    ofTranslate(0, spacing);
+    ofTranslate(spacing * 3.5, 0);
     ofSetColor(ofColor::black);
     ofDrawBitmapString("dead: " + to_string(numberOfDead), spacing, 5);
     ofPopMatrix();

@@ -9,6 +9,7 @@
 
 Environment::Environment(int num) : food(num + 1), grid(4, 4) {
     isTest = false;
+    groundImg.load("ground.png");
     for (int i = 0; i < num; i++) {
         ofVec2f position;
         if(isTest) {
@@ -99,7 +100,7 @@ void Environment::update() {
         updateSugarcane();
         updateSoybeans();
         updatePlantDestroyers();
-        updateJammers();
+//        updateJammers();
     }
     
     grid.update(sugarcanes, soybeans, pollinators);
@@ -107,6 +108,8 @@ void Environment::update() {
 
 // Run the world
 void Environment::draw() {
+    ofSetColor(255, 100);
+    groundImg.draw(0, 0, ofGetWidth(), ofGetHeight());
     // Draw grid
     grid.draw();
     // Draw  food
@@ -123,7 +126,7 @@ void Environment::draw() {
         // Draw all soybeans
         drawSoybeans();
         // Draw all jammers
-        drawJammers();
+//        drawJammers();
     }
 }
 
@@ -233,7 +236,7 @@ int Environment::sugarcanePopulation(){
     return sugarcanes.size();
 }
 
-void Environment::updateSoybeans(){
+void Environment::updateSoybeans() {
     for (int i = 0; i < soybeans.size(); i++) {
         soybeans[i].update();
                 
@@ -258,11 +261,12 @@ void Environment::updateSoybeans(){
         }
     }
     if (fungal){
-        spawn(JAMMER, ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
-        agentBorn();
+//        spawn(JAMMER, ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
+//        agentBorn();
     }
     updateFractaliser();
 }
+
 void Environment::drawSoybeans(){
     for (int i = 0; i < soybeans.size(); i++) {
         Soybean soybean = soybeans[i];

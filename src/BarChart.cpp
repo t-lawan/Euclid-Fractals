@@ -20,7 +20,7 @@ BarChart::BarChart(){
     pollinatorImg.load("fairy.png");
     pollinatorImg.resize(size, size);
     
-    show = true;
+    show = false;
 }
 
 void BarChart::draw(){

@@ -23,6 +23,7 @@
 class Environment {
     public:
         Environment(int num);
+        ofImage groundImg;
         bool isTest;
         int population = 0;
         int numberOfDead = 0;

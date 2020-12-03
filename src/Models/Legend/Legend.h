@@ -16,6 +16,8 @@ class Legend {
         ofImage sugarcaneImg;
         ofImage pollinatorImg;
         ofImage foodImg;
+        ofImage capitalImg;
+        ofImage fungiImg;
         int population = 0;
         int numberOfDead = 0;
     

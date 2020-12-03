@@ -105,7 +105,7 @@ void PlantDestroyer::checkBorders() {
 
 void PlantDestroyer::draw(){
     // draw agents
-    ofSetColor(colour,ofMap(vitality, 0, MAX_HEALTH, 0, 200));
+    ofSetColor(255, ofMap(vitality, 0, MAX_HEALTH, 100, 200));
 //    ofDrawCircle(position.x, position.y, r);
     img.draw(position);
 }

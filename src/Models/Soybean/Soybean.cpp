@@ -92,7 +92,7 @@ void Soybean::checkBorders() {
 
 void Soybean::draw(){
     // draw plants
-    ofSetColor(colour, ofMap(vitality, 0, MAX_HEALTH, 0, 200));
+    ofSetColor(colour, ofMap(vitality, 0, MAX_HEALTH, 100, 200));
 //    ofDrawCircle(position.x, position.y, r);
     img.draw(position);
 }

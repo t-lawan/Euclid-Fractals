@@ -8,17 +8,17 @@
 #include "Controls.h"
 
 Controls::Controls(){
-    int size = 10;
-    plantDestroyerImg.load("virus.png");
+    int size = 20;
+    plantDestroyerImg.load("destroyer.png");
     plantDestroyerImg.resize(size, size);
     
-    soybeanImg.load("flower.png");
+    soybeanImg.load("soy.png");
     soybeanImg.resize(size, size);
     
-    sugarcaneImg.load("wheat.png");
+    sugarcaneImg.load("cane.png");
     sugarcaneImg.resize(size, size);
     
-    pollinatorImg.load("fairy.png");
+    pollinatorImg.load("pollinator.png");
     pollinatorImg.resize(size, size);
     
     show = true;
@@ -45,28 +45,28 @@ void Controls::drawInstructions(){
     
     // Pollinator
     ofTranslate(0, spacing);
-    ofSetColor(ofColor::red);
+    ofSetColor(255);
     pollinatorImg.draw(0,0);
     ofSetColor(ofColor::black);
     ofDrawBitmapString("1", spacing, margin/2);
     
     // Plant Destroyer
     ofTranslate(0, spacing);
-    ofSetColor(ofColor::red);
+    ofSetColor(255);
     plantDestroyerImg.draw(0,0);
     ofSetColor(ofColor::black);
     ofDrawBitmapString("2", spacing, margin/2);
     
     // Sugarcane
     ofTranslate(0, spacing);
-    ofSetColor(ofColor::red);
+    ofSetColor(255);
     sugarcaneImg.draw(0,0);
     ofSetColor(ofColor::black);
     ofDrawBitmapString("3", spacing, margin/2);
 
     // Soybean
     ofTranslate(0, spacing);
-    ofSetColor(ofColor::red);
+    ofSetColor(255);
     soybeanImg.draw(0,0);
     ofSetColor(ofColor::black);
     ofDrawBitmapString("4", spacing, margin/2);
