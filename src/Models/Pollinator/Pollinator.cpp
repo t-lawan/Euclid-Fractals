@@ -58,7 +58,6 @@ void Pollinator::accelerate(){
 
 void Pollinator::decelerate(){
     if(ofRandom(0,1) < ACCELERATION_RATE){
-        cout << "Pollinator decelerate" << endl;
         reproduction_rate += 0.0001;
         vitality += 1;
     }
@@ -97,7 +96,7 @@ void Pollinator::checkBorders() {
 
 void Pollinator::draw(){
     // draw agents
-    ofSetColor(colour,ofMap(vitality, 0, MAX_HEALTH, 0, 200));
+    ofSetColor(255, ofMap(vitality, 0, MAX_HEALTH, 100, 200));
 //    ofDrawCircle(position.x, position.y, r);
     img.draw(position);
 }

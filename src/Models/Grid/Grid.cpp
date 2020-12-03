@@ -56,13 +56,13 @@ void Grid::draw(){
             
             if(capital.isManipulating(cell)){
                 // Draw Grid if Capital Exists
+                ofSetColor(255, 150);
                 for(int rectY = 0; rectY < stepY; rectY += (stepY/8)){
                     for(int rectX = 0; rectX < stepX; rectX += (stepX/8)){
                         if((rectY %2 == 0 && rectX %2 == 0) || (rectY%2 == 1 && rectX%2 == 1) ){
-                            ofSetColor(0, 255, 0, 20);
                             ofPushMatrix();
                              ofTranslate(rectX, rectY);
-                             ofDrawRectangle(0, 0, stepX/8, stepY/8);
+                             capital.img.draw(0, 0, stepX/8, stepY/8);
                              ofPopMatrix();
                         }
                     }
@@ -71,13 +71,13 @@ void Grid::draw(){
             //Draw boxes if fungi is acting on cell
             if(alienFungi.isManipulating(cell)) {
                 //                c.setHsb(85, 100, 168);
-                ofSetColor(255, 0, 0, 20);
+                ofSetColor(255, 100);
                 for(int rectY = 0; rectY < stepY; rectY += (stepY/8)){
                     for(int rectX = 0; rectX < stepX; rectX += (stepX/8)){
                         if((rectY %2 == 0 && rectX %2 == 1) || (rectY%2 == 1 && rectX%2 == 0) ){
                             ofPushMatrix();
                              ofTranslate(rectX, rectY);
-                             ofDrawRectangle(0, 0, stepX/8, stepY/8);
+                            alienFungi.img.draw(0, 0, stepX/8, stepY/8);
                              ofPopMatrix();
                         }
                     }
@@ -87,7 +87,7 @@ void Grid::draw(){
             
             // Draw Number Of Plants Value
             ofSetColor(0);
-            ofDrawBitmapString("Plant Pop: " + to_string(cell.numOfPlants), stepX * 0.1, stepY * 0.9);
+//            ofDrawBitmapString("Plant Pop: " + to_string(cell.numOfPlants), stepX * 0.1, stepY * 0.9);
             ofPopMatrix();
         }
     }

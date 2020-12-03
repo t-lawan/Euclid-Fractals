@@ -11,6 +11,7 @@
 Capital::Capital(){
     maxNumberOfPlantsOnCell = 0;
     threshold = 10;
+    img.load("capital.png");
 }
 
 void Capital::update(vector<Cell> cells, vector<Sugarcane> _sugarcanes, vector<Soybean> _soybeans) {

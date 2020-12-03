@@ -3,6 +3,8 @@ const float EULERS_NUMBER = 1.618282;
 const int NUMBER_OF_AGENTS = 5;
 //--------------------------------------------------------------
 void ofApp::setup(){
+    
+    ofSetWindowTitle("Simulation");
     ofBackground(255);
     ofSetFrameRate(20);
 //    ofSetBackgroundAuto(true);
@@ -16,6 +18,7 @@ void ofApp::setup(){
 void ofApp::update(){
     environment.update();
     legend.update(environment.population, environment.numberOfDead);
+    barchart.update(environment.sugarcanePopulation(), environment.soybeanPopulation(), environment.plantDestroyerPopulation(), environment.pollinatorPopulation());
 }
 
 //--------------------------------------------------------------
@@ -23,6 +26,7 @@ void ofApp::draw(){
     environment.draw();
 //    drawSpiral();
     legend.draw();
+    barchart.draw();
     controls.draw();
 }
 
@@ -82,10 +86,12 @@ void ofApp::keyPressed(int key){
     
     if(key == 'c'){
         controls.toggleShow();
+//        barchart.toggleShow();
     }
     
     if(key == 'l'){
         legend.toggleShow();
+        
     }
     
     

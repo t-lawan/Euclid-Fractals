@@ -15,7 +15,7 @@
 class Food : public SimulationObject {
     public:
         vector<ofVec2f> food;
-        string IMG_NAME = "taco.png";
+        string IMG_NAME = "food.png";
         ofImage img;
         Food(int num);
         void add(ofVec2f position);

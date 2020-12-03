@@ -34,6 +34,7 @@
 		E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1D0A3A1BDC003C02F2 /* main.cpp */; };
 		E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */; };
 		F9F1D9F1F46ED1DE23847D8C /* Pollinator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C674D7B73B30B0D9D569B18 /* Pollinator.cpp */; };
+		FA3B51442577C88600187277 /* BarChart.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA3B51422577C88600187277 /* BarChart.cpp */; };
 		FAB676942575997F00A5104F /* AlienFungi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FAB676922575997F00A5104F /* AlienFungi.cpp */; };
 		FAD201692572CE6C0038CE2C /* Controls.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FAD201682572CE6C0038CE2C /* Controls.cpp */; };
 		FAD2016E2573F0620038CE2C /* Capital.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FAD2016D2573F0620038CE2C /* Capital.cpp */; };
@@ -728,6 +729,8 @@
 		F9EC3DDC0E9F85C34B21C760 /* object_factory.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = object_factory.h; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/object_factory.h; sourceTree = SOURCE_ROOT; };
 		FA293FDF68B93A949B8843D1 /* cvstd_wrapper.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = cvstd_wrapper.hpp; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/core/cvstd_wrapper.hpp; sourceTree = SOURCE_ROOT; };
 		FA3945EB4B55200EE5BBC918 /* interface.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = interface.h; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv4/opencv2/features2d/hal/interface.h; sourceTree = SOURCE_ROOT; };
+		FA3B51422577C88600187277 /* BarChart.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BarChart.cpp; sourceTree = "<group>"; };
+		FA3B51432577C88600187277 /* BarChart.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BarChart.h; sourceTree = "<group>"; };
 		FA944C89D4233274D4645411 /* reduce_key_val.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = reduce_key_val.hpp; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv4/opencv2/core/cuda/detail/reduce_key_val.hpp; sourceTree = SOURCE_ROOT; };
 		FAB676922575997F00A5104F /* AlienFungi.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AlienFungi.cpp; sourceTree = "<group>"; };
 		FAB676932575997F00A5104F /* AlienFungi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlienFungi.h; sourceTree = "<group>"; };
@@ -2307,6 +2310,15 @@
 			name = include;
 			sourceTree = "<group>";
 		};
+		FA3B51412577C86700187277 /* BarChart */ = {
+			isa = PBXGroup;
+			children = (
+				FA3B51422577C88600187277 /* BarChart.cpp */,
+				FA3B51432577C88600187277 /* BarChart.h */,
+			);
+			name = BarChart;
+			sourceTree = "<group>";
+		};
 		FAB676912575996600A5104F /* AlienFungi */ = {
 			isa = PBXGroup;
 			children = (
@@ -2328,6 +2340,7 @@
 		FAD2016A2573EEE00038CE2C /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				FA3B51412577C86700187277 /* BarChart */,
 				FAD201662572CE380038CE2C /* Controls */,
 				A62C6CD3D23FA7277D5BF68B /* Legend */,
 			);
@@ -2512,6 +2525,7 @@
 				FB09C6B2A1DA0EA217240CB8 /* ofxCvGrayscaleImage.cpp in Sources */,
 				E212C821D1064B92DD953A42 /* ofxCvHaarFinder.cpp in Sources */,
 				63020F16C7E8DED980111241 /* ofxCvImage.cpp in Sources */,
+				FA3B51442577C88600187277 /* BarChart.cpp in Sources */,
 				D3301F6A0B43BB293ED97C1D /* ofxCvShortImage.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -17,6 +17,7 @@
 
 class AlienFungi {
     public:
+        ofImage img;
         int maxNumberOfPlantsOnCell;
         int threshold;
         float accelerationLimit = 0.5;

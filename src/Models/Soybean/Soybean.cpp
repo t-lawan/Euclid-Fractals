@@ -58,7 +58,6 @@ void Soybean::accelerate(){
 
 void Soybean::decelerate(){
     if(ofRandom(0,1) < ACCELERATION_RATE){
-        cout << "SOYBEAN DECELERATE" << endl;
         reproduction_rate -= 0.0001;
         DETERIORATION_RATE -= 0.01;
     }
@@ -93,7 +92,7 @@ void Soybean::checkBorders() {
 
 void Soybean::draw(){
     // draw plants
-    ofSetColor(colour, ofMap(vitality, 0, MAX_HEALTH, 0, 200));
+    ofSetColor(colour, ofMap(vitality, 0, MAX_HEALTH, 100, 200));
 //    ofDrawCircle(position.x, position.y, r);
     img.draw(position);
 }
@@ -101,6 +100,10 @@ void Soybean::draw(){
 void Soybean::setup(){
     img.load(IMG_NAME);
     img.resize(r * 2, r * 2);
+}
+
+void Soybean::hasBeenTouched() {
+    vitality -= 10;
 }
 
 bool Soybean::dead(){

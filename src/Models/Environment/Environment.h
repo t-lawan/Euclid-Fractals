@@ -20,10 +20,10 @@
 #include "Soybean.h"
 #include "Jammer.h"
 #include "AgentTypeEnum.h"
-
 class Environment {
     public:
         Environment(int num);
+        ofImage groundImg;
         bool isTest;
         int population = 0;
         int numberOfDead = 0;
@@ -48,18 +48,22 @@ class Environment {
         void draw();
         void agentBorn();
         void agentDead();
-    
+        
         void updatePollinators();
         void drawPollinators();
+        int pollinatorPopulation();
     
         void updatePlantDestroyers();
         void drawPlantDestroyers();
+        int plantDestroyerPopulation();
     
         void updateSugarcane();
         void drawSugarcane();
+        int sugarcanePopulation();
     
         void updateSoybeans();
         void drawSoybeans();
+        int soybeanPopulation();
     
         void updateAgents();
         void drawAgents();

@@ -22,6 +22,7 @@ class AbstractStaticAgent : public AbstractAgent {
         virtual void eat(Food f) = 0;
         virtual int isOnFood(Food f) = 0;
         virtual void checkBorders() = 0;
+        virtual void hasBeenTouched() = 0;
         AbstractStaticAgent(ofVec2f _position, DNA _dna) : AbstractAgent(_position, _dna) {
             vitality = ofRandom(MIN_HEALTH, MAX_HEALTH);
             

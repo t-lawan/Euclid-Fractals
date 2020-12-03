@@ -14,7 +14,7 @@ Food::Food(int num){
         
         food.push_back(vector);
     }
-    IMG_NAME = "taco.png";
+    IMG_NAME = "food.png";
     setup();
 }
 
@@ -45,7 +45,7 @@ void Food::draw(){
         for(int i = 0; i < food.size(); i++) {
             ofVec2f vector = food[i];
             // Draw Food
-            ofSetColor(ofColor::orange);
+            ofSetColor(255);
             img.draw(vector.x, vector.y);
 //            ofSetRectMode(OF_RECTMODE_CENTER);
 //            ofDrawRectangle(vector.x, vector.y, 10, 10);

@@ -80,7 +80,6 @@ void Sugarcane::accelerate(){
 
 void Sugarcane::decelerate(){
     if(ofRandom(0,1) < ACCELERATION_RATE){
-        cout << "SUGARCANE DECELERATE" << endl;
         reproduction_rate -= 0.0001;
         DETERIORATION_RATE -= 0.01;
     }
@@ -97,7 +96,7 @@ void Sugarcane::checkBorders() {
 
 void Sugarcane::draw(){
     // draw plants
-    ofSetColor(colour, ofMap(vitality, 0, MAX_HEALTH, 0, 200));
+    ofSetColor(colour, ofMap(vitality, 0, MAX_HEALTH, 100, 200));
 //    ofDrawCircle(position.x, position.y, r);
     img.draw(position);
 }
@@ -105,6 +104,10 @@ void Sugarcane::draw(){
 void Sugarcane::setup(){
     img.load(IMG_NAME);
     img.resize(r * 2, r * 2);
+}
+
+void Sugarcane::hasBeenTouched() {
+    vitality -= 10;
 }
 
 bool Sugarcane::dead(){

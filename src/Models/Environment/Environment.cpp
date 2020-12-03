@@ -9,14 +9,20 @@
 
 Environment::Environment(int num) : food(num + 1), grid(4, 4) {
     isTest = false;
+    groundImg.load("ground.png");
     for (int i = 0; i < num; i++) {
         ofVec2f position;
         if(isTest) {
             spawn(AGENT, ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
         } else {
             spawn(SUGARCANE, ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
-            spawn(POLLINATOR, ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
+            spawn(SUGARCANE, ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
+            
             spawn(SOYBEAN, ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
+            spawn(SOYBEAN, ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
+            
+            spawn(POLLINATOR, ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
+
             spawn(PLANT_DESTROYER, ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
         }
     }
@@ -99,7 +105,7 @@ void Environment::update() {
         updateSugarcane();
         updateSoybeans();
         updatePlantDestroyers();
-        updateJammers();
+//        updateJammers();
     }
     
     grid.update(sugarcanes, soybeans, pollinators);
@@ -107,6 +113,8 @@ void Environment::update() {
 
 // Run the world
 void Environment::draw() {
+    ofSetColor(255, 100);
+    groundImg.draw(0, 0, ofGetWidth(), ofGetHeight());
     // Draw grid
     grid.draw();
     // Draw  food
@@ -123,7 +131,7 @@ void Environment::draw() {
         // Draw all soybeans
         drawSoybeans();
         // Draw all jammers
-        drawJammers();
+//        drawJammers();
     }
 }
 
@@ -188,6 +196,10 @@ void Environment::drawPollinators(){
     }
 }
 
+int Environment::pollinatorPopulation(){
+    return pollinators.size();
+}
+
 
 
 void Environment::updateSugarcane(){
@@ -225,7 +237,11 @@ void Environment::drawSugarcane(){
     }
 }
 
-void Environment::updateSoybeans(){
+int Environment::sugarcanePopulation(){
+    return sugarcanes.size();
+}
+
+void Environment::updateSoybeans() {
     for (int i = 0; i < soybeans.size(); i++) {
         soybeans[i].update();
                 
@@ -250,17 +266,22 @@ void Environment::updateSoybeans(){
         }
     }
     if (fungal){
-        spawn(JAMMER, ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
-        agentBorn();
+//        spawn(JAMMER, ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
+//        agentBorn();
     }
     updateFractaliser();
 }
+
 void Environment::drawSoybeans(){
     for (int i = 0; i < soybeans.size(); i++) {
         Soybean soybean = soybeans[i];
         soybean.draw();
 
     }
+}
+
+int Environment::soybeanPopulation(){
+    return soybeans.size();
 }
 
 void Environment::updatePlantDestroyers(){
@@ -275,14 +296,16 @@ void Environment::updatePlantDestroyers(){
         // Check if agent is on food and remove if index > -1
           index = plantDestroyers[i].isOnSoybeans(soybeans);
           if(index > -1) {
-              agentDead();
-              soybeans.erase(soybeans.begin() + index);
+//              agentDead();
+              soybeans[index].hasBeenTouched();
+//              soybeans.erase(soybeans.begin() + index);
           }
             
           index = plantDestroyers[i].isOnSugarCanes(sugarcanes);
             if(index > -1) {
-                agentDead();
-                sugarcanes.erase(sugarcanes.begin() + index);
+//                agentDead();
+                sugarcanes[index].hasBeenTouched();
+//                sugarcanes.erase(sugarcanes.begin() + index);
             }
             
           // Perhaps this bloop would like to make a baby?
@@ -306,6 +329,10 @@ void Environment::drawPlantDestroyers() {
       plantDestroyer.draw();
 
     }
+}
+
+int Environment::plantDestroyerPopulation(){
+    return plantDestroyers.size();
 }
 
 void Environment::updateJammers(){
