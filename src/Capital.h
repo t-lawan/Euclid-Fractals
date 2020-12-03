@@ -15,6 +15,7 @@
 #include "Cell.h"
 class Capital {
     public:
+        ofImage img;
         int maxNumberOfPlantsOnCell;
         int threshold;
         float accelerationLimit = 0.7;

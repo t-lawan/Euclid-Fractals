@@ -10,6 +10,8 @@
 AlienFungi::AlienFungi(){
     maxNumberOfPlantsOnCell = 0;
     threshold = 5;
+    img.load("fungi.png");
+//    img.resize(10, 10);
 }
 
 void AlienFungi::update(vector<Cell> cells, vector<Sugarcane> _sugarcanes, vector<Soybean> _soybeans, vector<Pollinator> _pollinators) {
