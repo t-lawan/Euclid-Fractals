@@ -82,7 +82,7 @@ void Legend::drawIcons(){
     ofSetColor(255);
     pollinatorImg.draw(0, 0);
     ofSetColor(0);
-    ofDrawBitmapString("pollinator", spacing, 0);
+    ofDrawBitmapString("p0llin8.tor", spacing, 0);
     
     // Alien Fungi
     ofTranslate(0, spacing);

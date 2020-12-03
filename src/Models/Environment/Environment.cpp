@@ -291,14 +291,16 @@ void Environment::updatePlantDestroyers(){
         // Check if agent is on food and remove if index > -1
           index = plantDestroyers[i].isOnSoybeans(soybeans);
           if(index > -1) {
-              agentDead();
-              soybeans.erase(soybeans.begin() + index);
+//              agentDead();
+              soybeans[index].hasBeenTouched();
+//              soybeans.erase(soybeans.begin() + index);
           }
             
           index = plantDestroyers[i].isOnSugarCanes(sugarcanes);
             if(index > -1) {
-                agentDead();
-                sugarcanes.erase(sugarcanes.begin() + index);
+//                agentDead();
+                sugarcanes[index].hasBeenTouched();
+//                sugarcanes.erase(sugarcanes.begin() + index);
             }
             
           // Perhaps this bloop would like to make a baby?

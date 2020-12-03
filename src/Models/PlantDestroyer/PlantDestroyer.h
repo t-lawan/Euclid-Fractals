@@ -22,14 +22,14 @@ class PlantDestroyer : public AbstractMovingAgent {
             MIN_SIZE = 15;
             MAX_SIZE = 30;
             MIN_REPRODUCTION_RATE = 0.001;
-            MAX_REPRODUCTION_RATE = 0.0037;
+            MAX_REPRODUCTION_RATE = 0.0063;
             MIN_MUTATION_RATE = 0.1;
             MAX_MUTATION_RATE = 0.2;
             MIN_SIZE = 15;
             MAX_SIZE = 30;
             MIN_SPEED = 0.5;
             MAX_SPEED = 15;
-            DETERIORATION_RATE = 0.5;
+            DETERIORATION_RATE = 0.8;
             IMG_NAME = "destroyer.png";
             
             r = ofMap(dna.genes[0], 0, 1, MIN_SIZE, MAX_SIZE);

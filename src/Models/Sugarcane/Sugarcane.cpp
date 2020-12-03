@@ -106,6 +106,10 @@ void Sugarcane::setup(){
     img.resize(r * 2, r * 2);
 }
 
+void Sugarcane::hasBeenTouched() {
+    vitality -= 10;
+}
+
 bool Sugarcane::dead(){
     if (vitality < 0.0) {
       return true;

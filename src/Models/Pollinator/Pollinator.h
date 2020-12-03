@@ -22,7 +22,7 @@ class Pollinator : public AbstractMovingAgent {
         MIN_SIZE = 10;
         MAX_SIZE = 20;
         MIN_REPRODUCTION_RATE = 0.001;
-        MAX_REPRODUCTION_RATE = 0.004;
+        MAX_REPRODUCTION_RATE = 0.005;
         MIN_MUTATION_RATE = 0.1;
         MAX_MUTATION_RATE = 0.2;
         MIN_SPEED = 5;

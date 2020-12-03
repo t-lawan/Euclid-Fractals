@@ -102,6 +102,10 @@ void Soybean::setup(){
     img.resize(r * 2, r * 2);
 }
 
+void Soybean::hasBeenTouched() {
+    vitality -= 10;
+}
+
 bool Soybean::dead(){
     if (vitality < 0.0) {
       return true;

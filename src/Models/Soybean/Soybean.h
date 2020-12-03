@@ -18,8 +18,8 @@ class Soybean : public AbstractStaticAgent {
     public:
         Soybean(ofVec2f _position, DNA _dna) : AbstractStaticAgent(_position, _dna){
             colour = ofColor::burlyWood;
-            MIN_REPRODUCTION_RATE = 0.000075;
-            MAX_REPRODUCTION_RATE = 0.0002;
+            MIN_REPRODUCTION_RATE = 0.001;
+            MAX_REPRODUCTION_RATE = 0.0031;
             MIN_MUTATION_RATE = 0.1;
             MAX_MUTATION_RATE = 0.2;
             MIN_SIZE = 20;
@@ -39,6 +39,7 @@ class Soybean : public AbstractStaticAgent {
         bool shouldReproduce();
         void update();
         void checkBorders();
+    void hasBeenTouched();
         void draw();
         bool dead();
         void setup();

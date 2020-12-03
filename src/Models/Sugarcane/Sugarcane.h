@@ -18,8 +18,8 @@ class Sugarcane : public AbstractStaticAgent {
     public:
         Sugarcane(ofVec2f _position, DNA _dna) : AbstractStaticAgent(_position, _dna){
             colour = ofColor::yellow;
-            MIN_REPRODUCTION_RATE = 0.00005;
-            MAX_REPRODUCTION_RATE = 0.0002;
+            MIN_REPRODUCTION_RATE = 0.0005;
+            MAX_REPRODUCTION_RATE = 0.0035;
             MIN_MUTATION_RATE = 0.1;
             MAX_MUTATION_RATE = 0.2;
             MIN_SIZE = 20;
@@ -40,6 +40,7 @@ class Sugarcane : public AbstractStaticAgent {
         void update();
         void checkBorders();
         void draw();
+    void hasBeenTouched();
         bool dead();
         void setup();
         void accelerate();
