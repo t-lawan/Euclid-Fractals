@@ -60,7 +60,6 @@ void Grid::draw(){
                 for(int rectY = 0; rectY < stepY; rectY += (stepY/8)){
                     for(int rectX = 0; rectX < stepX; rectX += (stepX/8)){
                         if((rectY %2 == 0 && rectX %2 == 0) || (rectY%2 == 1 && rectX%2 == 1) ){
-                            ofSetColor(0, 255, 0, 20);
                             ofPushMatrix();
                              ofTranslate(rectX, rectY);
                              capital.img.draw(0, 0, stepX/8, stepY/8);

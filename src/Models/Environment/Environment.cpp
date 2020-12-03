@@ -16,8 +16,13 @@ Environment::Environment(int num) : food(num + 1), grid(4, 4) {
             spawn(AGENT, ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
         } else {
             spawn(SUGARCANE, ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
-            spawn(POLLINATOR, ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
+            spawn(SUGARCANE, ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
+            
             spawn(SOYBEAN, ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
+            spawn(SOYBEAN, ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
+            
+            spawn(POLLINATOR, ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
+
             spawn(PLANT_DESTROYER, ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
         }
     }
