@@ -58,7 +58,6 @@ void Soybean::accelerate(){
 
 void Soybean::decelerate(){
     if(ofRandom(0,1) < ACCELERATION_RATE){
-        cout << "SOYBEAN DECELERATE" << endl;
         reproduction_rate -= 0.0001;
         DETERIORATION_RATE -= 0.01;
     }

@@ -58,7 +58,6 @@ void Pollinator::accelerate(){
 
 void Pollinator::decelerate(){
     if(ofRandom(0,1) < ACCELERATION_RATE){
-        cout << "Pollinator decelerate" << endl;
         reproduction_rate += 0.0001;
         vitality += 1;
     }
