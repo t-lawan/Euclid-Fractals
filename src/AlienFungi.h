@@ -14,6 +14,7 @@
 #include "Sugarcane.h"
 #include "Cell.h"
 #include "Pollinator.h"
+#include "PlantDestroyer.h"
 
 class AlienFungi {
     public:
@@ -23,10 +24,14 @@ class AlienFungi {
         float accelerationLimit = 0.5;
         vector<Cell> cellsToManipulate;
         AlienFungi();
-        void update(vector<Cell> cells, vector<Sugarcane> _sugarcanes, vector<Soybean> _soybeans, vector<Pollinator> _pollinators);
+        void update(
+                    vector<Cell> cells, vector<Sugarcane> _sugarcanes,
+                    vector<Soybean> _soybeans,
+                    vector<Pollinator> _pollinators,
+                    vector<PlantDestroyer> _plantDestroyers);
         void setMaxNumberOfPlants(vector<Cell> cells);
         void setCellsToManipulate(vector<Cell> cells);
-        void manipulateAgentsOnCells(vector<Sugarcane> _sugarcanes, vector<Soybean> _soybeans, vector<Pollinator> _pollinators);
+        void manipulateAgentsOnCells(vector<Sugarcane> _sugarcanes, vector<Soybean> _soybeans, vector<Pollinator> _pollinators, vector<PlantDestroyer> _plantDestroyers);
         bool isManipulating(Cell cell);
 };
 #endif /* AlienFungi_hpp */

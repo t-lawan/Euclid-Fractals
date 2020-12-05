@@ -14,13 +14,13 @@ AlienFungi::AlienFungi(){
 //    img.resize(10, 10);
 }
 
-void AlienFungi::update(vector<Cell> cells, vector<Sugarcane> _sugarcanes, vector<Soybean> _soybeans, vector<Pollinator> _pollinators) {
+void AlienFungi::update(vector<Cell> cells, vector<Sugarcane> _sugarcanes, vector<Soybean> _soybeans, vector<Pollinator> _pollinators, vector<PlantDestroyer> _plantDestroyers) {
     // Get cells that have fungus
     //Set cells to manipulate
     // Is being manipulated
     setMaxNumberOfPlants(cells);
     setCellsToManipulate(cells);
-    manipulateAgentsOnCells(_sugarcanes, _soybeans, _pollinators);
+    manipulateAgentsOnCells(_sugarcanes, _soybeans, _pollinators, _plantDestroyers);
 }
 
 void AlienFungi::setMaxNumberOfPlants(vector<Cell> cells){
@@ -53,7 +53,7 @@ bool AlienFungi::isManipulating(Cell cell){
     return false;
 }
 
-void AlienFungi::manipulateAgentsOnCells(vector<Sugarcane> _sugarcanes, vector<Soybean> _soybeans, vector<Pollinator> _pollinators){
+void AlienFungi::manipulateAgentsOnCells(vector<Sugarcane> _sugarcanes, vector<Soybean> _soybeans, vector<Pollinator> _pollinators, vector<PlantDestroyer> _plantDestroyers){
     if(maxNumberOfPlantsOnCell > threshold){
         for(auto cell : cellsToManipulate) {
             for (auto sugarcane : _sugarcanes)
@@ -74,6 +74,13 @@ void AlienFungi::manipulateAgentsOnCells(vector<Sugarcane> _sugarcanes, vector<S
             {
                 if(cell.isWithinBounds(pollinator.position)){
                         pollinator.decelerate();
+                }
+            };
+            
+            for (auto plantDestroyer : _plantDestroyers)
+            {
+                if(cell.isWithinBounds(plantDestroyer.position)){
+                        plantDestroyer.accelerate();
                 }
             };
         }

@@ -17,6 +17,7 @@
 #include "Capital.h"
 #include "AlienFungi.h"
 #include "Pollinator.h"
+#include "PlantDestroyer.h"
 
 class Grid {
     public:
@@ -26,6 +27,8 @@ class Grid {
         int stepX;
         int stepY;
         int maxNumberOfPlantsOnCell = 0;
+        int population = 0;
+        int numOfDead = 0;
         Capital capital;
         AlienFungi alienFungi;
     
@@ -34,8 +37,14 @@ class Grid {
     
         vector<Cell> convertCellsMapToVector();
         void draw();
-        void update(vector<Sugarcane> _sugarcanes,  vector<Soybean> _soybeans, vector<Pollinator> _pollinators);
+        void update(
+                    vector<Sugarcane> _sugarcanes,
+                    vector<Soybean> _soybeans,
+                    vector<Pollinator> _pollinators,
+                    vector<PlantDestroyer> _plantDestroyers
+                    );
         void updateCells(vector<Sugarcane> _sugarcanes,  vector<Soybean> _soybeans);
+    void updatePopulation(int _population, int _numOfDead);
         void setupCells();
         Cell getCell(int x, int y);
         void updateCell(int x, int y, Cell newCell);

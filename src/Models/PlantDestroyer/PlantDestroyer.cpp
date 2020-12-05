@@ -52,7 +52,10 @@ int PlantDestroyer::isOnSugarCanes(vector<Sugarcane> sugarcanes){
 }
 
 void PlantDestroyer::accelerate(){
-    
+    if(ofRandom(0,1) < ACCELERATION_RATE){
+        reproduction_rate -= 0.0001;
+        vitality -= 1;
+    }
 }
 
 void PlantDestroyer::decelerate(){

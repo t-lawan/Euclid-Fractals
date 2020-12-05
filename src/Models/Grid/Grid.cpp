@@ -30,11 +30,21 @@ void Grid::setupCells(){
     }
 }
 
-void Grid::update(vector<Sugarcane> _sugarcanes,  vector<Soybean> _soybeans, vector<Pollinator> _pollinators) {
+void Grid::updatePopulation(int _population, int _numOfDead){
+    population = _population;
+    numOfDead = _numOfDead;
+}
+
+void Grid::update(
+                  vector<Sugarcane> _sugarcanes,
+                  vector<Soybean> _soybeans,
+                  vector<Pollinator> _pollinators,
+                  vector<PlantDestroyer> _plantDestroyers)
+{
     updateCells(_sugarcanes, _soybeans);
     vector<Cell> cellVector = convertCellsMapToVector();
     capital.update(cellVector, _sugarcanes, _soybeans);
-    alienFungi.update(cellVector, _sugarcanes, _soybeans, _pollinators);
+    alienFungi.update(cellVector, _sugarcanes, _soybeans, _pollinators, _plantDestroyers);
 };
 
 
