@@ -4,7 +4,7 @@ const int NUMBER_OF_AGENTS = 5;
 //--------------------------------------------------------------
 void ofApp::setup(){
     
-    ofSetWindowTitle("Simulation");
+    ofSetWindowTitle("Intercropping Simulation");
     ofBackground(255);
     ofSetFrameRate(20);
 //    ofSetBackgroundAuto(true);
