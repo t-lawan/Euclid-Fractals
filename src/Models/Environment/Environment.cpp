@@ -277,12 +277,13 @@ void Environment::updateSoybeans() {
             if(grid.alienFungi.isManipulating(cell)){
                 // If any cell has fungi set to true
                 fungal = true;
-                if(ofRandom(1) < 0.0001) {
+                if(ofRandom(1) < jammerProductionRate) {
                     cout << "JAMMER SPAWNED" << endl;
                     spawn(JAMMER,
                             ofRandom(cell.x, cell.x + cell.width),
                             ofRandom(cell.y, cell.y + cell.height));
                             agentBorn();
+                        updateJammerProuctionRate();
                 }
       
             }
@@ -290,6 +291,16 @@ void Environment::updateSoybeans() {
     }
 
     updateFractaliser();
+}
+
+
+void Environment::updateJammerProuctionRate(){
+    float currentNumber = jammerProductionRate;
+    
+    jammerProductionRate = jammerProductionRate + previousJammerProductionRate;
+    
+    previousJammerProductionRate = currentNumber;
+    cout << "JAMMER PRODUCTION RATE: " <<jammerProductionRate << " PREVIOUS: " <<previousJammerProductionRate << endl;
 }
 
 void Environment::drawSoybeans(){
