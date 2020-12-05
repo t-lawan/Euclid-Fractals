@@ -47,8 +47,8 @@ void Grid::draw(){
             // Draw Grid Outlines
             ofNoFill();
             ofTranslate(gridX, gridY);
-            ofSetColor(0, 5);
-            ofDrawRectangle(0, 0, stepX, stepY);
+//            ofSetColor(0, 5);
+//            ofDrawRectangle(0, 0, stepX, stepY);
             
             // Draw Boxes if capital is acting on cell
             ofFill();
