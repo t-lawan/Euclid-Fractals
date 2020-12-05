@@ -25,12 +25,15 @@ class Cell {
         bool hasFungus;
         float capital;
         float rainfall;
+    
+        float previousJammerProductionRate = 0.0;
+        float jammerProductionRate = 0.001;
         Cell(int _x = 0,  int _y = 0, int _width = 0, int _height = 0);
         bool isWithinBounds(ofVec2f position);
         void checkIfPlantsAreInCurrent(
                           vector<Sugarcane> _sugarcanes,
                           vector<Soybean> _soybeans);
-    
+        void updateJammerProuctionRate();
     protected:
         int MIN_CAPITAL = 0;
         int MAX_CAPITAL = 100;

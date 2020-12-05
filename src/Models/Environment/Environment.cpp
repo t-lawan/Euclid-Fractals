@@ -277,13 +277,12 @@ void Environment::updateSoybeans() {
             if(grid.alienFungi.isManipulating(cell)){
                 // If any cell has fungi set to true
                 fungal = true;
-                if(ofRandom(1) < jammerProductionRate) {
-                    cout << "JAMMER SPAWNED" << endl;
+                if(ofRandom(1) < cell.jammerProductionRate) {
                     spawn(JAMMER,
                             ofRandom(cell.x, cell.x + cell.width),
                             ofRandom(cell.y, cell.y + cell.height));
                             agentBorn();
-                        updateJammerProuctionRate();
+                    cell.updateJammerProuctionRate();
                 }
       
             }
@@ -291,16 +290,6 @@ void Environment::updateSoybeans() {
     }
 
     updateFractaliser();
-}
-
-
-void Environment::updateJammerProuctionRate(){
-    float currentNumber = jammerProductionRate;
-    
-    jammerProductionRate = jammerProductionRate + previousJammerProductionRate;
-    
-    previousJammerProductionRate = currentNumber;
-    cout << "JAMMER PRODUCTION RATE: " <<jammerProductionRate << " PREVIOUS: " <<previousJammerProductionRate << endl;
 }
 
 void Environment::drawSoybeans(){
@@ -406,7 +395,7 @@ void Environment::updateFractaliser(){
     }
     // check if size of soybean population has changed
     if (soybeans.size()!=fractaliser[0]){
-        cout << "fractalise" << endl;
+//        cout << "fractalise" << endl;
         // if it has modify all values in fractaliser accordingly
         float popDiff = soybeans.size() - fractaliser[0];
         for (int i=0; i<fractaliser.size(); i++){

@@ -32,8 +32,6 @@ class Environment {
         float sugarcaneDelay = 20;
         float SoyBeanDelay = 20;
         float destroyerDelay = 20;
-        float previousJammerProductionRate = 0.0;
-        float jammerProductionRate = 0.001;
         vector<Agent> agents;
         vector<Sugarcane> sugarcanes;
         vector<Soybean> soybeans;
@@ -78,6 +76,5 @@ class Environment {
     
         void updateFractaliser();
     
-        void updateJammerProuctionRate();
 };
 #endif /* Environment_h */
