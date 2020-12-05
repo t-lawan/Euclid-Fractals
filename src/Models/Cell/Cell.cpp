@@ -57,9 +57,6 @@ void Cell::checkIfPlantsAreInCurrent(
 
 void Cell::updateJammerProuctionRate(){
     float currentNumber = jammerProductionRate;
-    
     jammerProductionRate = jammerProductionRate + previousJammerProductionRate;
-    
     previousJammerProductionRate = currentNumber;
-    cout << "JAMMER PRODUCTION RATE: " <<jammerProductionRate << " PREVIOUS: " <<previousJammerProductionRate << endl;
 }

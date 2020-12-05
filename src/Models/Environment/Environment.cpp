@@ -283,6 +283,7 @@ void Environment::updateSoybeans() {
                             ofRandom(cell.y, cell.y + cell.height));
                             agentBorn();
                     cell.updateJammerProuctionRate();
+                    grid.updateCell(gridX, gridY, cell);
                 }
       
             }
