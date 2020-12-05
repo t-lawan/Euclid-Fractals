@@ -27,7 +27,7 @@ class Cell {
         float rainfall;
     
         float previousJammerProductionRate = 0.0;
-        float jammerProductionRate = 0.001;
+        float jammerProductionRate = 0.01;
         Cell(int _x = 0,  int _y = 0, int _width = 0, int _height = 0);
         bool isWithinBounds(ofVec2f position);
         void checkIfPlantsAreInCurrent(
