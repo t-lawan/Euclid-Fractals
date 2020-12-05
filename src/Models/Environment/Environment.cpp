@@ -105,7 +105,7 @@ void Environment::update() {
         updateSugarcane();
         updateSoybeans();
         updatePlantDestroyers();
-//        updateJammers();
+        updateJammers();
     }
     
     grid.update(sugarcanes, soybeans, pollinators);
@@ -131,7 +131,7 @@ void Environment::draw() {
         // Draw all soybeans
         drawSoybeans();
         // Draw all jammers
-//        drawJammers();
+        drawJammers();
     }
 }
 
@@ -265,10 +265,30 @@ void Environment::updateSoybeans() {
             soybeans.erase(soybeans.begin() + i);
         }
     }
-    if (fungal){
-//        spawn(JAMMER, ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
-//        agentBorn();
+    
+    // Set fungal to false initally
+    fungal = false;
+    
+    // Go through grid and check if alien fungi is present on cell
+    for(int gridY = 0; gridY < ofGetHeight(); gridY = gridY + grid.stepY) {
+        for(int gridX = 0; gridX < ofGetWidth(); gridX = gridX + grid.stepX) {
+            Cell cell = grid.getCell(gridX, gridY);
+            // If Cell has fungi then spawn a jammer
+            if(grid.alienFungi.isManipulating(cell)){
+                // If any cell has fungi set to true
+                fungal = true;
+                if(ofRandom(1) < 0.0001) {
+                    cout << "JAMMER SPAWNED" << endl;
+                    spawn(JAMMER,
+                            ofRandom(cell.x, cell.x + cell.width),
+                            ofRandom(cell.y, cell.y + cell.height));
+                            agentBorn();
+                }
+      
+            }
+        }
     }
+
     updateFractaliser();
 }
 
