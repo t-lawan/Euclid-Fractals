@@ -39,6 +39,5 @@ class Grid {
         void setupCells();
         Cell getCell(int x, int y);
         void updateCell(int x, int y, Cell newCell);
-
 };
 #endif /* Grid_h */
