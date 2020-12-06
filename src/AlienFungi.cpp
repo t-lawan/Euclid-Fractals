@@ -23,6 +23,15 @@ void AlienFungi::update(vector<Cell> cells, vector<Sugarcane> _sugarcanes, vecto
     manipulateAgentsOnCells(_sugarcanes, _soybeans, _pollinators, _plantDestroyers);
 }
 
+void AlienFungi::updateAccelerationLimit(int population, int numOfDead)
+{
+    if(ofRandom(1) < 0.01) {
+        float value = ofMap((float) numOfDead/population, 0, 1.0, 0.001, -0.001);
+        accelerationLimit += value;
+    }
+
+};
+
 void AlienFungi::setMaxNumberOfPlants(vector<Cell> cells){
     maxNumberOfPlantsOnCell = 0;
     for (auto cell : cells)

@@ -107,7 +107,7 @@ void Environment::update() {
         updatePlantDestroyers();
         updateJammers();
     }
-    
+    grid.updatePopulation(population, numberOfDead);
     grid.update(sugarcanes, soybeans, pollinators, plantDestroyers);
 }
 
@@ -274,14 +274,14 @@ void Environment::updateSoybeans() {
         for(int gridX = 0; gridX < ofGetWidth(); gridX = gridX + grid.stepX) {
             Cell cell = grid.getCell(gridX, gridY);
             // If Cell has fungi then spawn a jammer
-            if(grid.alienFungi.isManipulating(cell)){
+            if(grid.capital.isManipulating(cell)){
                 // If any cell has fungi set to true
                 fungal = true;
                 if(ofRandom(1) < cell.jammerProductionRate) {
                     spawn(JAMMER,
                             ofRandom(cell.x, cell.x + cell.width),
                             ofRandom(cell.y, cell.y + cell.height));
-                            agentBorn();
+//                            agentBorn();
                     cell.updateJammerProuctionRate();
                     grid.updateCell(gridX, gridY, cell);
                 }

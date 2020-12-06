@@ -33,6 +33,9 @@ void Grid::setupCells(){
 void Grid::updatePopulation(int _population, int _numOfDead){
     population = _population;
     numOfDead = _numOfDead;
+    
+    alienFungi.updateAccelerationLimit(population, numOfDead);
+
 }
 
 void Grid::update(

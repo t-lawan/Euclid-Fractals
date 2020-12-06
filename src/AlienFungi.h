@@ -29,6 +29,7 @@ class AlienFungi {
                     vector<Soybean> _soybeans,
                     vector<Pollinator> _pollinators,
                     vector<PlantDestroyer> _plantDestroyers);
+        void updateAccelerationLimit(int population, int numOfDead);
         void setMaxNumberOfPlants(vector<Cell> cells);
         void setCellsToManipulate(vector<Cell> cells);
         void manipulateAgentsOnCells(vector<Sugarcane> _sugarcanes, vector<Soybean> _soybeans, vector<Pollinator> _pollinators, vector<PlantDestroyer> _plantDestroyers);
