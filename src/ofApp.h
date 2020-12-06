@@ -23,7 +23,7 @@ class ofApp : public ofBaseApp{
     
         float initialRadius = 0.0;
         float theta = 0.0;
-    
+        int numOfScreenshot = 1;
         ofPolyline line;
     
         void drawSpiral();

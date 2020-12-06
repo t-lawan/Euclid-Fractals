@@ -4,8 +4,11 @@ const int NUMBER_OF_AGENTS = 5;
 //--------------------------------------------------------------
 void ofApp::setup(){
     
-    ofSetWindowTitle("Intercropping Simulation");
+    ofSetWindowTitle("Intercropping Simulation");    
+    
     ofBackground(255);
+    
+    
     ofSetFrameRate(20);
 //    ofSetBackgroundAuto(true);
     
@@ -98,7 +101,8 @@ void ofApp::keyPressed(int key){
     
     if(key == 's'){
         img.grabScreen(0, 0 , ofGetWidth(), ofGetHeight());
-        img.save("screenshot.png");
+        img.save("screenshot_" + to_string(numOfScreenshot) + ".png");
+        numOfScreenshot++;
     }
     
     if(key == 'm'){
