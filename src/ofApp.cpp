@@ -5,7 +5,7 @@ const int NUMBER_OF_AGENTS = 5;
 void ofApp::setup(){
     
     ofSetWindowTitle("Intercropping Simulation");    
-    
+    ofSetDataPathRoot("../Resources/data/");
     ofBackground(255);
     
     
